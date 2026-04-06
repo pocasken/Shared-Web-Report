@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume Dashboard — Pocas International Corp</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f0f2f5; color: #1a1a2e; font-size: 14px; }
+
+  /* TOP BAR */
+  .topbar { background: #1a1a2e; color: #fff; padding: 14px 28px; display: flex; justify-content: space-between; align-items: center; }
+  .topbar-company { font-size: 18px; font-weight: 700; letter-spacing: 0.3px; }
+  .topbar-right { text-align: right; }
+  .topbar-role { font-size: 13px; color: #a8b4c8; }
+  .topbar-date { font-size: 12px; color: #6b7a99; margin-top: 2px; }
+
+  /* TOP RECOMMENDATION BANNER */
+  .top-rec { background: linear-gradient(135deg, #f59e0b, #d97706); color: #fff; padding: 18px 28px; display: flex; align-items: center; gap: 16px; }
+  .top-rec-star { font-size: 28px; }
+  .top-rec-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85; }
+  .top-rec-name { font-size: 20px; font-weight: 800; margin: 2px 0; }
+  .top-rec-reason { font-size: 13px; opacity: 0.92; max-width: 700px; line-height: 1.5; }
+
+  /* TAB NAV */
+  .tab-nav { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 0 28px; display: flex; gap: 0; overflow-x: auto; }
+  .tab-btn { padding: 14px 18px; border: none; background: none; cursor: pointer; font-size: 13px; font-weight: 500; color: #64748b; border-bottom: 3px solid transparent; white-space: nowrap; transition: all 0.15s; }
+  .tab-btn:hover { color: #1a1a2e; background: #f8fafc; }
+  .tab-btn.active { color: #2563eb; border-bottom-color: #2563eb; font-weight: 600; }
+
+  /* MAIN CONTENT */
+  .main { padding: 24px 28px; max-width: 1200px; margin: 0 auto; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* CARDS */
+  .card { background: #fff; border-radius: 10px; padding: 22px 24px; margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #e8edf3; }
+  .card-title { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid #f0f2f5; }
+  .card-subtitle { font-size: 12px; color: #64748b; font-weight: 400; margin-left: 8px; }
+
+  /* TABLES */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: #f8fafc; text-align: left; padding: 10px 12px; font-weight: 600; color: #475569; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid #e2e8f0; white-space: nowrap; }
+  td { padding: 11px 12px; border-bottom: 1px solid #f0f4f8; vertical-align: top; line-height: 1.5; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #f8fafc; }
+  thead th { position: sticky; top: 0; z-index: 1; }
+
+  /* BADGES */
+  .badge { display: inline-block; padding: 3px 9px; border-radius: 20px; font-size: 11px; font-weight: 600; white-space: nowrap; margin: 2px 2px 2px 0; }
+  .badge-skill { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+  .badge-cert { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+  .badge-lang { background: #fdf4ff; color: #7e22ce; border: 1px solid #e9d5ff; }
+  .badge-green { background: #dcfce7; color: #166534; }
+  .badge-amber { background: #fef3c7; color: #92400e; }
+  .badge-red { background: #fee2e2; color: #991b1b; }
+  .badge-blue { background: #dbeafe; color: #1e40af; }
+
+  /* VERDICT BADGES */
+  .verdict-interview { background: #dcfce7; color: #15803d; border: 1px solid #86efac; font-weight: 700; }
+  .verdict-consider { background: #fef3c7; color: #b45309; border: 1px solid #fcd34d; font-weight: 700; }
+  .verdict-pass { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; font-weight: 700; }
+  .verdict-overqualified { background: #fee2e2; color: #7f1d1d; border: 2px solid #ef4444; font-weight: 700; }
+
+  /* FIT SCORE BADGE */
+  .score-badge { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800; color: #fff; flex-shrink: 0; }
+  .score-high { background: #16a34a; }
+  .score-mid { background: #d97706; }
+  .score-low { background: #dc2626; }
+
+  /* FIT SCORE CARDS */
+  .fit-card { background: #fff; border-radius: 10px; padding: 20px 22px; margin-bottom: 14px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .fit-card-header { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+  .fit-card-info { flex: 1; }
+  .fit-card-name { font-size: 17px; font-weight: 700; }
+  .fit-card-title { font-size: 12px; color: #64748b; margin-top: 2px; }
+  .fit-card-body { font-size: 13px; color: #374151; line-height: 1.65; }
+  .overqualified-banner { background: #fef2f2; border: 1px solid #fca5a5; border-radius: 6px; padding: 8px 12px; margin-bottom: 10px; font-size: 12px; font-weight: 700; color: #b91c1c; }
+
+  /* SUMMARY TABLE ROW COLORS */
+  .row-top { background: #f0fdf4 !important; }
+  .row-consider { background: #fffbeb !important; }
+  .row-pass { background: #fff1f2 !important; }
+
+  /* DISTANCE COLORS */
+  .dist-local { color: #16a34a; font-weight: 600; }
+  .dist-regional { color: #d97706; font-weight: 600; }
+  .dist-relocation { color: #dc2626; font-weight: 600; }
+
+  /* BUDGET COLORS */
+  .budget-ok { color: #16a34a; font-weight: 600; }
+  .budget-over { color: #dc2626; font-weight: 600; }
+
+  /* STRENGTHS / WEAKNESSES */
+  .sw-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  @media (max-width: 900px) { .sw-grid { grid-template-columns: 1fr; } }
+  .sw-card { background: #fff; border-radius: 10px; padding: 18px 20px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .sw-name { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
+  .sw-section { margin-bottom: 12px; }
+  .sw-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .sw-label.strength { color: #16a34a; }
+  .sw-label.weakness { color: #dc2626; }
+  .sw-list { list-style: none; }
+  .sw-list li { font-size: 12.5px; color: #374151; line-height: 1.5; padding: 3px 0 3px 16px; position: relative; }
+  .sw-list li::before { position: absolute; left: 0; }
+  .strength-list li::before { content: '✓'; color: #16a34a; font-weight: 700; }
+  .weakness-list li::before { content: '✗'; color: #dc2626; font-weight: 700; }
+
+  /* SALARY */
+  .salary-budget-note { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px; padding: 10px 14px; margin-bottom: 16px; font-size: 13px; color: #1e40af; font-weight: 600; }
+  .neg-note { background: #fef9ec; border: 1px solid #fcd34d; border-radius: 6px; padding: 10px 14px; margin-top: 14px; font-size: 12.5px; color: #78350f; }
+  .neg-note strong { display: block; margin-bottom: 4px; }
+
+  /* LANGUAGE CARDS */
+  .lang-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 900px) { .lang-grid { grid-template-columns: 1fr; } }
+  .lang-card { background: #fff; border-radius: 10px; padding: 18px 20px; border: 1px solid #e2e8f0; }
+  .lang-name { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+  .lang-flag { font-size: 22px; margin-right: 8px; }
+
+  /* FLUENCY CARD */
+  .fluency-level { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; }
+  .fluency-native { background: #dcfce7; color: #15803d; }
+  .fluency-fluent { background: #dbeafe; color: #1e40af; }
+
+  /* NOTE BOXES */
+  .note-box { background: #f8fafc; border-left: 3px solid #94a3b8; padding: 10px 14px; font-size: 12px; color: #475569; margin-top: 12px; border-radius: 0 4px 4px 0; }
+
+  /* RANK CHIP */
+  .rank-chip { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; font-size: 12px; font-weight: 700; color: #fff; }
+  .rank-1 { background: #f59e0b; }
+  .rank-2 { background: #64748b; }
+  .rank-3 { background: #94a3b8; }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-company">Pocas International Corp</div>
+  <div class="topbar-right">
+    <div class="topbar-role">Strategic Sales &amp; Client Success Associate · NJ HQ</div>
+    <div class="topbar-date">Screening Report · April 6, 2026 · 3 Candidates</div>
+  </div>
+</div>
+
+<!-- TOP RECOMMENDATION BANNER -->
+<div class="top-rec">
+  <div class="top-rec-star">⭐</div>
+  <div>
+    <div class="top-rec-label">Top Recommendation</div>
+    <div class="top-rec-name">George Arodes</div>
+    <div class="top-rec-reason">Food-industry experience at Trader Joe's, marketing degree, trilingual (English / Arabic bilingual / Spanish), Salesforce + Google certifications — strong fit within budget.</div>
+  </div>
+</div>
+
+<!-- TAB NAVIGATION -->
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="showTab('overview')">Overview</button>
+  <button class="tab-btn" onclick="showTab('comparison')">Comparison</button>
+  <button class="tab-btn" onclick="showTab('salary')">Salary</button>
+  <button class="tab-btn" onclick="showTab('strengths')">Strengths</button>
+  <button class="tab-btn" onclick="showTab('fitscores')">Fit Scores</button>
+  <button class="tab-btn" onclick="showTab('distance')">Distance</button>
+  <button class="tab-btn" onclick="showTab('fluency')">Fluency</button>
+  <button class="tab-btn" onclick="showTab('languages')">Languages</button>
+</div>
+
+<div class="main">
+
+  <!-- ===== OVERVIEW TAB ===== -->
+  <div id="tab-overview" class="tab-panel active">
+    <div class="card">
+      <div class="card-title">Summary Snapshot</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Candidate</th>
+            <th>Fit Score</th>
+            <th>Distance</th>
+            <th>Budget Fit</th>
+            <th>Recommendation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="row-top">
+            <td><span class="rank-chip rank-1">1</span></td>
+            <td><strong>George Arodes</strong><br><span style="color:#64748b;font-size:12px;">Section Leader · Trader Joe's</span></td>
+            <td><span class="badge badge-green" style="font-size:14px;font-weight:800;">8/10</span></td>
+            <td><span class="dist-local">🟢 Local (~12 mi)</span></td>
+            <td><span class="budget-ok">✅ Within budget</span></td>
+            <td><span class="badge verdict-interview">Interview first</span></td>
+          </tr>
+          <tr class="row-consider">
+            <td><span class="rank-chip rank-2">2</span></td>
+            <td><strong>Brennan Orsucci</strong><br><span style="color:#64748b;font-size:12px;">Sales &amp; Ops Support · Hilman Inc</span></td>
+            <td><span class="badge badge-amber" style="font-size:14px;font-weight:800;">6/10</span></td>
+            <td><span class="dist-regional">🟡 Regional (~32 mi)</span></td>
+            <td><span class="budget-ok">✅ Within budget</span></td>
+            <td><span class="badge verdict-consider">Consider</span></td>
+          </tr>
+          <tr class="row-pass">
+            <td><span class="rank-chip rank-3">3</span></td>
+            <td><strong>Tori Gibbs</strong><br><span style="color:#64748b;font-size:12px;">Acting GM · GANNI A/S</span></td>
+            <td><span class="badge badge-red" style="font-size:14px;font-weight:800;">4/10</span></td>
+            <td><span class="dist-local">🟢 Local (~13 mi)</span></td>
+            <td><span class="budget-over">❌ Above budget</span></td>
+            <td><span class="badge verdict-pass">Pass</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Quick Highlights</div>
+      <table>
+        <thead>
+          <tr><th>Candidate</th><th>Degree</th><th>Food/Bev Exp</th><th>Languages</th><th>Key Flag</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>George Arodes</strong></td>
+            <td><span class="badge badge-green">✓ BS Marketing</span></td>
+            <td><span class="badge badge-green">✓ Trader Joe's</span></td>
+            <td>
+              <span class="badge badge-lang">English</span>
+              <span class="badge badge-lang">Arabic ⭐</span>
+              <span class="badge badge-lang">Spanish</span>
+            </td>
+            <td><span class="badge badge-blue">Trilingual</span></td>
+          </tr>
+          <tr>
+            <td><strong>Brennan Orsucci</strong></td>
+            <td><span class="badge badge-green">✓ BS Supply Chain</span></td>
+            <td><span class="badge badge-amber">None</span></td>
+            <td><span class="badge badge-lang">English</span></td>
+            <td><span class="badge badge-amber">Ops-heavy profile</span></td>
+          </tr>
+          <tr>
+            <td><strong>Tori Gibbs</strong></td>
+            <td><span class="badge badge-red">⚠️ No degree listed</span></td>
+            <td><span class="badge badge-red">None</span></td>
+            <td><span class="badge badge-lang">English</span><span class="badge badge-lang">German</span></td>
+            <td><span class="badge verdict-overqualified">⚠️ Overqualified</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== COMPARISON TAB ===== -->
+  <div id="tab-comparison" class="tab-panel">
+    <div class="card" style="overflow-x:auto;">
+      <div class="card-title">Candidate Comparison <span class="card-subtitle">All fields side-by-side</span></div>
+      <table>
+        <thead>
+          <tr>
+            <th>Candidate</th>
+            <th>Location</th>
+            <th>Distance</th>
+            <th>Experience</th>
+            <th>Seniority</th>
+            <th>Education</th>
+            <th>Current Title</th>
+            <th>Employer</th>
+            <th>Key Skills</th>
+            <th>Certifications</th>
+            <th>Languages</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Brennan Orsucci</strong></td>
+            <td>Matawan, NJ 07747</td>
+            <td><span class="dist-regional">🟡 ~32 mi<br>~51 km</span></td>
+            <td>~3 yrs</td>
+            <td><span class="badge badge-blue">Junior-Mid</span></td>
+            <td>BS Business Admin<br><span style="font-size:11px;color:#64748b;">Supply Chain &amp; Data Mgmt<br>Monmouth Univ, 2023</span></td>
+            <td>Marketing, Sales &amp; Ops Support</td>
+            <td>Hilman Inc</td>
+            <td>
+              <span class="badge badge-skill">Demand Planning</span>
+              <span class="badge badge-skill">Inventory Mgmt</span>
+              <span class="badge badge-skill">Advanced Excel</span>
+              <span class="badge badge-skill">Power BI</span>
+              <span class="badge badge-skill">ERP/CRM</span>
+              <span class="badge badge-skill">KPI Tracking</span>
+            </td>
+            <td><span style="color:#94a3b8;font-size:12px;">None</span></td>
+            <td><span class="badge badge-lang">English</span></td>
+          </tr>
+          <tr>
+            <td><strong>George Arodes</strong></td>
+            <td>~Montclair, NJ*</td>
+            <td><span class="dist-local">🟢 ~12 mi<br>~19 km</span></td>
+            <td>~3 yrs</td>
+            <td><span class="badge badge-blue">Junior</span></td>
+            <td>BS Business Admin<br><span style="font-size:11px;color:#64748b;">Marketing, Minor Finance<br>Montclair State, 2025</span></td>
+            <td>Section Leader</td>
+            <td>Trader Joe's</td>
+            <td>
+              <span class="badge badge-skill">MS Office</span>
+              <span class="badge badge-skill">Salesforce</span>
+              <span class="badge badge-skill">Google Analytics</span>
+              <span class="badge badge-skill">Google Ads</span>
+              <span class="badge badge-skill">R Programming</span>
+              <span class="badge badge-skill">Merchandising</span>
+            </td>
+            <td>
+              <span class="badge badge-cert">Hootsuite</span>
+              <span class="badge badge-cert">Google Analytics</span>
+              <span class="badge badge-cert">Google Ads</span>
+            </td>
+            <td>
+              <span class="badge badge-lang">English</span>
+              <span class="badge badge-lang">Arabic ⭐</span>
+              <span class="badge badge-lang">Spanish</span>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Tori Gibbs</strong></td>
+            <td>New York, NY 10028</td>
+            <td><span class="dist-local">🟢 ~13 mi<br>~21 km</span></td>
+            <td>~7 yrs</td>
+            <td><span class="badge badge-amber">Mid-Senior</span></td>
+            <td style="color:#b91c1c;font-weight:600;">⚠️ No degree listed<br><span style="font-size:11px;color:#64748b;font-weight:400;">Attended U. of Minnesota &amp; U. of Missouri — no graduation stated</span></td>
+            <td>Acting General Manager</td>
+            <td>GANNI A/S</td>
+            <td>
+              <span class="badge badge-skill">Shopify</span>
+              <span class="badge badge-skill">CRM/Endear</span>
+              <span class="badge badge-skill">Power BI</span>
+              <span class="badge badge-skill">Salesforce</span>
+              <span class="badge badge-skill">RFID/Nedap</span>
+              <span class="badge badge-skill">B2B Wholesale</span>
+            </td>
+            <td><span style="color:#94a3b8;font-size:12px;">None</span></td>
+            <td>
+              <span class="badge badge-lang">English</span>
+              <span class="badge badge-lang">German (implied)</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="note-box">* George's home address not listed. Distance estimated from Montclair State University, Montclair NJ. All distances are straight-line estimates to 19 Central Blvd, South Hackensack, NJ 07606.</div>
+    </div>
+  </div>
+
+  <!-- ===== SALARY TAB ===== -->
+  <div id="tab-salary" class="tab-panel">
+    <div class="card">
+      <div class="card-title">Salary Estimates vs. Budget</div>
+      <div class="salary-budget-note">Job Budget: $50,000 – $55,000 / year (Strategic Sales &amp; Client Success Associate)</div>
+      <table>
+        <thead>
+          <tr><th>Candidate</th><th>Current Title</th><th>Est. Market Range</th><th>Budget Fit</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Brennan Orsucci</strong></td>
+            <td>Sales &amp; Ops Support · Hilman Inc</td>
+            <td>$45,000 – $54,000</td>
+            <td><span class="badge badge-green">✅ Within budget</span></td>
+          </tr>
+          <tr>
+            <td><strong>George Arodes</strong></td>
+            <td>Section Leader · Trader Joe's</td>
+            <td>$42,000 – $50,000</td>
+            <td><span class="badge badge-green">✅ Within budget</span></td>
+          </tr>
+          <tr style="background:#fff1f2;">
+            <td><strong>Tori Gibbs</strong></td>
+            <td>Acting GM · GANNI A/S</td>
+            <td>$70,000 – $90,000</td>
+            <td><span class="badge badge-red">❌ Above budget</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="neg-note">
+        <strong>⚠️ Negotiation Note — Tori Gibbs</strong>
+        At an estimated $70K–$90K current market rate, Tori would need to accept a 30–50% pay cut to take this role. Even highlighting Pocas' health insurance, paid time off, and growth opportunity at a globally-minded specialty food importer, this gap is almost certainly unbridgeable. Do not invest recruiting resources unless she proactively confirms she would accept the posted $50K–$55K range.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== STRENGTHS TAB ===== -->
+  <div id="tab-strengths" class="tab-panel">
+    <div class="sw-grid">
+
+      <div class="sw-card">
+        <div class="sw-name">Brennan Orsucci <span class="badge badge-blue" style="font-size:11px;vertical-align:middle;">Junior-Mid</span></div>
+        <div class="sw-section">
+          <div class="sw-label strength">Strengths</div>
+          <ul class="sw-list strength-list">
+            <li>Strong analytics: Power BI, Advanced Excel, KPI dashboards — rare operational depth for a sales role</li>
+            <li>Supply chain &amp; logistics background directly relevant to Pocas' import/distribution model</li>
+            <li>Managed end-to-end trade show logistics at Hilman Inc — applicable to Pocas trade events</li>
+            <li>Competitor pricing and margin analysis experience supports JD's "market research" requirements</li>
+            <li>Bachelor's degree in hand in a relevant field (Supply Chain, Business Admin)</li>
+          </ul>
+        </div>
+        <div class="sw-section">
+          <div class="sw-label weakness">Weaknesses / Gaps</div>
+          <ul class="sw-list weakness-list">
+            <li>Career trajectory skews operations &amp; analytics, not outbound client-facing sales</li>
+            <li>No food or beverage industry experience; no exposure to Pocas' product category or retail channels</li>
+            <li>3-month tenure at SHI International — minor retention flag</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sw-card" style="border-color:#f59e0b;">
+        <div class="sw-name">George Arodes <span class="badge badge-blue" style="font-size:11px;vertical-align:middle;">Junior</span> <span style="font-size:18px;vertical-align:middle;">⭐</span></div>
+        <div class="sw-section">
+          <div class="sw-label strength">Strengths</div>
+          <ul class="sw-list strength-list">
+            <li>Trader Joe's = direct food/grocery experience in the exact retail channels Pocas sells into</li>
+            <li>Trilingual: English (native), Arabic (bilingual), Spanish (working) — Arabic is a rare and valuable differentiator</li>
+            <li>Self-driven certifications (Hootsuite, Google Analytics, Google Ads) show initiative beyond the classroom</li>
+            <li>Salesforce proficiency is a direct match for this CRM-driven role</li>
+            <li>Negotiated 20% wholesale revenue increase at ANG Wireless — real commercial outcome</li>
+          </ul>
+        </div>
+        <div class="sw-section">
+          <div class="sw-label weakness">Weaknesses / Gaps</div>
+          <ul class="sw-list weakness-list">
+            <li>Sales experience is B2C retail, not B2B account management — needs coaching on professional sales cycles</li>
+            <li>No home address on resume — distance estimate may differ from actual commute</li>
+            <li>Entry-level; academic projects are simulations, not enterprise engagements — will need mentoring</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sw-card" style="border-color:#fca5a5;">
+        <div class="sw-name">Tori Gibbs <span class="badge badge-amber" style="font-size:11px;vertical-align:middle;">Mid-Senior</span></div>
+        <div class="sw-section">
+          <div class="sw-label strength">Strengths</div>
+          <ul class="sw-list strength-list">
+            <li>Exceptional GM-level experience — can self-direct, manage P&amp;L, and lead teams from day one</li>
+            <li>B2B wholesale account management at APOTHEKE (launched corporate gifting, grew wholesale accounts) is the most directly relevant work</li>
+            <li>Strong tech stack: Power BI, Salesforce, Shopify, CRM/Endear — all transferable to Pocas</li>
+            <li>German fluency is a niche differentiator (Pocas sources from Europe)</li>
+          </ul>
+        </div>
+        <div class="sw-section">
+          <div class="sw-label weakness">Weaknesses / Gaps</div>
+          <ul class="sw-list weakness-list">
+            <li>No bachelor's degree listed — JD explicitly requires one; hard disqualifier</li>
+            <li>Salary $70K–$90K vs. $50K–$55K posted — gap too large to bridge</li>
+            <li>All experience is luxury retail fashion — no food/beverage or import/distribution exposure</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== FIT SCORES TAB ===== -->
+  <div id="tab-fitscores" class="tab-panel">
+
+    <div class="fit-card" style="border-color:#f59e0b;">
+      <div class="fit-card-header">
+        <div class="score-badge score-high">8</div>
+        <div class="fit-card-info">
+          <div class="fit-card-name">George Arodes <span style="font-size:14px;">⭐</span></div>
+          <div class="fit-card-title">Section Leader · Trader Joe's &nbsp;|&nbsp; BS Marketing, Montclair State</div>
+        </div>
+        <span class="badge verdict-interview" style="font-size:13px;padding:6px 14px;">✅ Interview First</span>
+      </div>
+      <div class="fit-card-body">
+        George aligns closely with what Pocas needs at the associate level. His Trader Joe's role places him inside the exact retail environment Pocas' sales team navigates daily — he understands how food moves through chain grocery and specialty retail. His ANG Wireless role shows real commercial instinct: a negotiated 20% wholesale revenue increase through local business partnerships. His marketing degree, Salesforce CRM proficiency, and Google/Hootsuite certifications check the technical boxes the JD requires. Most critically, his Arabic bilingual fluency is a meaningful competitive advantage — Pocas sources globally and bilingual capability opens doors in regional sales and vendor communication. He's entry-level but well-rounded, within budget, and immediately onboardable.
+      </div>
+    </div>
+
+    <div class="fit-card">
+      <div class="fit-card-header">
+        <div class="score-badge score-mid">6</div>
+        <div class="fit-card-info">
+          <div class="fit-card-name">Brennan Orsucci</div>
+          <div class="fit-card-title">Marketing, Sales &amp; Ops Support · Hilman Inc &nbsp;|&nbsp; BS Supply Chain, Monmouth Univ</div>
+        </div>
+        <span class="badge verdict-consider" style="font-size:13px;padding:6px 14px;">⚠️ Consider</span>
+      </div>
+      <div class="fit-card-body">
+        Brennan has genuine strengths — his supply chain degree and data analysis skills would serve well at a company like Pocas whose operations revolve around import logistics, inventory forecasting, and vendor management. However, the JD asks for someone "friendly and outgoing," confident in client-facing settings, and eager to build and maintain customer relationships. His resume reads as a strong operations candidate, not a natural salesperson. He'd need to make a compelling case in an interview that he's genuinely motivated by the sales and account management side of the role — not just the back-office analytics. Worth a call, but he's the second choice.
+      </div>
+    </div>
+
+    <div class="fit-card" style="border-color:#fca5a5;">
+      <div class="fit-card-header">
+        <div class="score-badge score-low">4</div>
+        <div class="fit-card-info">
+          <div class="fit-card-name">Tori Gibbs</div>
+          <div class="fit-card-title">Acting General Manager · GANNI A/S &nbsp;|&nbsp; No degree listed</div>
+        </div>
+        <span class="badge verdict-pass" style="font-size:13px;padding:6px 14px;">❌ Pass</span>
+      </div>
+      <div class="overqualified-banner">⚠️ OVERQUALIFIED — GM-level candidate for an associate role. Estimated salary $70K–$90K vs. posted $50K–$55K. High retention risk.</div>
+      <div class="fit-card-body">
+        Tori is a seasoned GM-level professional who would be stepping down significantly to take an associate role. Her leadership trajectory — Acting GM at GANNI Madison Ave, GM at Nadine Merabi Soho — reflects ambitions that this role cannot satisfy for long. Beyond compensation, no bachelor's degree appears on her resume despite attending two universities; the JD explicitly requires one. Her entire career is luxury retail fashion with no food, beverage, or import/distribution context. Even her most relevant experience (B2B wholesale at APOTHEKE) is a small slice of a very different industry. Impressive candidate, wrong role.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== DISTANCE TAB ===== -->
+  <div id="tab-distance" class="tab-panel">
+    <div class="card">
+      <div class="card-title">Commute Distance <span class="card-subtitle">Reference: 19 Central Blvd, South Hackensack, NJ 07606</span></div>
+      <table>
+        <thead>
+          <tr><th>Candidate</th><th>Home Location</th><th>Est. Distance</th><th>Est. Drive Time</th><th>Category</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Brennan Orsucci</strong></td>
+            <td>27 Knoll Court, Matawan, NJ 07747</td>
+            <td>~32 mi / 51 km</td>
+            <td>~50 min</td>
+            <td><span class="dist-regional">🟡 Regional</span></td>
+          </tr>
+          <tr>
+            <td><strong>George Arodes</strong></td>
+            <td>~Montclair, NJ (university)*</td>
+            <td>~12 mi / 19 km</td>
+            <td>~22 min</td>
+            <td><span class="dist-local">🟢 Local</span></td>
+          </tr>
+          <tr>
+            <td><strong>Tori Gibbs</strong></td>
+            <td>New York, NY 10028</td>
+            <td>~13 mi / 21 km</td>
+            <td>~35 min (off-peak)<br><span style="font-size:11px;color:#94a3b8;">50–70 min peak</span></td>
+            <td><span class="dist-local">🟢 Local</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="note-box">* George's home address not listed — distance estimated from Montclair State University. All distances are straight-line estimates. Actual drive times vary with traffic. Tori Gibbs' NYC commute via GWB or Lincoln Tunnel may run 50–70 min during morning peak hours.</div>
+      <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;">
+        <span class="badge badge-green">🟢 Local = under 30 miles</span>
+        <span class="badge badge-amber">🟡 Regional = 30–100 miles</span>
+        <span class="badge badge-red">🔴 Relocation = 100+ miles</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FLUENCY TAB ===== -->
+  <div id="tab-fluency" class="tab-panel">
+    <div class="card">
+      <div class="card-title">English Fluency Assessment</div>
+      <table>
+        <thead>
+          <tr><th>Candidate</th><th>Fluency Level</th><th>Assessment</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Brennan Orsucci</strong></td>
+            <td><span class="fluency-level fluency-native">Native</span></td>
+            <td>Polished, industry-specific vocabulary; clean professional writing with strong command of supply chain and sales terminology throughout.</td>
+          </tr>
+          <tr>
+            <td><strong>George Arodes</strong></td>
+            <td><span class="fluency-level fluency-native">Native</span></td>
+            <td>Concise and confident; well-structured bullet points with clear active voice and natural phrasing. No indicators of non-native usage.</td>
+          </tr>
+          <tr>
+            <td><strong>Tori Gibbs</strong></td>
+            <td><span class="fluency-level fluency-native">Native</span></td>
+            <td>Sophisticated and persuasive; demonstrates strong command of business and leadership language with nuanced phrasing appropriate for senior roles.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== LANGUAGES TAB ===== -->
+  <div id="tab-languages" class="tab-panel">
+    <div class="lang-grid">
+
+      <div class="lang-card">
+        <div class="lang-name">Brennan Orsucci</div>
+        <div style="margin-bottom:10px;">
+          <span class="badge badge-lang">🇺🇸 English (Native)</span>
+        </div>
+        <div style="font-size:12px;color:#64748b;">No second language listed or implied on resume.</div>
+      </div>
+
+      <div class="lang-card" style="border-color:#f59e0b;background:#fffdf5;">
+        <div class="lang-name">George Arodes ⭐</div>
+        <div style="margin-bottom:10px;">
+          <span class="badge badge-lang">🇺🇸 English (Native)</span>
+          <span class="badge badge-lang">🌍 Arabic (Bilingual)</span>
+          <span class="badge badge-lang">🇪🇸 Spanish (Working)</span>
+        </div>
+        <div style="font-size:12px;color:#374151;line-height:1.6;">
+          <strong>Standout candidate for language diversity.</strong> Arabic bilingual proficiency is rare in U.S.-based sales hires and is a meaningful asset given Pocas' global sourcing from South Asia and MENA-adjacent markets. Working Spanish adds further range for engaging diverse retailer and distributor contacts across the U.S. market. Spanish fluency level is worth clarifying in the interview.
+        </div>
+      </div>
+
+      <div class="lang-card">
+        <div class="lang-name">Tori Gibbs</div>
+        <div style="margin-bottom:10px;">
+          <span class="badge badge-lang">🇺🇸 English (Native)</span>
+          <span class="badge badge-lang">🇩🇪 German (Implied)</span>
+        </div>
+        <div style="font-size:12px;color:#64748b;line-height:1.6;">German is implied from managing a K-8 German Immersion school program and studying German at the University of Minnesota. Proficiency level not formally stated on resume. German could be useful given Pocas sources from Europe, but formal level is unconfirmed.</div>
+      </div>
+
+    </div>
+
+    <div class="card" style="margin-top:18px;">
+      <div class="card-title">Bilingual Summary</div>
+      <table>
+        <thead>
+          <tr><th>Candidate</th><th>Languages</th><th>Bilingual?</th><th>English + Spanish?</th><th>Note</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Brennan Orsucci</strong></td>
+            <td>English</td>
+            <td><span class="badge badge-red">No</span></td>
+            <td><span class="badge badge-red">No</span></td>
+            <td>Monolingual</td>
+          </tr>
+          <tr style="background:#fffdf5;">
+            <td><strong>George Arodes</strong></td>
+            <td>English, Arabic, Spanish</td>
+            <td><span class="badge badge-green">Yes ⭐</span></td>
+            <td><span class="badge badge-amber">Working level</span></td>
+            <td>Arabic bilingual is a standout differentiator; Spanish useful for U.S. market</td>
+          </tr>
+          <tr>
+            <td><strong>Tori Gibbs</strong></td>
+            <td>English, German (implied)</td>
+            <td><span class="badge badge-amber">Likely</span></td>
+            <td><span class="badge badge-red">No</span></td>
+            <td>German implied from work history — level unconfirmed</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div><!-- end .main -->
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+</script>
+
+</body>
+</html>
