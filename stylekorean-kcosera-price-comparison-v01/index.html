@@ -1,0 +1,807 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%232f6fed%22/><text x=%2216%22 y=%2222%22 font-size=%2216%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22>K</text></svg>" />
+<title>StyleKorean vs KCOSERA — Top 20 브랜드 가격 비교</title>
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --panel: #ffffff;
+    --text: #1a1d23;
+    --muted: #64707d;
+    --border: #e2e6ea;
+    --accent: #2f6fed;
+    --accent-soft: #eaf1ff;
+    --good: #1f8a4c;
+    --good-soft: #e8f7ee;
+    --warn: #b8860b;
+    --warn-soft: #fbf3de;
+    --bad: #c0392b;
+    --bad-soft: #fdecea;
+    --radius: 10px;
+    --shadow: 0 1px 3px rgba(20, 24, 30, 0.08), 0 1px 2px rgba(20, 24, 30, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14161a;
+      --panel: #1c1f25;
+      --text: #e7e9ec;
+      --muted: #9aa4b0;
+      --border: #2b2f36;
+      --accent: #5b8def;
+      --accent-soft: #1c2b4a;
+      --good: #4cbf7c;
+      --good-soft: #143523;
+      --warn: #d9a441;
+      --warn-soft: #3a2f14;
+      --bad: #e5766a;
+      --bad-soft: #3a1c19;
+      --shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    line-height: 1.45;
+  }
+  header {
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--panel);
+  }
+  header h1 { font-size: 19px; margin: 0 0 4px; }
+  header p { margin: 0; color: var(--muted); font-size: 13px; }
+
+  /* dashboard stat strip */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    padding: 16px 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .stat-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 12px 14px;
+  }
+  .stat-card .num { font-size: 22px; font-weight: 700; line-height: 1.2; }
+  .stat-card .label { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  /* tabs */
+  .tabs {
+    display: flex;
+    gap: 6px;
+    padding: 0 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+  }
+  .tab-btn {
+    border: none;
+    background: none;
+    padding: 10px 16px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+  }
+  .tab-btn[aria-selected="true"] { color: var(--accent); border-bottom-color: var(--accent); }
+  .tab-btn:hover { color: var(--text); }
+  .tab-panel[hidden] { display: none; }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    padding: 14px 24px;
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+  }
+  .filters input[type="search"],
+  .filters select {
+    font-size: 13px;
+    padding: 7px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+  }
+  .filters select#f-brand { font-weight: 600; min-width: 190px; }
+  .filters input[type="search"] { min-width: 220px; flex: 1 1 220px; }
+  .filters label.chk {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .filters .spacer { flex: 1; min-width: 0; }
+  .filters .count { font-size: 13px; color: var(--muted); white-space: nowrap; }
+  .filters button.clear {
+    font-size: 13px;
+    padding: 7px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    cursor: pointer;
+  }
+  .filters button.clear:hover { border-color: var(--accent); color: var(--accent); }
+
+  .advanced-filters {
+    padding: 0 24px;
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+  }
+  .advanced-filters summary {
+    cursor: pointer;
+    font-size: 12.5px;
+    color: var(--muted);
+    padding: 8px 0;
+    user-select: none;
+  }
+  .advanced-filters summary:hover { color: var(--accent); }
+  .advanced-filters .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    padding-bottom: 12px;
+  }
+  .advanced-filters select {
+    font-size: 13px;
+    padding: 7px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  main { padding: 18px 24px 40px; max-width: 1400px; margin: 0 auto; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+  }
+
+  .card {
+    text-align: left;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 12px;
+    cursor: pointer;
+    color: var(--text);
+    font: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .card:hover, .card:focus-visible { border-color: var(--accent); outline: none; }
+  .card:focus-visible { box-shadow: 0 0 0 3px var(--accent-soft); }
+
+  .card-top { display: flex; gap: 8px; }
+  .thumb-pair { display: flex; gap: 6px; }
+  .thumb {
+    width: 56px; height: 56px;
+    border-radius: 8px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    flex: none;
+  }
+  .thumb img { width: 100%; height: 100%; object-fit: contain; }
+  .thumb.empty { color: var(--muted); font-size: 10px; text-align: center; padding: 2px; }
+
+  .card-brand { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em; }
+  .card-names { flex: 1; min-width: 0; }
+  .card-name { font-size: 13px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  .card-name.vs { font-weight: 400; color: var(--muted); font-size: 12px; margin-top: 2px; }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .badge.good { background: var(--good-soft); color: var(--good); }
+  .badge.warn { background: var(--warn-soft); color: var(--warn); }
+  .badge.bad { background: var(--bad-soft); color: var(--bad); }
+  .badge.muted { background: var(--bg); color: var(--muted); border: 1px solid var(--border); }
+  .badge.category { background: var(--accent-soft); color: var(--accent); }
+
+  .card-price-row { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; }
+  .card-price-row .prices { color: var(--muted); }
+  .card-price-row .prices b { color: var(--text); }
+
+  .card-flags { display: flex; gap: 6px; flex-wrap: wrap; }
+
+  .empty-state { text-align: center; color: var(--muted); padding: 60px 20px; font-size: 14px; }
+
+  /* category tab */
+  .category-intro { padding: 14px 24px 4px; max-width: 1400px; margin: 0 auto; }
+  .category-intro p { margin: 0; color: var(--muted); font-size: 13px; }
+  .chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px 24px 18px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .chip {
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 7px 14px;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .chip:hover { border-color: var(--accent); }
+  .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  .learn-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 14px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .learn-card:hover { border-color: var(--accent); }
+  .learn-card .top { display: flex; gap: 10px; align-items: flex-start; }
+  .learn-card .names { flex: 1; min-width: 0; }
+  .learn-card .kc-name { font-size: 13px; font-weight: 600; }
+  .learn-card .style-name { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .learn-card .guide-lines { font-size: 12.5px; display: flex; flex-direction: column; gap: 4px; }
+  .learn-card .guide-lines .line { overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  .learn-card .guide-lines .line b { color: var(--muted); font-weight: 600; margin-right: 4px; white-space: nowrap; }
+  .learn-card .links { display: flex; gap: 12px; margin-top: 4px; }
+  .learn-card .links a { font-size: 12px; color: var(--accent); text-decoration: none; }
+  .learn-card .links a:hover { text-decoration: underline; }
+
+  /* modal */
+  dialog.detail {
+    border: none;
+    border-radius: 14px;
+    padding: 0;
+    width: min(820px, 94vw);
+    max-height: 88vh;
+    color: var(--text);
+    background: var(--panel);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+  }
+  dialog.detail::backdrop { background: rgba(10, 12, 16, 0.55); }
+  .detail-head {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 12px; padding: 16px 20px; border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; background: var(--panel); border-radius: 14px 14px 0 0;
+  }
+  .detail-head h2 { font-size: 15px; margin: 0 0 4px; }
+  .detail-head .sub { color: var(--muted); font-size: 12px; }
+  .detail-close {
+    border: none; background: var(--bg); width: 30px; height: 30px; border-radius: 8px;
+    font-size: 15px; cursor: pointer; color: var(--text); flex: none;
+  }
+  .detail-close:hover { background: var(--bad-soft); color: var(--bad); }
+  .detail-body { padding: 18px 20px 24px; overflow-y: auto; max-height: calc(88vh - 64px); }
+
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+  @media (max-width: 620px) {
+    .compare-grid { grid-template-columns: 1fr; }
+  }
+  .compare-col {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .compare-col h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0; }
+  .compare-thumb { width: 100%; height: 160px; border-radius: 8px; background: var(--bg); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .compare-thumb img { width: 100%; height: 100%; object-fit: contain; }
+  .compare-thumb.empty { color: var(--muted); font-size: 12px; }
+  .compare-name { font-size: 13px; font-weight: 600; }
+  dl.kv { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; font-size: 12.5px; }
+  dl.kv dt { color: var(--muted); }
+  dl.kv dd { margin: 0; }
+  .compare-col a.link { font-size: 12px; color: var(--accent); text-decoration: none; }
+  .compare-col a.link:hover { text-decoration: underline; }
+
+  .diff-banner {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    padding: 10px 14px; border-radius: 10px; margin-bottom: 16px; font-size: 13px;
+    background: var(--accent-soft);
+  }
+  .diff-banner.na { background: var(--bg); color: var(--muted); }
+
+  .warning-note {
+    font-size: 12.5px; padding: 9px 12px; border-radius: 8px;
+    background: var(--warn-soft); color: var(--warn); margin-bottom: 16px;
+  }
+
+  .guidance h3 { font-size: 13px; margin: 0 0 8px; }
+  table.guidance-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  table.guidance-table td { padding: 5px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  table.guidance-table td:first-child { color: var(--muted); width: 130px; white-space: nowrap; }
+  .evidence-note { margin-top: 10px; font-size: 11.5px; color: var(--muted); }
+
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>StyleKorean vs KCOSERA — Top 20 브랜드 가격 비교</h1>
+  <p>원본: 2026-08-06_StyleKorean_KCOSERA_top20-price-comparison_v01.xlsx (GPT 작성) · 이 페이지는 해당 데이터를 기반으로 만든 인터랙티브 대시보드입니다.</p>
+</header>
+
+<div class="stats" id="stats"></div>
+
+<div class="tabs" role="tablist">
+  <button class="tab-btn" id="tab-btn-price" role="tab" aria-selected="true" aria-controls="tab-price" type="button">가격 비교</button>
+  <button class="tab-btn" id="tab-btn-category" role="tab" aria-selected="false" aria-controls="tab-category" type="button">카테고리로 알아보기</button>
+</div>
+
+<section id="tab-price" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-price">
+  <div class="filters">
+    <select id="f-brand" aria-label="브랜드 선택">
+      <option value="">All Brands</option>
+    </select>
+
+    <input id="f-search" type="search" placeholder="브랜드, 제품명, SKU 검색" aria-label="검색" />
+
+    <span class="spacer"></span>
+    <span class="count" id="result-count"></span>
+    <button class="clear" id="clear-filters" type="button">Clear Filters</button>
+  </div>
+
+  <details class="advanced-filters">
+    <summary>고급 필터 (매칭 상태 · 더 저렴한 곳 · 가격 비교 가능만)</summary>
+    <div class="row">
+      <select id="f-status" aria-label="매칭 상태 선택">
+        <option value="">Match Status: All</option>
+      </select>
+
+      <select id="f-cheaper" aria-label="더 저렴한 공급처 선택">
+        <option value="">Cheaper Source: All</option>
+        <option value="StyleKorean">StyleKorean cheaper</option>
+        <option value="KCOSERA">KCOSERA cheaper</option>
+        <option value="Same">Same price</option>
+      </select>
+
+      <label class="chk"><input type="checkbox" id="f-comparable" /> 가격 비교 가능만</label>
+    </div>
+  </details>
+
+  <main>
+    <div id="grid" class="grid" role="list"></div>
+    <div id="empty-state" class="empty-state" hidden>조건에 맞는 상품이 없습니다.</div>
+  </main>
+</section>
+
+<section id="tab-category" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-category" hidden>
+  <div class="category-intro">
+    <p>K-Beauty 상품이 익숙하지 않다면 카테고리별로 실제 상품을 보며 알아보세요. 브랜드와 무관하게 전체 190개 상품을 카테고리로 모아 보여줍니다. 카드를 클릭하면 상세 비교와 원문 링크를 볼 수 있습니다.</p>
+  </div>
+  <div class="chip-row" id="category-chips"></div>
+  <main>
+    <div id="learn-grid" class="grid" role="list"></div>
+    <div id="learn-empty-state" class="empty-state" hidden>조건에 맞는 상품이 없습니다.</div>
+  </main>
+</section>
+
+<dialog id="detail-dialog" class="detail">
+  <div class="detail-head">
+    <div>
+      <h2 id="detail-brand"></h2>
+      <div class="sub" id="detail-sub"></div>
+    </div>
+    <button class="detail-close" id="detail-close" type="button" aria-label="닫기">✕</button>
+  </div>
+  <div class="detail-body" id="detail-body"></div>
+</dialog>
+
+<script src="data/products.js"></script>
+<script>
+(function () {
+  // window.PRODUCTS_DATA is loaded via <script src>, not fetch() — this makes the app work
+  // when index.html is opened directly (file://) without a local server.
+  const data = window.PRODUCTS_DATA;
+  const products = data.products;
+
+  const brandSel = document.getElementById("f-brand");
+  const statusSel = document.getElementById("f-status");
+  const cheaperSel = document.getElementById("f-cheaper");
+  const searchInput = document.getElementById("f-search");
+  const comparableChk = document.getElementById("f-comparable");
+  const clearBtn = document.getElementById("clear-filters");
+  const grid = document.getElementById("grid");
+  const emptyState = document.getElementById("empty-state");
+  const resultCount = document.getElementById("result-count");
+  const dialog = document.getElementById("detail-dialog");
+  const detailClose = document.getElementById("detail-close");
+  const statsEl = document.getElementById("stats");
+
+  const tabBtnPrice = document.getElementById("tab-btn-price");
+  const tabBtnCategory = document.getElementById("tab-btn-category");
+  const tabPrice = document.getElementById("tab-price");
+  const tabCategory = document.getElementById("tab-category");
+  const categoryChips = document.getElementById("category-chips");
+  const learnGrid = document.getElementById("learn-grid");
+  const learnEmptyState = document.getElementById("learn-empty-state");
+
+  // ---------- dashboard stats ----------
+  const directCount = products.filter(function (p) { return p.directlyComparable; }).length;
+  const noMatchCount = products.filter(function (p) { return !p.style; }).length;
+  [
+    { num: data.brands.length, label: "Brands" },
+    { num: products.length, label: "Products" },
+    { num: directCount, label: "직접 가격 비교 가능" },
+    { num: noMatchCount, label: "StyleKorean 매칭 없음" },
+  ].forEach(function (s) {
+    const div = document.createElement("div");
+    div.className = "stat-card";
+    div.innerHTML = '<div class="num">' + s.num + '</div><div class="label">' + s.label + "</div>";
+    statsEl.appendChild(div);
+  });
+
+  // ---------- tabs ----------
+  function selectTab(name) {
+    const priceActive = name === "price";
+    tabBtnPrice.setAttribute("aria-selected", String(priceActive));
+    tabBtnCategory.setAttribute("aria-selected", String(!priceActive));
+    tabPrice.hidden = !priceActive;
+    tabCategory.hidden = priceActive;
+  }
+  tabBtnPrice.addEventListener("click", function () { selectTab("price"); });
+  tabBtnCategory.addEventListener("click", function () { selectTab("category"); });
+
+  // ---------- shared helpers ----------
+  function money(v) {
+    if (v === null || v === undefined) return "Not available";
+    return "$" + v.toFixed(2);
+  }
+
+  function statusBadgeClass(status) {
+    if (status === "Exact Match" || status === "High Confidence Match") return "good";
+    if (status === "Review Needed" || status === "Volume/Pack Difference") return "warn";
+    if (status === "KCOSERA Only / No reliable match") return "bad";
+    return "muted";
+  }
+
+  function cheaperBadgeClass(source) {
+    if (source === "KCOSERA" || source === "StyleKorean") return "good";
+    return "muted";
+  }
+
+  function thumbHtml(imagePath, remoteUrl, altText) {
+    const src = imagePath || remoteUrl;
+    if (!src) return '<div class="thumb empty" aria-hidden="true">No image</div>';
+    return '<div class="thumb"><img src="' + src + '" alt="' + altText + '" loading="lazy" onerror="this.closest(\'.thumb\').classList.add(\'empty\');this.remove();"></div>';
+  }
+
+  function compareThumbHtml(imagePath, remoteUrl, altText) {
+    const src = imagePath || remoteUrl;
+    if (!src) return '<div class="compare-thumb empty">No image</div>';
+    return '<div class="compare-thumb"><img src="' + src + '" alt="' + altText + '" onerror="this.closest(\'.compare-thumb\').classList.add(\'empty\');this.remove();"></div>';
+  }
+
+  function kv(label, value) {
+    if (value === null || value === undefined || value === "") return "";
+    return "<dt>" + label + "</dt><dd>" + value + "</dd>";
+  }
+
+  function guidanceRow(label, value) {
+    if (value === null || value === undefined || value === "") return "";
+    return "<tr><td>" + label + "</td><td>" + value + "</td></tr>";
+  }
+
+  function openDetail(p) {
+    document.getElementById("detail-brand").textContent = "#" + p.brandRank + " " + p.brand;
+    document.getElementById("detail-sub").textContent = p.matchStatus + " · Match score " + (p.matchScore !== null ? p.matchScore.toFixed(2) : "n/a") + " · " + p.matchMethod;
+
+    let diffHtml;
+    if (p.directlyComparable) {
+      const diffText =
+        p.cheaperSource === "Same"
+          ? "동일 가격"
+          : "$" + Math.abs(p.priceDiff).toFixed(2) + " 차이 · " + p.cheaperSource + "가 더 저렴";
+      diffHtml = '<div class="diff-banner">' + diffText + "</div>";
+    } else {
+      diffHtml = '<div class="diff-banner na">직접 가격 비교 불가 (' + (p.priceComparability || "매칭 없음") + ")</div>";
+    }
+
+    let warningHtml = "";
+    if (p.sizeComparison === "Different") {
+      warningHtml = '<div class="warning-note">⚠ 용량/구성 차이: KC ' + (p.kc.unitBasis || "-") + " vs Style " + (p.style && p.style.unitBasis ? p.style.unitBasis : "-") + "</div>";
+    } else if (p.sizeComparison === "Unknown") {
+      warningHtml = '<div class="warning-note">ⓘ 용량/구성 미확인 — KC ' + (p.kc.unitBasis || "-") + " vs Style " + (p.style && p.style.unitBasis ? p.style.unitBasis : "-") + " (검증 필요)</div>";
+    }
+
+    const kcCol =
+      '<div class="compare-col"><h3>KCOSERA</h3>' +
+      compareThumbHtml(p.kc.image, null, p.kc.productName) +
+      '<div class="compare-name">' + p.kc.productName + "</div>" +
+      '<dl class="kv">' +
+        kv("SKU", p.kc.sku) +
+        kv("Price", money(p.kc.price)) +
+        kv("Unit", p.kc.unitBasis) +
+        kv("MOQ", p.kc.moq) +
+        kv("Stock", p.kc.stockStatus) +
+      "</dl>" +
+      (p.kc.productUrl ? '<a class="link" href="' + p.kc.productUrl + '" target="_blank" rel="noopener">Product URL ↗</a>' : "") +
+      "</div>";
+
+    const styleCol = p.style
+      ? '<div class="compare-col"><h3>StyleKorean</h3>' +
+        compareThumbHtml(p.style.image, p.style.remoteImage, p.style.productName) +
+        '<div class="compare-name">' + p.style.productName + "</div>" +
+        '<dl class="kv">' +
+          kv("SKU", p.style.sku) +
+          kv("Price", money(p.style.price)) +
+          kv("KRW", p.style.krwPrice ? "₩" + p.style.krwPrice.toLocaleString() : null) +
+          kv("Unit", p.style.unitBasis) +
+          kv("Stock", p.style.stockStatus) +
+        "</dl>" +
+        (p.style.productUrl ? '<a class="link" href="' + p.style.productUrl + '" target="_blank" rel="noopener">Product URL ↗</a>' : "") +
+        "</div>"
+      : '<div class="compare-col"><h3>StyleKorean</h3><div class="compare-thumb empty">No reliable match</div></div>';
+
+    const g = p.guidance;
+    const guidanceHtml =
+      '<div class="guidance"><h3>Product Guidance</h3><table class="guidance-table">' +
+      guidanceRow("Category", g.category) +
+      guidanceRow("Use", g.use) +
+      guidanceRow("Area", g.area) +
+      guidanceRow("Benefits", g.benefits) +
+      guidanceRow("Key Ingredients", g.keyIngredients) +
+      guidanceRow("Skin Types", g.skinTypes) +
+      guidanceRow("Concerns", g.concerns) +
+      guidanceRow("Age", g.age) +
+      guidanceRow("Gender", g.gender) +
+      guidanceRow("Frequency", g.frequency) +
+      guidanceRow("Cautions", g.cautions) +
+      "</table>" +
+      (g.evidenceStatus ? '<div class="evidence-note">근거: ' + g.evidenceStatus + (g.confidence ? " (confidence: " + g.confidence + ")" : "") + "</div>" : "") +
+      "</div>";
+
+    document.getElementById("detail-body").innerHTML =
+      diffHtml + warningHtml + '<div class="compare-grid">' + kcCol + styleCol + "</div>" + guidanceHtml;
+
+    dialog.showModal();
+  }
+
+  detailClose.addEventListener("click", function () { dialog.close(); });
+  dialog.addEventListener("click", function (e) {
+    if (e.target === dialog) dialog.close();
+  });
+
+  // ============ 가격 비교 탭 ============
+  data.brands.forEach(function (b) {
+    const opt = document.createElement("option");
+    opt.value = b.brand;
+    opt.textContent = "#" + b.rank + " " + b.brand;
+    brandSel.appendChild(opt);
+  });
+
+  const statuses = Array.from(new Set(products.map(function (p) { return p.matchStatus; }))).sort();
+  statuses.forEach(function (s) {
+    const opt = document.createElement("option");
+    opt.value = s;
+    opt.textContent = s;
+    statusSel.appendChild(opt);
+  });
+
+  function matchesFilters(p) {
+    const brand = brandSel.value;
+    const status = statusSel.value;
+    const cheaper = cheaperSel.value;
+    const onlyComparable = comparableChk.checked;
+    const q = searchInput.value.trim().toLowerCase();
+
+    if (brand && p.brand !== brand) return false;
+    if (status && p.matchStatus !== status) return false;
+    if (cheaper && p.cheaperSource !== cheaper) return false;
+    if (onlyComparable && !p.directlyComparable) return false;
+
+    if (q) {
+      const haystack = [
+        p.brand,
+        p.kc.productName,
+        p.kc.sku,
+        p.style ? p.style.productName : "",
+        p.style ? p.style.sku : "",
+      ]
+        .join(" ")
+        .toLowerCase();
+      if (haystack.indexOf(q) === -1) return false;
+    }
+    return true;
+  }
+
+  function renderGrid() {
+    const filtered = products.filter(matchesFilters);
+    resultCount.textContent = filtered.length + " / " + products.length + " items";
+    grid.innerHTML = "";
+    emptyState.hidden = filtered.length !== 0;
+
+    filtered.forEach(function (p) {
+      const card = document.createElement("button");
+      card.type = "button";
+      card.className = "card";
+      card.setAttribute("role", "listitem");
+      card.dataset.id = p.id;
+
+      const priceRow = p.directlyComparable
+        ? '<div class="card-price-row"><span class="prices">KC <b>' + money(p.kc.price) + '</b> · Style <b>' + money(p.style.price) + '</b></span>' +
+          '<span class="badge ' + cheaperBadgeClass(p.cheaperSource) + '">' + (p.cheaperSource === "Same" ? "Same price" : p.cheaperSource + " cheaper") + "</span></div>"
+        : '<div class="card-price-row"><span class="prices">KC <b>' + money(p.kc.price) + "</b> · Style " + (p.style ? "<b>" + money(p.style.price) + "</b>" : "no match") + "</span></div>";
+
+      const flags = [];
+      if (!p.directlyComparable) flags.push('<span class="badge muted">Not directly comparable</span>');
+      if (p.sizeComparison === "Different") flags.push('<span class="badge warn">Size different</span>');
+      else if (p.sizeComparison === "Unknown") flags.push('<span class="badge muted">Size unverified</span>');
+
+      card.innerHTML =
+        '<div class="card-top">' +
+          '<div class="thumb-pair">' +
+            thumbHtml(p.kc.image, null, p.kc.productName + " (KCOSERA)") +
+            thumbHtml(p.style ? p.style.image : null, p.style ? p.style.remoteImage : null, p.style ? p.style.productName + " (StyleKorean)" : "No StyleKorean match") +
+          "</div>" +
+          '<div class="card-names">' +
+            '<div class="card-brand">#' + p.brandRank + " " + p.brand + "</div>" +
+            '<div class="card-name">' + p.kc.productName + "</div>" +
+            '<div class="card-name vs">' + (p.style ? p.style.productName : "No StyleKorean match") + "</div>" +
+          "</div>" +
+        "</div>" +
+        priceRow +
+        '<div class="card-flags"><span class="badge ' + statusBadgeClass(p.matchStatus) + '">' + p.matchStatus + "</span>" + flags.join("") + "</div>";
+
+      card.addEventListener("click", function () {
+        openDetail(p);
+      });
+      grid.appendChild(card);
+    });
+  }
+
+  [brandSel, statusSel, cheaperSel].forEach(function (el) {
+    el.addEventListener("change", renderGrid);
+  });
+  comparableChk.addEventListener("change", renderGrid);
+  searchInput.addEventListener("input", renderGrid);
+
+  clearBtn.addEventListener("click", function () {
+    brandSel.value = "";
+    statusSel.value = "";
+    cheaperSel.value = "";
+    comparableChk.checked = false;
+    searchInput.value = "";
+    renderGrid();
+  });
+
+  renderGrid();
+
+  // ============ 카테고리로 알아보기 탭 ============
+  const categoryCounts = {};
+  products.forEach(function (p) {
+    const c = p.guidance.category || "Uncategorized";
+    categoryCounts[c] = (categoryCounts[c] || 0) + 1;
+  });
+  const categories = Object.keys(categoryCounts).sort(function (a, b) { return categoryCounts[b] - categoryCounts[a]; });
+
+  let activeCategory = null; // null = 전체
+
+  function renderChips() {
+    categoryChips.innerHTML = "";
+    const allChip = document.createElement("button");
+    allChip.type = "button";
+    allChip.className = "chip";
+    allChip.setAttribute("aria-pressed", String(activeCategory === null));
+    allChip.textContent = "전체 (" + products.length + ")";
+    allChip.addEventListener("click", function () { activeCategory = null; renderChips(); renderLearnGrid(); });
+    categoryChips.appendChild(allChip);
+
+    categories.forEach(function (c) {
+      const chip = document.createElement("button");
+      chip.type = "button";
+      chip.className = "chip";
+      chip.setAttribute("aria-pressed", String(activeCategory === c));
+      chip.textContent = c + " (" + categoryCounts[c] + ")";
+      chip.addEventListener("click", function () { activeCategory = c; renderChips(); renderLearnGrid(); });
+      categoryChips.appendChild(chip);
+    });
+  }
+
+  function guideLine(label, value) {
+    if (!value) return "";
+    return '<div class="line"><b>' + label + ":</b>" + value + "</div>";
+  }
+
+  function renderLearnGrid() {
+    const filtered = activeCategory === null ? products : products.filter(function (p) { return (p.guidance.category || "Uncategorized") === activeCategory; });
+    learnGrid.innerHTML = "";
+    learnEmptyState.hidden = filtered.length !== 0;
+
+    filtered.forEach(function (p) {
+      const g = p.guidance;
+      const card = document.createElement("div");
+      card.className = "learn-card";
+      card.setAttribute("role", "listitem");
+      card.tabIndex = 0;
+
+      const links = [];
+      if (p.kc.productUrl) links.push('<a href="' + p.kc.productUrl + '" target="_blank" rel="noopener">KCOSERA 보기 ↗</a>');
+      if (p.style && p.style.productUrl) links.push('<a href="' + p.style.productUrl + '" target="_blank" rel="noopener">StyleKorean 보기 ↗</a>');
+
+      card.innerHTML =
+        '<div class="top">' +
+          '<div class="thumb-pair">' +
+            thumbHtml(p.kc.image, null, p.kc.productName + " (KCOSERA)") +
+            thumbHtml(p.style ? p.style.image : null, p.style ? p.style.remoteImage : null, p.style ? p.style.productName + " (StyleKorean)" : "No StyleKorean match") +
+          "</div>" +
+          '<div class="names">' +
+            '<span class="badge category">' + (g.category || "Uncategorized") + "</span>" +
+            '<div class="kc-name">' + p.kc.productName + "</div>" +
+            '<div class="style-name">' + (p.style ? p.style.productName : "No StyleKorean match") + "</div>" +
+          "</div>" +
+        "</div>" +
+        '<div class="guide-lines">' +
+          guideLine("Use", g.use) +
+          guideLine("Benefits", g.benefits) +
+          guideLine("Key Ingredients", g.keyIngredients) +
+          guideLine("Skin Types", g.skinTypes) +
+        "</div>" +
+        '<div class="card-price-row"><span class="prices">KC <b>' + money(p.kc.price) + "</b> · Style " + (p.style ? "<b>" + money(p.style.price) + "</b>" : "no match") + "</span></div>" +
+        '<div class="links">' + links.join("") + "</div>";
+
+      card.addEventListener("click", function (e) {
+        if (e.target.closest("a")) return; // let the link navigate normally
+        openDetail(p);
+      });
+      card.addEventListener("keydown", function (e) {
+        if ((e.key === "Enter" || e.key === " ") && !e.target.closest("a")) {
+          e.preventDefault();
+          openDetail(p);
+        }
+      });
+      learnGrid.appendChild(card);
+    });
+  }
+
+  renderChips();
+  renderLearnGrid();
+})();
+</script>
+</body>
+</html>
