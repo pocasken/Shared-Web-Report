@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hispanic HBA Entry Kit — K-Vive Direct</title>
+<style>
+:root{
+  --bg:#fff; --bg-soft:#f7f7f5; --bg-sunk:#eeede9;
+  --ink:#1a1a18; --ink-2:#4a4a45; --ink-3:#78786f;
+  --line:#e1e0da; --line-2:#c9c8c0;
+  --accent:#8c2f1f; --accent-soft:#fbf1ee;
+  --green:#2f6b3f; --green-bg:#eef5ef;
+  --amber:#8a6113; --amber-bg:#fbf4e6;
+  --red:#a32d20; --red-bg:#fdeeec;
+  --blue:#28506e; --blue-bg:#edf3f8;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,"Helvetica Neue",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#16161a; --bg-soft:#1d1d22; --bg-sunk:#26262c;
+  --ink:#eceae4; --ink-2:#bab8b1; --ink-3:#8c8a82;
+  --line:#33333a; --line-2:#46464f;
+  --accent:#e0806c; --accent-soft:#2a1e1b;
+  --green:#7fc08f; --green-bg:#1a2820;
+  --amber:#dbb066; --amber-bg:#2b2417;
+  --red:#e88b7d; --red-bg:#2e1c19;
+  --blue:#8fb8d8; --blue-bg:#18222c;
+}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1100px;margin:0 auto;padding:0 26px 100px}
+.mast{border-bottom:2px solid var(--ink);padding:44px 0 22px}
+.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 12px}
+h1{font-size:clamp(26px,4vw,39px);line-height:1.22;margin:0 0 15px;letter-spacing:-.02em;font-weight:800}
+.sub{font-size:17px;color:var(--ink-2);margin:0 0 22px;max-width:68ch;line-height:1.65}
+.meta{display:flex;flex-wrap:wrap;gap:6px 24px;font-size:12.5px;color:var(--ink-3);font-family:var(--mono)}
+.meta b{color:var(--ink-2);font-weight:600}
+nav{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);padding:11px 0;margin-bottom:42px;overflow-x:auto}
+nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;white-space:nowrap;font-size:13px}
+nav a{color:var(--ink-3);text-decoration:none;font-weight:600}
+nav a:hover{color:var(--accent)}
+section{margin:0 0 58px;scroll-margin-top:58px}
+h2{font-size:clamp(21px,2.6vw,27px);margin:0 0 7px;letter-spacing:-.015em;font-weight:800;line-height:1.28}
+h2 .num{color:var(--accent);font-family:var(--mono);font-size:.7em;margin-right:11px;font-weight:700}
+.h2sub{color:var(--ink-3);font-size:14.5px;margin:0 0 25px;padding-bottom:15px;border-bottom:1px solid var(--line)}
+h3{font-size:18px;margin:34px 0 11px;font-weight:750;letter-spacing:-.01em}
+h4{font-size:15px;margin:22px 0 8px;font-weight:700;color:var(--ink-2)}
+p{margin:0 0 14px;max-width:78ch}
+ul,ol{margin:0 0 14px;padding-left:22px;max-width:78ch}
+li{margin:0 0 6px}
+a{color:var(--accent)}
+code{font-family:var(--mono);font-size:.88em;background:var(--bg-sunk);padding:1.5px 5px;border-radius:3px}
+.lede{font-size:18.5px;line-height:1.65;border-left:4px solid var(--accent);padding:4px 0 4px 22px;margin:0 0 28px;max-width:72ch}
+.box{border:1px solid var(--line);border-radius:8px;padding:19px 23px;margin:22px 0;background:var(--bg-soft)}
+.box.warn{border-color:var(--red);background:var(--red-bg)}
+.box.good{border-color:var(--green);background:var(--green-bg)}
+.box.info{border-color:var(--blue);background:var(--blue-bg)}
+.box.note{border-color:var(--amber);background:var(--amber-bg)}
+.box>:first-child{margin-top:0}.box>:last-child{margin-bottom:0}
+.box .lbl{font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:800;margin:0 0 9px;display:block}
+.box.warn .lbl{color:var(--red)}.box.good .lbl{color:var(--green)}
+.box.info .lbl{color:var(--blue)}.box.note .lbl{color:var(--amber)}
+.scroll{overflow-x:auto;margin:19px 0;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:600px}
+th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5}
+thead th{background:var(--bg-sunk);font-weight:750;font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2)}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--bg-soft)}
+td.num,th.num{text-align:right;font-family:var(--mono);white-space:nowrap}
+.rowgrp td{background:var(--bg-sunk);font-weight:750;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.rowgrp:hover td{background:var(--bg-sunk)}
+tfoot td{background:var(--bg-sunk);font-weight:700;border-top:2px solid var(--line-2)}
+.chip{display:inline-block;font-size:11px;font-weight:750;padding:2px 8px;border-radius:20px;white-space:nowrap}
+.c-g{background:var(--green-bg);color:var(--green);border:1px solid var(--green)}
+.c-a{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber)}
+.c-r{background:var(--red-bg);color:var(--red);border:1px solid var(--red)}
+.c-b{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:25px 0}
+.stat{background:var(--bg);padding:16px 17px}
+.stat .v{font-size:25px;font-weight:800;letter-spacing:-.025em;line-height:1.15;font-family:var(--mono)}
+.stat .k{font-size:12px;color:var(--ink-3);margin-top:5px;line-height:1.4}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:19px;margin:25px 0}
+@media(max-width:780px){.duo{grid-template-columns:1fr}}
+.duo>div{border:1px solid var(--line);border-radius:8px;padding:19px 21px;background:var(--bg-soft)}
+.duo h4{margin-top:0;font-size:15px;color:var(--ink)}
+.tag{font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:800;margin-bottom:8px;display:block}
+.pog{border:2px solid var(--ink-2);border-radius:6px;overflow:hidden;margin:20px 0;font-size:12px;background:var(--bg-soft)}
+.pog .shelf{display:grid;border-bottom:2px solid var(--ink-2)}
+.pog .shelf:last-child{border-bottom:none}
+.pog .cell{padding:10px 9px;border-right:1px solid var(--line-2);min-height:62px}
+.pog .cell:last-child{border-right:none}
+.pog .cell .n{font-weight:750;display:block;margin-bottom:3px;line-height:1.3}
+.pog .cell .p{color:var(--ink-3);font-family:var(--mono);font-size:11px}
+.pog .shelf-lbl{background:var(--bg-sunk);padding:5px 11px;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;font-weight:800;color:var(--ink-3);border-bottom:1px solid var(--line-2)}
+.say,.dont{padding:3px 0 3px 17px;margin:11px 0}
+.say{border-left:3px solid var(--green)}
+.dont{border-left:3px solid var(--red);color:var(--ink-2)}
+.say b,.dont b{display:block;font-size:11px;letter-spacing:.11em;text-transform:uppercase;margin-bottom:4px}
+.say b{color:var(--green)}.dont b{color:var(--red)}
+.doc{border:1px solid var(--line-2);border-radius:6px;padding:26px 30px;margin:22px 0;background:var(--bg);font-size:14.5px;line-height:1.75}
+.doc h4{margin-top:0;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);border-bottom:1px solid var(--line);padding-bottom:9px;margin-bottom:18px}
+.doc p{max-width:none}
+.doc .sig{margin-top:22px;padding-top:14px;border-top:1px solid var(--line);color:var(--ink-3);font-size:13px}
+.q{border:1px solid var(--line);border-radius:6px;padding:15px 18px;margin:11px 0;background:var(--bg-soft)}
+.q .qn{font-weight:750;font-size:14.5px;margin-bottom:7px}
+.q .qo{font-size:13.5px;color:var(--ink-2);line-height:1.85}
+.q .qh{font-size:12px;color:var(--ink-3);margin-top:8px;font-style:italic}
+.src{font-size:12px;color:var(--ink-3);margin:8px 0 0;line-height:1.55}
+.src a{color:var(--ink-3)}
+.footnote{font-size:13px;color:var(--ink-3);line-height:1.65}
+.chain{border:1px solid var(--green);border-radius:8px;background:var(--green-bg);padding:20px 24px;margin:22px 0}
+.chain ol{counter-reset:c;list-style:none;padding-left:0;margin:0;max-width:none}
+.chain li{counter-increment:c;position:relative;padding-left:38px;margin-bottom:13px;font-size:14.5px;line-height:1.55}
+.chain li:last-child{margin-bottom:0}
+.chain li::before{content:counter(c);position:absolute;left:0;top:1px;width:25px;height:25px;border-radius:50%;background:var(--green);color:var(--green-bg);font-family:var(--mono);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center}
+footer{border-top:2px solid var(--ink);padding-top:20px;margin-top:54px;font-size:12.5px;color:var(--ink-3);line-height:1.7}
+@media print{
+  nav{display:none}body{font-size:10.5pt}
+  section{page-break-inside:avoid}.scroll{overflow:visible;border:none}
+  table{min-width:0;font-size:8.5pt}a{color:inherit;text-decoration:none}
+  .stat .v{font-size:15pt}.doc{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="mast">
+  <p class="eyebrow">K-Vive Direct · Hispanic HBA Entry Kit · Field Sales Edition · v02</p>
+  <h1>We supply products that are<br>selling for a reason</h1>
+  <p class="sub">Korean pop culture created the demand. K-Beauty's functional competitiveness converts it into repeat sales. This kit contains the 14-SKU set built for what Southern US Hispanic shoppers actually ask for, plus the pitch, customer letter, purchase-intent survey, and rep training you can use on your existing F&amp;B accounts this week.</p>
+  <div class="meta">
+    <span><b>Date</b> 2026-08-25</span>
+    <span><b>Version</b> v02</span>
+    <span><b>Channel</b> Hispanic Grocery HBA</span>
+    <span><b>Markets</b> FL · GA · TX (US domestic)</span>
+    <span><b>Parent doc</b> Portfolio Strategy v02</span>
+  </div>
+</header>
+
+<nav><ul>
+  <li><a href="#s0">Summary</a></li>
+  <li><a href="#s1">Cultural Momentum</a></li>
+  <li><a href="#s2">The Consumer</a></li>
+  <li><a href="#s3">Three States</a></li>
+  <li><a href="#s4">Incubation</a></li>
+  <li><a href="#s5">14 SKUs</a></li>
+  <li><a href="#s6">Planogram</a></li>
+  <li><a href="#s7">Pitch</a></li>
+  <li><a href="#s8">Letter</a></li>
+  <li><a href="#s9">Survey</a></li>
+  <li><a href="#s10">Rep Training</a></li>
+  <li><a href="#s11">Legal Lines</a></li>
+  <li><a href="#s12">Limits</a></li>
+</ul></nav>
+
+<!-- ===== 0 ===== -->
+<section id="s0">
+  <h2><span class="num">00</span>One-Page Summary</h2>
+  <p class="h2sub">If you read nothing else before you go out, read this</p>
+
+  <p class="lede">We are not selling a brand. We are selling <b>demand that already exists</b>, <b>product that can capture it</b>, and <b>a truck that is already going to that store every week</b>.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="v">46%</div><div class="k">of Hispanic households have a KPop Demon Hunters fan<br>(28% of US households overall)</div></div>
+    <div class="stat"><div class="v">25%</div><div class="k">of those fans say it made them<br>interested in K-Beauty</div></div>
+    <div class="stat"><div class="v">5×</div><div class="k">Hispanic shoppers' likelihood of shopping independent Latino grocery<br>(33% vs 6% general)</div></div>
+    <div class="stat"><div class="v">16.6%</div><div class="k">of US beauty dollars are Hispanic<br>(14.4% of households)</div></div>
+    <div class="stat"><div class="v">+48%</div><div class="k">US K-Beauty sales growth<br>($2.8B, early 2026)</div></div>
+  </div>
+
+  <h3>The business case in three sentences</h3>
+  <ol>
+    <li><b>The demand already exists.</b> Hispanic shoppers spend more on beauty than their share of households, and they shop independent Latino grocery five times more often than the general population. Yet the beauty shelf in those stores is usually empty or unchanged in twenty years.</li>
+    <li><b>We have something no one else has.</b> A delivery route already entering that store every week, DCs nearby, and twenty years of trust. A new entrant would need three years to build what we already own.</li>
+    <li><b>The product itself is competitive.</b> The recent wave of K-pop, Korean drama and film runs unusually strong with this consumer, and K-Beauty can convert that interest with <b>real functional performance</b>. Our focus is <b>supplying competitive product that turns that demand into sales</b>.</li>
+  </ol>
+
+  <div class="box warn">
+    <span class="lbl">State this up front, internally and to the retailer</span>
+    <p style="margin-bottom:8px"><b>We found no evidence of K-Beauty selling in US Hispanic grocery.</b> No success cases, no failure cases. In fact the most recent study (Belleza Latina) puts Latina beauty shoppers in <b>Sephora, Ulta and Amazon</b>.</p>
+    <p style="margin-bottom:0">The cultural momentum is proven and the spending power is proven — but <b>that these two meet in this channel is not yet proven.</b> That is precisely why we run a 9-store, 90-day pilot. Being straight about this earns more credibility than overselling.</p>
+  </div>
+</section>
+
+<!-- ===== 1 ===== -->
+<section id="s1">
+  <h2><span class="num">01</span>Cultural Momentum — Why Now</h2>
+  <p class="h2sub">New in v02. This is where the pitch starts</p>
+
+  <p class="lede">Korean content has created interest that runs <b>unusually strong with this exact consumer</b>, and a quarter of that interest transfers <b>directly to K-Beauty</b>. That is measured, not assumed.</p>
+
+  <h3>1-1. The evidence chain — read in order</h3>
+  <div class="chain">
+    <ol>
+      <li><b>Korean content influences purchase of Korean products — 64.8%</b><br>
+      <span style="color:var(--ink-3);font-size:13.5px">Korean Ministry of Culture / KOFICE official survey, 27,400 respondents across 30 countries. Rising since 2023. Note: this covers Korean products and services broadly, not cosmetics alone.</span></li>
+
+      <li><b>46% of US Hispanic households have a Korean-content fan — 1.64× the 28% national average</b><br>
+      <span style="color:var(--ink-3);font-size:13.5px">Numerator, n=2,200 US consumers (Oct 2025), measured on KPop Demon Hunters. Asian households 59%, Millennials 45%, Gen Z 43%.</span></li>
+
+      <li><b>25% of those fans said it made them interested in K-Beauty</b><br>
+      <span style="color:var(--ink-3);font-size:13.5px">Same study. Korean food/beverage interest +34%; willingness to buy collab products 42%. <b>The only measured culture-to-category transfer we found.</b></span></li>
+
+      <li><b>K-dramas draw a 30% Hispanic audience vs a 17% Hispanic share of Netflix's US base — index ~176</b><br>
+      <span style="color:var(--ink-3);font-size:13.5px">YouGov Behavioral (June 2024), top-20 K-dramas. Clear over-index.</span></li>
+
+      <li><b>Mexico is the world's #5 K-pop market — the only Spanish-speaking country in the global top 10</b><br>
+      <span style="color:var(--ink-3);font-size:13.5px">Spotify Newsroom (Aug 2025). 14 million listeners, +500% over five years, ~70% of fans under 29.</span></li>
+
+      <li><b>In Mexico, beauty is the #1 Korean cultural category by favorability — 82%</b><br>
+      <span style="color:var(--ink-3);font-size:13.5px">KOFICE Mexico deep-dive (2023), ahead of food (81.8%) and drama (81.3%). Note: 2023 data, and Mexican consumers, not US Hispanics.</span></li>
+
+      <li><b>Result: US K-Beauty sales $2.8B, +48% year over year</b><br>
+      <span style="color:var(--ink-3);font-size:13.5px">Early 2026. Amazon Korean facial skincare grew 80% in H1 2026 alone.</span></li>
+    </ol>
+  </div>
+  <p class="src">Sources: <a href="https://zdnet.co.kr/view/?no=20260330102740">KOFICE 2026 Overseas Hallyu Survey</a> · <a href="https://www.numerator.com/resources/blog/kpop-demon-hunters/">Numerator (2025-10-27)</a> · <a href="https://business.yougov.com/content/49782-yougov-behavioral-k-drama-k-pop-fandoms-us">YouGov Behavioral (2024-06-17)</a> · <a href="https://newsroom.spotify.com/2025-08-13/how-mexico-became-one-of-the-worlds-biggest-k-pop-hubs-on-spotify/">Spotify Newsroom (2025-08-13)</a> · <a href="https://www.archivecenter.net/hallyuresearch/archive/collection/ArchiveCollectionView.do?con_id=3225">KOFICE Mexico (2023)</a> · <a href="https://www.glossy.co/beauty/beauty-briefing-from-tampons-to-fragrance-k-beauty-is-everywhere/">Glossy (2026-08-11)</a> · all checked 2026-08-25</p>
+
+  <h3>1-2. Evidence the momentum has not peaked</h3>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:26%">Indicator</th><th style="width:38%">What is confirmed</th><th style="width:36%">Why it matters here</th></tr></thead>
+    <tbody>
+      <tr><td><b>Netflix Korean content</b></td><td><b>12.1 billion hours</b> viewed across 17 markets. <b>#2 globally after the US, #1 non-US content.</b> +44% vs Japanese content, nearly 2× UK content (Omdia)</td><td>The 17 markets analyzed <b>include Mexico, Brazil, Colombia and Argentina</b></td></tr>
+      <tr><td><b>KPop Demon Hunters</b></td><td><b>Netflix's most-watched title ever.</b> 639.3M cumulative views / 1.066B hours. <b>52 consecutive weeks in the global Top 10</b> — a first. Won 2026 Academy Awards for Best Animated Feature and Best Original Song</td><td>Unusual durability a full year on. 20.5 billion minutes viewed in the US alone</td></tr>
+      <tr><td><b>2026 slate</b></td><td><b>33 Korean series and films</b> scheduled on Netflix. Netflix Korea's content VP: "global audiences are only beginning to discover Korean storytelling"</td><td><b>No plateau signal.</b> Content supply is locked in through next year</td></tr>
+      <tr><td><b>Latin America conversion</b></td><td>South American cosmetics exports <b>$15.3M → $70.2M (4.6×, 2020→2025)</b>. Brazil more than 10×. SKIN1004 Mexico Q1 sales +930%</td><td>Cultural interest converting to actual purchase is <b>visible in export data</b></td></tr>
+    </tbody>
+  </table></div>
+  <p class="src">Sources: <a href="https://cyprus-mail.com/2026/06/28/korean-content-becomes-netflixs-top-global-export-after-us">Omdia via Cyprus Mail (2026-06-28)</a> · <a href="https://www.netflix.com/tudum/articles/kpop-demon-hunters-most-popular-netflix-film">Netflix Tudum</a> · <a href="https://www.hollywoodreporter.com/tv/tv-news/netflix-korean-content-2026-slate-series-films-full-list-1236479688/">Hollywood Reporter</a> · <a href="https://www.etoday.co.kr/news/view/2607259">Etoday (2026-07-29)</a></p>
+
+  <h3>1-3. Functional competitiveness — claim only these three</h3>
+  <p>Culture creates interest, but without product performance there is no reorder. <b>However, our functional claims must be limited to three things.</b> Anything beyond that is publicly contradicted by dermatologists and hands a buyer an easy rebuttal.</p>
+
+  <div class="duo">
+    <div style="background:var(--green-bg);border-color:var(--green)">
+      <span class="tag" style="color:var(--green)">Safe to claim — sourced</span>
+      <h4>1. Development speed</h4>
+      <p style="font-size:14px;margin-bottom:10px">Korean ODMs go from concept to shelf in <b>6–8 months</b>; large Western companies take <b>2–3 years</b>. With roughly 30,000 registered cosmetics companies in Korea, competition forces the pace. <b>Trends reach the shelf faster.</b></p>
+      <h4>2. Sunscreen UV filters</h4>
+      <p style="font-size:14px;margin-bottom:10px">The US has effectively <b>one</b> adequate UVA chemical filter — avobenzone. The FDA has not approved a new UV filter since 1999. Korea and Europe can use newer photostable filters such as Tinosorb S and Uvinul A Plus. <b>A real technical advantage created by a regulatory gap.</b></p>
+      <h4>3. Price-to-performance</h4>
+      <p style="font-size:14px;margin-bottom:0">Comparable function at a lower price point than Western brands. This is the argument that lands hardest in this channel.</p>
+    </div>
+    <div style="background:var(--red-bg);border-color:var(--red)">
+      <span class="tag" style="color:var(--red)">Do not claim — you will be corrected</span>
+      <h4>"Korean ingredients work better"</h4>
+      <p style="font-size:14px;margin-bottom:10px"><b>Dr. Shari Lipner (Weill Cornell):</b> Western staples like retinol, vitamin C and peptides are "well studied and evidence-backed," whereas fermented ingredients and snail mucin "may help, but we know much less. The data isn't there yet."</p>
+      <p style="font-size:14px;margin-bottom:10px"><b>Dr. Clare O'Connor:</b> K-Beauty sunscreens are <b>"not superior — at best equivalent"</b> to European products.</p>
+      <p style="font-size:14px;margin-bottom:0">Fast regulatory approval cuts both ways — it also means products can launch without a strong evidence base. <b>Claim ingredient superiority and these quotes become the rebuttal.</b></p>
+    </div>
+  </div>
+  <p class="src">Sources: <a href="https://www.nextpangaea.com/post/from-trend-to-product-how-korean-skincare-manufacturers-react-so-fast">NextPangaea (2026-05-06)</a> · <a href="https://www.today.com/health/skin-beauty/korean-vs-american-sunscreens-rcna205214">TODAY (2025-12-11)</a> · <a href="https://www.sciencefocus.com/science/korean-skincare-truth">BBC Science Focus (2026-06-07)</a></p>
+
+  <div class="box note">
+    <span class="lbl">The weakest link — know it before someone finds it</span>
+    <p style="margin-bottom:0"><b>No public data directly measures how much K-Beauty US Hispanic consumers actually buy.</b> Hispanic Korean-content fandom (46%) and Hispanic beauty over-indexing (14.4% of households / 16.6% of dollars) are each proven, but no study crosses them. The NielsenIQ Hispanic beauty report does not mention K-Beauty at all. <b>This is a well-founded hypothesis, not a proven fact — and it is exactly what the pilot is for.</b></p>
+  </div>
+</section>
+
+<!-- ===== 2 ===== -->
+<section id="s2">
+  <h2><span class="num">02</span>The US Hispanic Beauty Consumer</h2>
+  <p class="h2sub">Confirmed figures you can quote directly (checked 2026-08-25)</p>
+
+  <h3>2-1. The money is already being spent</h3>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:34%">Metric</th><th style="width:26%">Figure</th><th style="width:40%">How to use it</th></tr></thead>
+    <tbody>
+      <tr><td>Share of US beauty dollars</td><td><b>16.6%</b> (14.4% of households)</td><td>"They spend above their share of the population"</td></tr>
+      <tr><td>Total Hispanic beauty spend</td><td><b>$23B, +6% YoY</b></td><td>Scale of the opportunity</td></tr>
+      <tr><td>Spend premium vs non-Hispanic</td><td><b>+$39/yr</b>; Latinas average <b>19% more</b></td><td>"Same shoppers you already have — they spend more on beauty"</td></tr>
+      <tr><td>Annual beauty shopping trips</td><td><b>2 more per year</b> than average</td><td>Repeat purchase argument</td></tr>
+      <tr><td>In-store share</td><td><b>51% of dollars in-store</b>, <b>56% prefer in-store</b></td><td>"They have not all gone online"</td></tr>
+      <tr><td>New-product trial</td><td>Latinas <b>over-index on sampling and trying new products</b></td><td>Favorable to an unknown brand entering</td></tr>
+    </tbody>
+  </table></div>
+  <p class="src">Sources: <a href="https://nielseniq.com/global/en/insights/commentary/2024/understanding-the-hispanic-beauty-consumer-trends-values-and-buying-power/">NielsenIQ (2024)</a> · <a href="https://wwd.com/beauty-industry-news/beauty-features/latina-beauty-culture-shoppers-mindset-research-1238977033/">WWD × Circana (2026-05-26)</a> · <a href="https://hispanicmarketingcouncil.org/press/hmc-unveils-new-study-on-u-s-hispanic-beauty-and-skincare-belleza-latina/">Belleza Latina (2025-10-07)</a></p>
+
+  <div class="box good">
+    <span class="lbl">The channel argument — memorize this one</span>
+    <p style="margin-bottom:8px"><b>Independent Latino grocery penetration: 33% among Latino shoppers vs 6% general population — more than 5×.</b></p>
+    <ul style="margin-bottom:8px">
+      <li><b>55% of Latino consumers live within 2 miles</b> of such a store (31% general)</li>
+      <li><b>81% would shop more often if one were closer</b> (47% general)</li>
+      <li>Ranks as a top destination alongside Walmart, Amazon and Costco</li>
+    </ul>
+    <p style="margin-bottom:0"><b>Why it matters:</b> these shoppers do not come to this store for beauty — but <b>they already come every week.</b> We do not need to create traffic.</p>
+    <p class="src" style="margin-bottom:0">Sources: <a href="https://www.pdginsights.com/post/why-shoppers-are-choosing-independent-latino-grocery-stores-and-what-it-means-for-cpg-brands">PDG Insights</a> · <a href="https://www.grocerydive.com/news/latino-hispanic-grocery-shopper/740971/">Grocery Dive (2025-03-17)</a></p>
+  </div>
+
+  <h3>2-2. Skin concerns — what we are actually selling</h3>
+  <p>This consumer buys <b>skincare</b>, not makeup. In Belleza Latina (500 US Hispanic women, 18–34), <b>62% aspire to a natural look</b>, only <b>13% prefer bold glam</b>, and <b>72% will leave home without makeup</b> — while <b>90% say clear, healthy skin is extremely important</b>. The same study states that Korean <b>"glass skin" ideals directly influence young Latinas' approach to beauty</b>.</p>
+
+  <div class="scroll"><table>
+    <thead><tr><th class="num" style="width:6%">#</th><th style="width:22%">Concern</th><th style="width:38%">Evidence</th><th style="width:34%">Products we carry for it</th></tr></thead>
+    <tbody>
+      <tr><td class="num"><b>1</b></td><td><b>Manchas</b><br>(dark spots / pigmentation)</td><td><b>Fourth most common dermatosis</b> among Hispanic and Latino individuals. Of 401 Latina women (30–65), <b>63% would consider treatments</b> for it, and <b>66% feel underrepresented in skincare advertising</b></td><td>Niacinamide serum, vitamin C serum, tone-correcting cream, brightening mask</td></tr>
+      <tr><td class="num"><b>2</b></td><td><b>Barros / Acné</b><br>(acne, breakouts)</td><td><b>#1 diagnosis</b> among Hispanic dermatology patients. And post-inflammatory hyperpigmentation follows acne in <b>52.7% of Hispanic patients</b> — <b>#1 and #2 are effectively the same purchase trigger</b></td><td>Acne patches, BHA toner, centella soothing gel</td></tr>
+      <tr><td class="num"><b>3</b></td><td><b>Piel seca / grasa</b><br>(dryness, oiliness)</td><td>The repeat-purchase base. This is what creates turns in this channel</td><td>Hydrating toner, gel cream, foam cleanser, cleansing oil</td></tr>
+      <tr><td class="num"><b>4</b></td><td><b>Luminosidad</b><br>(glow / glass skin)</td><td>Where the cultural momentum in §1 connects directly. <b>73% use traditional ingredients</b> — aloe, coconut oil, rosewater — in modern formulations, which bridges to K-Beauty's botanical positioning</td><td>Hydrogel eye patches, sheet masks, lip care</td></tr>
+    </tbody>
+  </table></div>
+  <p class="src">Sources: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8570660">Murphy &amp; Dow, J Clin Aesthet Dermatol (2021)</a> · <a href="https://jddonline.com/articles/top-dermatologic-conditions-in-patients-of-color-an-analysis-of-nationally-representative-data-S1545961612P0466X">JDD, NAMCS analysis</a> · <a href="https://jcadonline.com/postinflammatory-hyperpigmentation-a-review-of-the-epidemiology-clinical-features-and-treatment-options-in-skin-of-color/">JCAD, PIH review</a></p>
+
+  <div class="box note">
+    <span class="lbl">An honest contradiction</span>
+    <p style="margin-bottom:0">Clinical <b>visit</b> data (NAMCS) does <b>not</b> place pigmentation in the top five diagnoses for Hispanic patients. Marketing research and clinical data disagree. That said, only <b>23.9% of Hispanic dermatologic visits reach an actual dermatologist</b>, and Hispanic communities have the highest uninsured rate in the US — so clinic data likely undercounts cosmetic pigment concerns. <b>This is unresolved.</b> Say "the largest commercial opportunity," not "the #1 concern."</p>
+  </div>
+
+  <div class="box good">
+    <span class="lbl">Favorable to an unknown brand</span>
+    <p style="margin-bottom:0">In Belleza Latina, <b>85% describe themselves as "beauty brand explorers."</b> US Hispanic shoppers use <b>6.1 store banners</b> on average vs 4.9 for the general market. And <b>80% want brands that genuinely understand the needs of people of color, while only 35% think the industry delivers</b> — a 45-point gap. <b>Loyalty here is earned, not default</b>, which favors a new entrant and disadvantages incumbents.</p>
+  </div>
+</section>
+
+<!-- ===== 3 ===== -->
+<section id="s3">
+  <h2><span class="num">03</span>FL, GA and TX Are Not One Market</h2>
+  <p class="h2sub">Plan against "Hispanic" as a single unit and you will be wrong in all three</p>
+
+  <div class="scroll"><table>
+    <thead><tr><th style="width:13%">State</th><th class="num" style="width:11%">Hispanic %</th><th style="width:31%">Origin mix</th><th style="width:21%">Key counties</th><th style="width:24%">Sales implication</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>Texas</b><br><span style="color:var(--ink-3);font-size:12px">31.7M people</span></td>
+        <td class="num"><b>40.9%</b></td>
+        <td><b>86% Mexican origin</b>, 3% Salvadoran. The most uniform of the three</td>
+        <td>Bexar 60.7%<br>Harris 46.1%<br>Dallas 43.4%</td>
+        <td>One planogram and one Spanish card set covers the state. <b>Best for scaling</b></td>
+      </tr>
+      <tr>
+        <td><b>Florida</b><br><span style="color:var(--ink-3);font-size:12px">23.5M people</span></td>
+        <td class="num"><b>29.2%</b></td>
+        <td>Cuban 1.46M, Puerto Rican 1.24M, Mexican 722K, Colombian 445K, <b>Venezuelan 381K (+119% since 2019)</b></td>
+        <td>Miami-Dade 70.6%<br>Orange 35.4%<br>Hillsborough 32.1%</td>
+        <td><b>Do not build this on a Mexican-origin assumption.</b> Miami is 40% Cuban, Orlando 43% Puerto Rican</td>
+      </tr>
+      <tr>
+        <td><b>Georgia</b><br><span style="color:var(--ink-3);font-size:12px">11.3M people</span></td>
+        <td class="num"><b>12.1%</b></td>
+        <td>Mexican 57%, Puerto Rican 10%, South American 8%, Guatemalan 6%. Metro Atlanta is more mixed at 47% Mexican</td>
+        <td><b>Gwinnett 25.5%</b><br>median HH income <b>$87,890</b> — highest of the seven counties</td>
+        <td>Smallest, but <b>highest income</b> — and closest to a POCAS DC. <b>Pilot here first</b></td>
+      </tr>
+    </tbody>
+  </table></div>
+  <p class="src">Sources: <a href="https://www.census.gov/quickfacts/fact/table/FL,GA,TX/PST045224">U.S. Census QuickFacts (V2025)</a> · <a href="https://www.pewresearch.org/short-reads/2023/08/16/11-facts-about-hispanic-origin-groups-in-the-us/">Pew Research</a> · <a href="https://www.pewresearch.org/short-reads/2026/01/09/facts-about-venezuelans-in-the-us/">Pew, Venezuelans (2026-01-09)</a></p>
+
+  <div class="box info">
+    <span class="lbl">Therefore the pilot sequence is</span>
+    <ol style="margin-bottom:0">
+      <li><b>Georgia (Gwinnett area) — 3 stores.</b> Closest DC, highest income. Perfect the shelf, restock and data-collection process here.</li>
+      <li><b>Texas (Houston, Dallas) — 3–4 stores.</b> 86% Mexican origin means what worked in GA replicates directly. This is the scale market.</li>
+      <li><b>Florida (Miami, Orlando) — 2–3 stores.</b> Most complex origin mix. Enter last, with GA and TX data in hand.</li>
+    </ol>
+  </div>
+
+  <p class="footnote"><b>Caveat:</b> origin-based differences in <b>food and store-format</b> preference are documented, but <b>we found no research on beauty or HBA purchase differences by national origin.</b> The implications above are inferred from population composition.</p>
+</section>
+
+<!-- ===== 4 ===== -->
+<section id="s4">
+  <h2><span class="num">04</span>What the Incubation Strategy Changes</h2>
+  <p class="h2sub">Not using famous brands is an advantage, not a weakness</p>
+
+  <div class="duo">
+    <div style="background:var(--green-bg);border-color:var(--green)">
+      <span class="tag" style="color:var(--green)">What we gain — significant</span>
+      <h4>The online price-collapse risk disappears</h4>
+      <p style="font-size:14.5px;margin-bottom:8px">The biggest problem with famous K-Beauty brands is that <b>the brands themselves sell at roughly half price on their own Amazon storefronts.</b> Observed gaps: Biodance <b>~65–70%</b> below its own DTC site, Medicube <b>52–55%</b>, TIRTIR <b>46%</b>, COSRX <b>53%</b>.</p>
+      <p style="font-size:14.5px;margin-bottom:0">Put that on a shelf and one phone search kills it. <b>Sourced unknown product has no structural exposure to this</b> — we are the only US route to market.</p>
+    </div>
+    <div style="background:var(--red-bg);border-color:var(--red)">
+      <span class="tag" style="color:var(--red)">What we give up — plan for it</span>
+      <h4>Zero brand recognition</h4>
+      <p style="font-size:14.5px;margin-bottom:8px">We cannot open with "you know COSRX, right?" Neither the retailer nor the shopper knows these brands.</p>
+      <p style="font-size:14.5px;margin-bottom:0">So the pitch shifts from brand to <b>category, concern, price and delivery</b>. Fortunately the cultural momentum in §1 works at the <b>category level, not the brand level</b> — in the Numerator study, what fans became interested in was <b>"K-Beauty," not a specific brand.</b></p>
+    </div>
+  </div>
+
+  <div class="box info">
+    <span class="lbl">Which is why the portfolio is built this way</span>
+    <p style="margin-bottom:8px">The 14 SKUs below are defined by <b>product type, consumer concern and price point — not by brand.</b> When sourcing finds product that fits a slot, it drops in. If the brand changes, <b>the planogram, the sales script and the Spanish shelf cards all still work.</b></p>
+    <p style="margin-bottom:0">ODM comes <b>after</b> the pilot tells us which types actually sell. Committing to ODM minimums before knowing what to make is the most expensive mistake available here.</p>
+  </div>
+
+  <h3>Context — this is already happening</h3>
+  <p>The <b>ANUA × KPop Demon Hunters</b> collaboration launched online in February 2026 and went into <b>roughly 1,500 Ulta stores nationwide</b>. Collagen masks at $4 each ($15 for four), spot patches $14 for 55 count, and limited bundles with <b>collectible photocards</b> — a K-pop fandom mechanic transplanted directly onto a beauty shelf.</p>
+  <p><b>H Mart</b> has opened beauty sections branded <b>"H Art"</b> at select stores. Their stated rationale: <i>"Korean food and skincare are all bundled together because both are essential in the day-to-day."</i> That is the closest structural precedent for a food distributor adding skincare to a culturally-defined grocery channel — though H Mart put Korean product into Korean grocery, an ethnicity match our case does not have.</p>
+  <p class="src">Sources: <a href="https://www.netflix.com/tudum/articles/kpop-demon-hunters-anua">Netflix Tudum</a> · <a href="https://wwd.com/pop-culture/new-fashion-releases/anua-kpop-demon-hunters-partnership-1238532731/">WWD</a> · <a href="https://www.emarketer.com/content/k-beauty-comes-h-mart--retailers-should-embrace-big-beauty-trends">eMarketer (2026-03-13)</a></p>
+</section>
+
+<!-- ===== 5 ===== -->
+<section id="s5">
+  <h2><span class="num">05</span>Recommended Portfolio — 14 SKUs</h2>
+  <p class="h2sub">Sourcing fills in the brand. Type, concern and price stay fixed</p>
+
+  <div class="scroll"><table>
+    <thead><tr>
+      <th class="num" style="width:4%">#</th><th style="width:20%">Product type · size</th><th style="width:19%">What the customer says</th>
+      <th style="width:15%">Spanish shelf card</th><th class="num" style="width:9%">Target retail</th><th style="width:10%">Role</th><th style="width:23%">Sourcing spec</th>
+    </tr></thead>
+    <tbody>
+      <tr class="rowgrp"><td colspan="7">A. Manchas — dark spots · 4 SKUs · our differentiator in this channel</td></tr>
+      <tr><td class="num">1</td><td>Niacinamide serum 30ml</td><td>"My dark spots are getting worse"</td><td><i>Para manchas oscuras</i></td><td class="num">$9.99</td><td><b>Core</b></td><td>Niacinamide 5–10%. Prefer product with clinical figures</td></tr>
+      <tr><td class="num">2</td><td>Vitamin C serum 30ml</td><td>"My skin looks dull"</td><td><i>Unifica el tono</i></td><td class="num">$9.99</td><td><b>Core</b></td><td>Stabilized derivative required (oxidation drives complaints). UV-blocking container</td></tr>
+      <tr><td class="num">3</td><td>Tone-correcting cream 50g</td><td>"A daily cream for spots"</td><td><i>Crema correctora</i></td><td class="num">$8.99</td><td><b>Core</b></td><td>Arbutin / tranexamic acid family. <b>Hydroquinone absolutely excluded</b> (§11)</td></tr>
+      <tr><td class="num">4</td><td>Brightening sheet mask, single</td><td>"I have an event tomorrow"</td><td><i>Mascarilla iluminadora</i></td><td class="num">$1.99</td><td>Traffic</td><td>Individually wrapped for single sale. Checkout placement</td></tr>
+
+      <tr class="rowgrp"><td colspan="7">B. Barros / Acné — 3 SKUs · the surest first sale</td></tr>
+      <tr><td class="num">5</td><td>Acne spot patches, 1 sheet</td><td>"Cover today's breakout today"</td><td><i>Parches para barros</i></td><td class="num">$4.99</td><td><b>Traffic</b></td><td>Hydrocolloid. <b>Highest expected turn in this channel</b> — prioritize inventory</td></tr>
+      <tr><td class="num">6</td><td>BHA / salicylic toner 150ml</td><td>"Clogged pores, shiny skin"</td><td><i>Poros obstruidos</i></td><td class="num">$8.99</td><td><b>Core</b></td><td>Low-concentration salicylic. Targets existing Asepxia users</td></tr>
+      <tr><td class="num">7</td><td>Centella soothing gel 50ml</td><td>"Red and stinging"</td><td><i>Calma la piel irritada</i></td><td class="num">$9.99</td><td>Core</td><td>Centella content on label. Post-acne calming = PIH prevention story</td></tr>
+
+      <tr class="rowgrp"><td colspan="7">C. Hidratación — 3 SKUs · the repeat-purchase base</td></tr>
+      <tr><td class="num">8</td><td>Hydrating toner 200ml</td><td>"Tight after washing"</td><td><i>Para piel seca</i></td><td class="num">$7.99</td><td><b>Core</b></td><td>Larger size for perceived value. Keep fragrance low</td></tr>
+      <tr><td class="num">9</td><td>Gel cream 50ml</td><td>"Moisture without the weight"</td><td><i>Hidratación ligera</i></td><td class="num">$8.99</td><td><b>Core</b></td><td>Built for humid Southern climate — low-oil formulation</td></tr>
+      <tr><td class="num">10</td><td>Hydrogel eye patches, small pack</td><td>"I look tired"</td><td><i>Para ojeras</i></td><td class="num">$5.99</td><td>Impulse</td><td>5–10 use pack. A large jar does not fit this price band</td></tr>
+
+      <tr class="rowgrp"><td colspan="7">D. Limpieza — 2 SKUs</td></tr>
+      <tr><td class="num">11</td><td>Foam cleanser 150ml</td><td>"Everyday face wash"</td><td><i>Limpiador facial</i></td><td class="num">$6.99</td><td><b>Core</b></td><td>Lowest barrier to first purchase</td></tr>
+      <tr><td class="num">12</td><td>Cleansing oil / balm, small</td><td>"Sunscreen won't come off"</td><td><i>Desmaquillante</i></td><td class="num">$8.99</td><td>Core</td><td>Small size holds the price point</td></tr>
+
+      <tr class="rowgrp"><td colspan="7">E. Impulso — 2 SKUs</td></tr>
+      <tr><td class="num">13</td><td>Hydrating sheet mask, single</td><td>"Tonight's treatment"</td><td><i>Mascarilla hidratante</i></td><td class="num">$1.99</td><td>Traffic</td><td>Different function from #4. Two-variety checkout basket</td></tr>
+      <tr><td class="num">14</td><td>Lip sleeping mask / lip care</td><td>"My lips are cracked"</td><td><i>Para labios resecos</i></td><td class="num">$5.99</td><td>Impulse</td><td>Gift and impulse. Sells year-round</td></tr>
+
+      <tr class="rowgrp"><td colspan="7">F. Conditional — do not shelve before clearance</td></tr>
+      <tr><td class="num">15</td><td>Sunscreen SPF <span class="chip c-b">conditional</span></td><td>"Sun protection with no white cast"</td><td><i>Protector solar</i></td><td class="num">$12.99</td><td>Hold</td><td><b>Not eligible until US OTC monograph and Drug Facts labeling are confirmed.</b> Korea-domestic SPF cannot be used</td></tr>
+    </tbody>
+    <tfoot><tr><td colspan="4">14 SKUs (+1 conditional) · 8 core / 4 traffic / 2 impulse</td><td class="num">avg ≈ $7.60</td><td colspan="2">$1.99–$4.99 = 3 SKUs (21%)</td></tr></tfoot>
+  </table></div>
+
+  <div class="box note">
+    <span class="lbl">Basis and limits of the pricing</span>
+    <p style="margin-bottom:8px">Two inputs. (1) Existing HBA shelf pricing in Hispanic grocery was observed at <b>$3–$8 retail</b> — from one retailer and one wholesaler, not a channel census. (2) But US Hispanic consumers spend <b>19% more</b> on beauty than average.</p>
+    <p style="margin-bottom:0">So we anchor the impulse tier firmly at <b>$1.99–$5.99</b> and take only the serums to <b>$9.99</b>. <b>These are sourcing targets, not confirmed prices</b> — final retail follows landed cost and retailer margin work.</p>
+  </div>
+</section>
+
+<!-- ===== 6 ===== -->
+<section id="s6">
+  <h2><span class="num">06</span>Two-Foot Planogram</h2>
+  <p class="h2sub">Show the retailer a finished shelf, not a SKU list</p>
+
+  <div class="pog">
+    <div class="shelf-lbl">Top shelf — Tratamiento · treatment · $8.99–$9.99</div>
+    <div class="shelf" style="grid-template-columns:repeat(5,1fr)">
+      <div class="cell"><span class="n">Niacinamida<br>Serum</span><span class="p">$9.99 · manchas</span></div>
+      <div class="cell"><span class="n">Vitamina C<br>Serum</span><span class="p">$9.99 · tono</span></div>
+      <div class="cell"><span class="n">Crema<br>Correctora</span><span class="p">$8.99 · manchas</span></div>
+      <div class="cell"><span class="n">Gel Calmante<br>Centella</span><span class="p">$9.99 · irritada</span></div>
+      <div class="cell"><span class="n">Tónico BHA<br>150ml</span><span class="p">$8.99 · poros</span></div>
+    </div>
+    <div class="shelf-lbl">Middle shelf — Rutina Diaria · everyday · $5.99–$8.99</div>
+    <div class="shelf" style="grid-template-columns:repeat(5,1fr)">
+      <div class="cell"><span class="n">Limpiador<br>Facial</span><span class="p">$6.99</span></div>
+      <div class="cell"><span class="n">Desmaquillante<br>en Aceite</span><span class="p">$8.99</span></div>
+      <div class="cell"><span class="n">Tónico<br>Hidratante</span><span class="p">$7.99</span></div>
+      <div class="cell"><span class="n">Crema Gel<br>Ligera</span><span class="p">$8.99</span></div>
+      <div class="cell"><span class="n">Parches<br>Ojeras</span><span class="p">$5.99</span></div>
+    </div>
+    <div class="shelf-lbl">Bottom shelf / checkout — Prueba · trial · $1.99–$5.99</div>
+    <div class="shelf" style="grid-template-columns:repeat(4,1fr)">
+      <div class="cell"><span class="n">Parches para<br>Barros</span><span class="p">$4.99 · top turn</span></div>
+      <div class="cell"><span class="n">Mascarilla<br>Iluminadora</span><span class="p">$1.99</span></div>
+      <div class="cell"><span class="n">Mascarilla<br>Hidratante</span><span class="p">$1.99</span></div>
+      <div class="cell"><span class="n">Bálsamo<br>Labial</span><span class="p">$5.99</span></div>
+    </div>
+  </div>
+
+  <div class="box good">
+    <span class="lbl">Three placement rules</span>
+    <ol style="margin-bottom:0">
+      <li><b>Price rises from bottom to top.</b> The $1.99 trial happens at the shelf her hand reaches first; satisfied shoppers move up. Arranging by routine order (cleanse → tone → treat) does not work in this channel.</li>
+      <li><b>$1.99 and $4.99 must be legible from across the aisle.</b> Small price tags make this read as an expensive set and nobody approaches it.</li>
+      <li><b>Put acne patches in a separate checkout basket.</b> It is the surest first sale here and the fastest way to prove "this moves" to the retailer.</li>
+    </ol>
+  </div>
+
+  <div class="box info">
+    <span class="lbl">Bilingual signage — there is data</span>
+    <p style="margin-bottom:8px">A 2023 experimental study (two experiments, n=240 and n=236) found <b>bilingual signage beat both English-only and Spanish-only.</b> Behavioral intent: <b>bilingual 4.8 &gt; English 4.5 &gt; Spanish-only 4.1</b> (bilingual vs Spanish-only, p=.01). Bilingual signage also significantly raised perceived authenticity (5.06 vs 4.45), inclusiveness (5.01 vs 4.40), warmth and interest.</p>
+    <p style="margin-bottom:0">And roughly <b>80% of US Latinos are bilingual or English-dominant.</b> <b>Spanish-only is not the answer.</b></p>
+    <p class="src" style="margin-bottom:0">Source: <a href="https://journals.shareok.org/ijsw/article/download/134/93/520">Mantel &amp; Kellaris, IJSW 7(1), 2023</a> · <b>Note:</b> the sample was general US adults, not Hispanic-only. That arguably strengthens the commercial case — <b>bilingual signage did not cost general-market intent, it raised it.</b></p>
+  </div>
+</section>
+
+<!-- ===== 7 ===== -->
+<section id="s7">
+  <h2><span class="num">07</span>The Pitch</h2>
+  <p class="h2sub">Sixty seconds. This is a business conversation, not a beauty conversation</p>
+
+  <h3>7-1. Sixty-second script</h3>
+  <div class="doc">
+    <h4>Route rep verbal script</h4>
+    <p><b>[Walk in, confirm the delivery as usual]</b></p>
+    <p>"Give me twenty seconds — we're starting something new and I think it fits your store."</p>
+    <p><b>[1. Frame the problem as his store's problem]</b><br>
+    "Where do your customers buy skincare right now? Walmart, or online. But those same customers — <b>they're in here every week.</b>"</p>
+    <p><b>[2. Why now — this is what changed in v02]</b><br>
+    "K-pop and the Korean shows and movies on Netflix have people asking for Korean skincare. And it runs <b>especially strong with Latino customers.</b> Nationally, 28% of households have a fan of that stuff — <b>with Hispanic households it's 46%.</b> And <b>one in four of those fans</b> says it got them interested in Korean beauty products."</p>
+    <p><b>[3. But there's nowhere to buy it]</b><br>
+    "So where does she buy it? Not here. Latino shoppers are <b>five times</b> more likely to shop a neighborhood market like yours than the average shopper — and there's nothing on your shelf for her."</p>
+    <p><b>[4. The ask — keep it small]</b><br>
+    "<b>Two feet of shelf.</b> Fourteen items, most between $2 and $10. I'm here every week anyway, so <b>there's no separate order and no new vendor to set up</b> — it's one more line on the order you already give me. We bring the display and the price tags."</p>
+    <p><b>[5. Close without asking for a decision]</b><br>
+    "You don't have to decide anything today. I'm going to leave <b>a five-minute questionnaire</b>. Just have it ready next week. If it looks interesting, I'll bring the shelf layout and pricing then."</p>
+    <div class="sig">Sixty seconds. Do not describe products. Product conversation happens on visit two, after the survey comes back.</div>
+  </div>
+
+  <h3>7-2. The five questions every retailer asks</h3>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:22%">Question</th><th style="width:39%">Answer it this way</th><th style="width:39%">Never answer it this way</th></tr></thead>
+    <tbody>
+      <tr><td><b>"Does this stuff actually sell?"</b></td><td>"US K-Beauty sales grew <b>48% last year.</b> Korean skincare on Amazon grew 80% in the first half of this year alone. This isn't demand we invented — <b>it's demand that already exists.</b>"</td><td>"Our products are great, that's why they sell" — with an unknown brand this proves nothing</td></tr>
+      <tr><td><b>"What's my margin?"</b></td><td>"Tell me the margin you need and I'll build the price list to hit it. Independent grocers average 27.9% blended gross margin — beauty should run above that or it isn't worth the space."</td><td>Promising a specific margin on the spot — landed cost isn't finalized</td></tr>
+      <tr><td><b>"I don't have room."</b></td><td>"Two feet. A gap next to the register works. We supply the fixture."</td><td>"We'd need four feet" — ask big on the first visit and the conversation ends</td></tr>
+      <tr><td><b>"I've never heard of this brand."</b></td><td>"Correct — it's new. Two things though. First, <b>nobody's selling it cheaper online.</b> The famous brands sell at half price on their own Amazon store and it kills the shelf. Second, <b>what your customers are asking for isn't a brand — it's Korean skincare.</b>"</td><td>Implying it's a known brand, or dodging — retailers see through it immediately</td></tr>
+      <tr><td><b>"Will my customers buy it?"</b></td><td>"Latino customers watch Korean shows at a much higher rate than average. But whether it sells <b>in your store</b> — that we find out. That's why it's a 90-day test. I'll count it with you every week and swap out whatever doesn't move."</td><td>"Of course they will" — selling in this channel is genuinely unproven</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ===== 8 ===== -->
+<section id="s8">
+  <h2><span class="num">08</span>Customer Letter</h2>
+  <p class="h2sub">One page, left with the survey. Print English and Spanish back-to-back</p>
+
+  <div class="doc">
+    <h4>English — leave-behind letter</h4>
+    <p><b>Your customers are already asking for this. Right now they buy it somewhere else.</b></p>
+    <p>Dear Valued Partner,</p>
+    <p>For years we have delivered food and beverage to your store every week. We are writing about one small addition we believe can add profit to shelf space you already have.</p>
+    <p><b>Why now.</b> Korean pop culture — K-pop, Netflix dramas and films — has moved Korean skincare from a niche interest into real demand. <b>US K-beauty sales grew 48% year over year</b>, reaching $2.8 billion. And this trend runs unusually strong with Hispanic households: <b>46% have a fan of Korean content in the home, versus 28% of US households overall</b>. One in four of those fans says it made them interested in Korean beauty products.</p>
+    <p><b>Why your store.</b> Hispanic shoppers are <b>five times more likely</b> to shop independent Latino grocery stores than the general population, and they spend more on beauty than the average U.S. consumer. Today that spending leaves your store for big-box retail and online — not because they prefer it, but because you do not carry it.</p>
+    <p><b>What we propose.</b> A <b>2-foot skincare set of 14 items</b>, most priced between <b>$1.99 and $9.99</b>, selected for what your customers actually ask for — dark spots, acne, dryness. Korean manufacturers move from concept to shelf in six to eight months, against two to three years for large Western companies, so this set stays current. All shelf cards are in English and Spanish.</p>
+    <p><b>What makes this easy for you.</b></p>
+    <ul>
+      <li><b>No new vendor setup.</b> It goes on your existing order with us, delivered on your existing route.</li>
+      <li><b>No extra work.</b> Our driver counts the shelf and restocks it on the regular visit.</li>
+      <li><b>We supply the display.</b> Shelf unit, price tags, and bilingual product cards included.</li>
+      <li><b>We start small.</b> A 90-day test, reviewed together, with slow items swapped out.</li>
+    </ul>
+    <p><b>What we are asking today.</b> Nothing to buy. Please take five minutes to answer the attached questions so we can tell you whether this fits your store — and if it does, what it would look like. Your driver will pick it up on the next visit.</p>
+    <p>Thank you for twenty years of business. We would like the next twenty to be worth more to both of us.</p>
+    <div class="sig">K-Vive Direct · A division of POCAS<br>Distribution centers: CA · IL · NJ · GA · FL · TX</div>
+  </div>
+
+  <div class="doc">
+    <h4>Español — carta para dejar en la tienda</h4>
+    <p><b>Sus clientes ya lo están buscando. Hoy lo compran en otro lugar.</b></p>
+    <p>Estimado socio comercial,</p>
+    <p>Durante años hemos entregado alimentos y bebidas en su tienda cada semana. Le escribimos sobre una pequeña adición que creemos puede generar más ganancia en el espacio de estante que ya tiene.</p>
+    <p><b>Por qué ahora.</b> La cultura popular coreana — K-pop, series y películas de Netflix — convirtió el cuidado de la piel coreano en una demanda real. <b>Las ventas de belleza coreana en Estados Unidos crecieron 48% en un año</b>, llegando a 2,800 millones de dólares. Y esta tendencia es especialmente fuerte en los hogares hispanos: <b>46% tiene en casa a un fan de contenido coreano, frente al 28% de los hogares estadounidenses en general</b>. Uno de cada cuatro de esos fans dice que eso le despertó interés en productos de belleza coreanos.</p>
+    <p><b>Por qué su tienda.</b> Los compradores hispanos tienen <b>cinco veces más probabilidad</b> de comprar en tiendas latinas independientes que la población general, y gastan más en belleza que el consumidor promedio. Hoy ese gasto sale de su tienda hacia las grandes cadenas y el internet — no porque lo prefieran, sino porque usted no lo vende.</p>
+    <p><b>Nuestra propuesta.</b> Un <b>set de cuidado de la piel de 2 pies con 14 productos</b>, la mayoría entre <b>$1.99 y $9.99</b>, seleccionados según lo que sus clientes realmente piden — manchas, barros, piel seca. Los fabricantes coreanos van del concepto al estante en seis a ocho meses, frente a dos o tres años de las grandes empresas occidentales, así que el set se mantiene actual. Todas las tarjetas del estante están en inglés y español.</p>
+    <p><b>Por qué es fácil para usted.</b></p>
+    <ul>
+      <li><b>Sin registrar un proveedor nuevo.</b> Se agrega a su pedido actual con nosotros, en su ruta de entrega actual.</li>
+      <li><b>Sin trabajo adicional.</b> Nuestro repartidor cuenta el estante y lo resurte en la visita regular.</li>
+      <li><b>Nosotros ponemos el exhibidor.</b> Mueble, etiquetas de precio y tarjetas bilingües incluidas.</li>
+      <li><b>Empezamos en pequeño.</b> Una prueba de 90 días, revisada juntos, cambiando lo que no se venda.</li>
+    </ul>
+    <p><b>Lo que le pedimos hoy.</b> Nada que comprar. Por favor tome cinco minutos para contestar las preguntas adjuntas, para poder decirle si esto encaja en su tienda — y si encaja, cómo se vería. Su repartidor las recogerá en la próxima visita.</p>
+    <p>Gracias por veinte años de negocio. Queremos que los próximos veinte valgan más para ambos.</p>
+    <div class="sig">K-Vive Direct · Una división de POCAS<br>Centros de distribución: CA · IL · NJ · GA · FL · TX</div>
+  </div>
+
+  <p class="footnote"><b>Printing note:</b> one sheet, English and Spanish back-to-back. Add the logo and the rep's name and mobile number at the bottom. <b>Do not include product photos</b> — sourcing is not final, and a photo turns the conversation into a product review. What we need from this visit is <b>purchase intent and shelf conditions.</b></p>
+</section>
+
+<!-- ===== 9 ===== -->
+<section id="s9">
+  <h2><span class="num">09</span>Purchase-Intent Survey</h2>
+  <p class="h2sub">Five minutes, twelve questions. The retailer fills it in, or the rep writes it down for them</p>
+
+  <div class="box info">
+    <span class="lbl">How to run it</span>
+    <ul style="margin-bottom:0">
+      <li><b>Leave it on visit one, collect it on visit two.</b> Never push for answers on the spot.</li>
+      <li>If the retailer does not want to write, <b>the rep writes it down during conversation.</b> The answers matter, the paperwork does not.</li>
+      <li><b>Q9 (purchase intent) and Q10 (price ceiling) are the ones that matter.</b> Come back with those two even if nothing else is filled in.</li>
+      <li>Photograph completed surveys and upload to the shared folder the same day.</li>
+    </ul>
+  </div>
+
+  <h3>Section A — Store today (Q1–Q5)</h3>
+
+  <div class="q"><div class="qn">1. Do you currently carry HBA (health &amp; beauty aids)?<br><span style="font-weight:400;color:var(--ink-3)">¿Actualmente vende productos de salud y belleza en su tienda?</span></div>
+  <div class="qo">☐ Yes, with its own shelf section / Sí, con estante propio<br>☐ Yes, just a few items (near register, etc.) / Sí, solo unos pocos<br>☐ No / No</div></div>
+
+  <div class="q"><div class="qn">2. If yes, what kinds? (check all)<br><span style="font-weight:400;color:var(--ink-3)">Si vende, ¿de qué tipo? (marque todos)</span></div>
+  <div class="qo">☐ Soap / body wash · Jabón, gel de baño &nbsp;&nbsp; ☐ Shampoo / hair · Champú, cabello<br>☐ Face creams · Cremas faciales &nbsp;&nbsp; ☐ Acne products · Productos para el acné<br>☐ Deodorant · Desodorante &nbsp;&nbsp; ☐ Fragrance / cologne · Perfume, colonia<br>☐ OTC medicine · Medicamentos &nbsp;&nbsp; ☐ Other: ________________</div></div>
+
+  <div class="q"><div class="qn">3. Where do you buy your HBA products?<br><span style="font-weight:400;color:var(--ink-3)">¿Dónde compra sus productos de salud y belleza?</span></div>
+  <div class="qo">☐ Wholesaler name: ________________ / Nombre del mayorista<br>☐ I buy direct at cash &amp; carry / Compro directamente en cash &amp; carry<br>☐ A rep comes to the store / Un vendedor viene a la tienda<br>☐ I don't carry this category / No vendo esta categoría</div></div>
+
+  <div class="q"><div class="qn">4. How much space could you give a facial skincare set?<br><span style="font-weight:400;color:var(--ink-3)">¿Cuánto espacio podría dar para un estante de cuidado facial?</span></div>
+  <div class="qo">☐ 2 feet / 2 pies &nbsp;&nbsp; ☐ 4 feet / 4 pies<br>☐ Only a small display by the register / Solo un exhibidor pequeño junto a la caja<br>☐ No space right now / No tengo espacio ahora</div></div>
+
+  <div class="q"><div class="qn">5. Have customers asked you for skincare products? Have any asked for Korean products specifically?<br><span style="font-weight:400;color:var(--ink-3)">¿Sus clientes le han preguntado por productos para la piel? ¿Y por productos coreanos?</span></div>
+  <div class="qo">☐ Often / Con frecuencia &nbsp;&nbsp; ☐ Sometimes / A veces &nbsp;&nbsp; ☐ Rarely / Casi nunca<br>What do they ask for? / ¿Qué preguntan?<br>________________________________________________</div>
+  <div class="qh">The free-text answer here is what finalizes our Spanish shelf cards — write down their exact words. Whether Korean product comes up unprompted is direct field validation of the §1 hypothesis.</div></div>
+
+  <h3>Section B — Their customers (Q6–Q8)</h3>
+
+  <div class="q"><div class="qn">6. What is the main age range of your customers?<br><span style="font-weight:400;color:var(--ink-3)">¿Cuál es la edad principal de sus clientes?</span></div>
+  <div class="qo">☐ 18–30 &nbsp;&nbsp; ☐ 30–45 &nbsp;&nbsp; ☐ 45–60 &nbsp;&nbsp; ☐ 60+ &nbsp;&nbsp; ☐ Evenly spread</div>
+  <div class="qh">A heavy 18–30 skew makes the cultural-momentum argument stronger — roughly 70% of K-pop fans are under 29.</div></div>
+
+  <div class="q"><div class="qn">7. What language do your customers mostly use in the store?<br><span style="font-weight:400;color:var(--ink-3)">¿Qué idioma usan sus clientes en la tienda?</span></div>
+  <div class="qo">☐ Mostly Spanish / Principalmente español<br>☐ Spanish and English equally / Español e inglés por igual<br>☐ Mostly English / Principalmente inglés</div></div>
+
+  <div class="q"><div class="qn">8. Where are your customers mainly from? (check all)<br><span style="font-weight:400;color:var(--ink-3)">¿De dónde son principalmente sus clientes? (marque todos)</span></div>
+  <div class="qo">☐ México &nbsp;&nbsp; ☐ Cuba &nbsp;&nbsp; ☐ Puerto Rico &nbsp;&nbsp; ☐ Venezuela &nbsp;&nbsp; ☐ Colombia<br>☐ Guatemala / Honduras / El Salvador &nbsp;&nbsp; ☐ República Dominicana &nbsp;&nbsp; ☐ Other: __________</div></div>
+
+  <h3>Section C — Purchase intent (Q9–Q12) · the important part</h3>
+
+  <div class="q" style="border-color:var(--accent);border-width:2px"><div class="qn">9. Would you be willing to try it on these terms?<br>
+  <span style="font-weight:400;font-size:13.5px">Terms: 14 items · 2-foot shelf · display and price tags supplied free · added to your existing order · <b>90-day test, slow items swapped out</b></span><br>
+  <span style="font-weight:400;color:var(--ink-3)">¿Estaría dispuesto a probarlo con estas condiciones? 14 productos · estante de 2 pies · exhibidor y etiquetas gratis · se agrega a su pedido actual · <b>prueba de 90 días con cambio de lo que no se venda</b></span></div>
+  <div class="qo"><b>☐ Yes, I want to start / Sí, quiero empezar<br>
+  ☐ Interested — show me pricing first / Me interesa, quiero ver precios primero<br>
+  ☐ Let's talk later / Hablemos más adelante<br>
+  ☐ Not interested / No me interesa</b></div>
+  <div class="qh">Come back with this one answer and the visit was a success.</div></div>
+
+  <div class="q" style="border-color:var(--accent);border-width:2px"><div class="qn">10. What is the most your customers would comfortably pay for a face cream or serum?<br><span style="font-weight:400;color:var(--ink-3)">¿Cuánto cree que sus clientes pagarían cómodamente por una crema o sérum facial?</span></div>
+  <div class="qo">☐ Under $5 &nbsp;&nbsp; ☐ $5–$10 &nbsp;&nbsp; ☐ $10–$15 &nbsp;&nbsp; ☐ $15–$20 &nbsp;&nbsp; ☐ Over $20</div>
+  <div class="qh">This sets the whole price ladder. Get it along with Q9.</div></div>
+
+  <div class="q"><div class="qn">11. Which three would your customers care about most?<br><span style="font-weight:400;color:var(--ink-3)">Marque los 3 que cree que más le interesarían a sus clientes.</span></div>
+  <div class="qo">☐ Manchas oscuras (dark spots) &nbsp;&nbsp; ☐ Barros y acné (acne)<br>☐ Piel seca (dryness) &nbsp;&nbsp; ☐ Poros y grasa (pores, oil)<br>☐ Mascarillas (masks) &nbsp;&nbsp; ☐ Ojeras (dark circles)<br>☐ Arrugas (wrinkles) &nbsp;&nbsp; ☐ Protector solar (sunscreen)</div>
+  <div class="qh">Determines which of the 14 SKUs go into this store first.</div></div>
+
+  <div class="q"><div class="qn">12. If you started, what would worry you?<br><span style="font-weight:400;color:var(--ink-3)">Si empezara, ¿qué le preocuparía?</span></div>
+  <div class="qo">☐ That it won't sell / Que no se venda<br>☐ Lack of space / Falta de espacio<br>☐ That it's too expensive / Que sea muy caro<br>☐ Not knowing how to explain it to customers / No saber explicarlo a los clientes<br>☐ Expiration dates and returns / Fechas de caducidad y devoluciones<br>☐ Other: ________________________________</div>
+  <div class="qh">These answers drive the next revision of the offer.</div></div>
+
+  <div class="doc" style="background:var(--bg-soft)">
+    <h4>Rep completes this section</h4>
+    <p style="font-size:14px;margin-bottom:6px">Store / Tienda: ________________________ &nbsp; Address / Dirección: ________________________</p>
+    <p style="font-size:14px;margin-bottom:6px">Respondent / Persona: ________________ &nbsp; Role: ☐ Owner ☐ Manager ☐ Other &nbsp; Phone: ________________</p>
+    <p style="font-size:14px;margin-bottom:6px">Rep: ________________ &nbsp; Visit date / Fecha: ____ / ____ / 2026</p>
+    <p style="font-size:14px;margin-bottom:0"><b>Rep observations</b> (not on the form): current HBA shelf condition · competing product · store size · customer flow · photo taken?<br>
+    ________________________________________________________________</p>
+  </div>
+</section>
+
+<!-- ===== 10 ===== -->
+<section id="s10">
+  <h2><span class="num">10</span>Rep Training</h2>
+  <p class="h2sub">Print this section alone and hand it to route reps</p>
+
+  <h3>10-1. The business in one sentence</h3>
+  <div class="box good" style="text-align:center;padding:26px">
+    <p style="font-size:19px;font-weight:750;margin:0;max-width:none">"We are not a cosmetics company.<br>
+    We are a distributor that pairs <b>demand that already exists</b><br>
+    with <b>product that can capture it</b>, delivered on <b>a truck already going there.</b>"</p>
+  </div>
+
+  <h3>10-2. Four numbers to memorize</h3>
+  <div class="stats">
+    <div class="stat"><div class="v">46% / 28%</div><div class="k">Hispanic households vs US overall<br>with a Korean-content fan</div></div>
+    <div class="stat"><div class="v">1 in 4</div><div class="k">of those fans became<br>interested in K-Beauty</div></div>
+    <div class="stat"><div class="v">5×</div><div class="k">Latino shoppers' likelihood of<br>shopping a neighborhood market</div></div>
+    <div class="stat"><div class="v">+48%</div><div class="k">US K-Beauty<br>annual sales growth</div></div>
+  </div>
+  <p class="footnote">Four is enough. Memorize more and the conversation becomes a presentation. Retailers do not want a presentation.</p>
+
+  <h3>10-3. Do / Don't</h3>
+  <div class="duo">
+    <div style="background:var(--green-bg);border-color:var(--green)">
+      <span class="tag" style="color:var(--green)">Do</span>
+      <div class="say"><b>Lead with demand</b>"Korean shows and K-pop have people asking for this, and it's especially strong with Latino customers."<br><span style="font-size:13px;color:var(--ink-3)">→ Start with the market, not our product</span></div>
+      <div class="say"><b>Speak his language</b>"Two feet. One more line on the order you already give me."<br><span style="font-size:13px;color:var(--ink-3)">→ Make the size and the process small</span></div>
+      <div class="say"><b>Say when you don't know</b>"Let me check and get you an answer next week."<br><span style="font-size:13px;color:var(--ink-3)">→ Bluffing wrong costs a twenty-year relationship</span></div>
+      <div class="say"><b>Close with the survey</b>"You don't have to decide today. Just look at this."<br><span style="font-size:13px;color:var(--ink-3)">→ Never create the opportunity to be turned down</span></div>
+    </div>
+    <div style="background:var(--red-bg);border-color:var(--red)">
+      <span class="tag" style="color:var(--red)">Don't</span>
+      <div class="dont"><b>Claim ingredient superiority</b>"Korean ingredients work better than American ones…"<br><span style="font-size:13px;color:var(--ink-3)">→ <b>Dermatologists publicly say otherwise.</b> Stick to speed, sunscreen filters, price</span></div>
+      <div class="dont"><b>Promise results</b>"Use this and your dark spots go away."<br><span style="font-size:13px;color:var(--ink-3)">→ <b>This is a legal problem.</b> Read §11</span></div>
+      <div class="dont"><b>Explain ingredients</b>"Niacinamide inhibits melanin transfer…"<br><span style="font-size:13px;color:var(--ink-3)">→ He didn't ask. Concern and price only</span></div>
+      <div class="dont"><b>Brag about scale</b>"We carry 900 products…"<br><span style="font-size:13px;color:var(--ink-3)">→ Cutting it to 14 is the selling point</span></div>
+      <div class="dont"><b>Give skin advice</b>Answering a shopper's skin question<br><span style="font-size:13px;color:var(--ink-3)">→ We are not consultants. Point at the card</span></div>
+    </div>
+  </div>
+
+  <h3>10-4. Spanish shelf-language card</h3>
+  <p>Every term below was <b>verified in actual US product labels, US retailer pages, or US government Spanish-language materials.</b></p>
+
+  <div class="scroll"><table>
+    <thead><tr><th style="width:20%">Use this</th><th style="width:18%">Meaning</th><th style="width:32%">Verified where</th><th style="width:30%">Avoid</th></tr></thead>
+    <tbody>
+      <tr><td><b>manchas / manchas oscuras</b> <span class="chip c-g">verified</span></td><td>dark spots</td><td>Pond's Clarant B3 US product name; Walmart US Spanish category pages</td><td>—</td></tr>
+      <tr><td><b>barros · espinillas · acné</b> <span class="chip c-g">verified</span></td><td>acne, pimples</td><td>MedlinePlus (US gov Spanish); Asepxia US listings</td><td><b>espinillas negras</b> means <b>blackheads only</b></td></tr>
+      <tr><td><b>poros obstruidos</b> <span class="chip c-g">verified</span></td><td>clogged pores</td><td>Asepxia "impurezas que obstruyen los poros"</td><td><b>poros abiertos</b> <span class="chip c-r">no</span> — not found in US usage</td></tr>
+      <tr><td><b>piel seca / piel grasa</b> <span class="chip c-g">verified</span></td><td>dry / oily skin</td><td>Pond's US listing "piel normal a seca / grasa"</td><td><b>resequedad</b> <span class="chip c-r">no</span> — no US usage found</td></tr>
+      <tr><td><b>luminosidad · unificar el tono</b> <span class="chip c-g">verified</span></td><td>glow, even tone</td><td>Walmart US Spanish category copy</td><td><b>brillo</b> <span class="chip c-a">careful</span> — means both "glow" and "greasy shine"</td></tr>
+      <tr><td><b>arrugas · líneas de expresión</b> <span class="chip c-g">verified</span></td><td>wrinkles, fine lines</td><td>Cicatricure US Amazon product names and US TV advertising</td><td>—</td></tr>
+      <tr><td><b>protector solar</b> <span class="chip c-g">verified</span></td><td>sunscreen</td><td>FDA and CDC official Spanish pages; Univision</td><td><b>bloqueador solar</b> <span class="chip c-a">careful</span> — understood, but US agencies don't use it</td></tr>
+      <tr><td colspan="4" style="background:var(--red-bg);color:var(--red);font-weight:750">The following carry legal risk and are never used — see §11</td></tr>
+      <tr><td><b>blanqueador · aclarador</b><br><b>whitening · bleaching</b></td><td>whitening, bleaching</td><td colspan="2"><b>These are the exact terms FDA cited in real warning letters.</b> Not on shelf cards, not spoken, not in store signage</td></tr>
+      <tr><td><b>melasma · cloasma · paño</b></td><td>melasma (disease name)</td><td colspan="2"><b>Naming a condition makes the product a drug, not a cosmetic.</b> Stop at "manchas oscuras"</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="box good">
+    <span class="lbl">The safe claim structure — use only this</span>
+    <p style="margin-bottom:6px;font-size:17px;font-family:var(--mono)"><b>"Ayuda a reducir la apariencia de ___"</b></p>
+    <p style="margin-bottom:6px">(<b>Helps reduce the appearance of</b> ___)</p>
+    <p style="margin-bottom:0">Every product actually selling in US retail uses this construction. The load-bearing words are <b>"apariencia" (appearance)</b> and <b>"ayuda a" (helps)</b>. Remove either one and it becomes a drug claim.</p>
+  </div>
+
+  <h3>10-5. Three things to do every week after installation</h3>
+  <div class="scroll"><table>
+    <thead><tr><th class="num" style="width:6%">#</th><th style="width:22%">Task</th><th style="width:16%">Time</th><th style="width:56%">Notes</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td><b>One photo</b></td><td>10 sec</td><td>Whole shelf, straight on. Same angle every week or it can't be compared</td></tr>
+      <tr><td class="num">2</td><td><b>Facing count</b></td><td>2 min</td><td>Units sold = <b>last week's count − this week's count + units restocked</b></td></tr>
+      <tr><td class="num">3</td><td><b>Restock order</b></td><td>1 min</td><td>Add a line to the existing order. Any SKU flat three weeks running → report it, we swap it</td></tr>
+    </tbody>
+  </table></div>
+  <p class="footnote"><b>What we do NOT ask for:</b> sales reports, consumer surveys, competitive research, skin consultations. The moment the ask exceeds three items, compliance collapses.</p>
+</section>
+
+<!-- ===== 11 ===== -->
+<section id="s11">
+  <h2><span class="num">11</span>Legal Red Lines</h2>
+  <p class="h2sub">Every rep must read this section</p>
+
+  <div class="box warn">
+    <span class="lbl">Skin-lightening language is off-limits in the US</span>
+    <p style="margin-bottom:8px"><b>Since September 23, 2020</b>, under FD&amp;C Act §505G as amended by the CARES Act, <b>OTC skin-lightening products containing hydroquinone are unapproved new drugs and misbranded</b> and cannot be legally marketed in the US. The only FDA-approved hydroquinone product is the prescription drug <b>Tri-Luma</b>.</p>
+    <p style="margin-bottom:8px"><b>Enforcement is real.</b> FDA issued <b>12 warning letters on April 19, 2022</b>. In one of them, the label language FDA cited was:</p>
+    <ul style="margin-bottom:8px">
+      <li><b>"BLEACHING LOTION … Skin Lightener"</b></li>
+      <li><b>"For Bleaching of Hyperpigmented Skin"</b></li>
+      <li>References to <b>chloasma, melasma, freckles</b> and other conditions</li>
+    </ul>
+    <p style="margin-bottom:0">The test is <b>not the ingredient — it is "intended use,"</b> which FDA infers from the label as a whole. <b>A single phrase can turn a cosmetic into a drug.</b></p>
+    <p class="src" style="margin-bottom:0">Sources: <a href="https://www.fda.gov/drugs/drug-safety-communications/fda-works-protect-consumers-potentially-harmful-otc-skin-lightening-products">FDA safety communication</a> · <a href="https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/clinical-formula-llc-628372-04132022">FDA warning letter (2022-04-13)</a></p>
+  </div>
+
+  <div class="scroll"><table>
+    <thead><tr><th style="width:33%"><span class="chip c-r">Risky</span> wording</th><th style="width:33%"><span class="chip c-g">Safe</span> replacement</th><th style="width:34%">Why</th></tr></thead>
+    <tbody>
+      <tr><td>Blanquea la piel<br>Skin whitening / bleaching</td><td><b>Unifica el tono de la piel</b><br>Evens skin tone</td><td>"Bleaching" claims to alter skin physiology = drug</td></tr>
+      <tr><td>Crema aclaradora</td><td><b>Crema correctora de manchas</b></td><td>"Aclarar" spans "brighten" and "lighten" — elevated risk</td></tr>
+      <tr><td>Elimina las manchas<br>Removes dark spots</td><td><b>Ayuda a reducir la apariencia de manchas oscuras</b></td><td>"Removes" asserts an outcome. Shift to "helps reduce the appearance"</td></tr>
+      <tr><td>Trata el melasma / cloasma</td><td><b>Para manchas oscuras</b></td><td>Naming a condition makes it a drug immediately</td></tr>
+      <tr><td>Cura el acné<br>Cures acne</td><td><b>Ayuda a mejorar el aspecto de los barros</b></td><td>"Cures / treats" is a drug claim</td></tr>
+      <tr><td>Reemplaza al dermatólogo</td><td>— (never say this)</td><td>Substitute-for-medical-care claims are prohibited in any form</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="box note">
+    <span class="lbl">Reputational exposure too</span>
+    <p style="margin-bottom:0">In June 2020 Unilever renamed <b>Fair &amp; Lovely</b> and committed to removing "fair / white / light" language; Johnson &amp; Johnson exited skin-whitening lotions entirely. Pond's "White Beauty" line exists <b>only outside the US</b>. <b>Skin-lightening positioning has already been pushed out of US mainstream retail, both legally and reputationally.</b> There is no reason for us to walk into it.</p>
+  </div>
+
+  <div class="box warn">
+    <span class="lbl">Additional checks — sourcing team</span>
+    <ul style="margin-bottom:0">
+      <li><b>Exclude any product containing hydroquinone.</b> Verify on the ingredient list, every time.</li>
+      <li><b>No sunscreen on shelf until US OTC monograph and Drug Facts labeling are confirmed.</b> The Korean UV-filter advantage described in §1 applies <b>in the Korean market</b> — it does not mean those filters are usable in the US. Keep that distinction absolutely clear.</li>
+      <li><b>MoCRA Responsible Person</b> — if K-Vive's name goes on the US label, K-Vive directly carries safety substantiation, product listing and adverse-event reporting obligations.</li>
+      <li><b>UPC/GTIN</b> — if it does not scan, it cannot be set up in a grocery POS at all. Korea-domestic 880-prefix barcodes can create item-file problems.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== 12 ===== -->
+<section id="s12">
+  <h2><span class="num">12</span>Verification and Limits of Use</h2>
+  <p class="h2sub">Read before presenting any of this externally</p>
+
+  <h3>Confirmed (checked 2026-08-25)</h3>
+  <ul>
+    <li><b>Cultural momentum</b> — KOFICE Overseas Hallyu Survey (27,400 across 30 countries), Numerator (n=2,200 US), YouGov Behavioral, Spotify official, Omdia</li>
+    <li><b>Consumer spending</b> — NielsenIQ (14.4% of households / 16.6% of dollars), Circana × WWD ($23B, +6%)</li>
+    <li><b>Channel</b> — PDG Insights / Grocery Dive (independent Latino grocery 33% vs 6%)</li>
+    <li><b>Consumer attitudes</b> — Belleza Latina (500 US Hispanic women 18–34, published Oct 2025)</li>
+    <li><b>Dermatology</b> — Murphy &amp; Dow (n=401), JCAD (PIH 52.7%), JDD (NAMCS diagnosis ranking)</li>
+    <li><b>Demographics</b> — U.S. Census QuickFacts V2025, Pew Research</li>
+    <li><b>Bilingual signage effect</b> — Mantel &amp; Kellaris 2023 experimental study</li>
+    <li><b>Spanish terminology</b> — US product labels, Walmart US Spanish categories, MedlinePlus, FDA, CDC</li>
+    <li><b>FDA regulation</b> — §505G, 12 warning letters (April 2022), sunscreen OTC classification</li>
+    <li><b>Functional competitiveness</b> — development speed (NextPangaea), UV filter gap (TODAY), <b>and the counter-evidence</b> (BBC Science Focus)</li>
+  </ul>
+
+  <h3>Unverified — do not present as fact</h3>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:26%">Item</th><th style="width:74%">Status</th></tr></thead>
+    <tbody>
+      <tr><td><b>US Hispanic K-Beauty purchase volume</b></td><td><b>No public data exists.</b> Hispanic Korean-content fandom (46%) and Hispanic beauty over-indexing (14.4% / 16.6%) are each proven, but <b>nothing crosses them.</b> The NielsenIQ Hispanic beauty report does not mention K-Beauty at all. <b>The weakest link in the §1 argument</b></td></tr>
+      <tr><td><b>K-Beauty selling in Hispanic grocery</b></td><td><b>No evidence either way.</b> No success cases, no failure cases. Belleza Latina puts Latina beauty shoppers in Sephora, Ulta and Amazon</td></tr>
+      <tr><td><b>Scope of the "64.8%"</b></td><td>The KOFICE figure covers <b>Korean products and services broadly</b> — it is <b>not a cosmetics-only number.</b> Do not blur this when quoting</td></tr>
+      <tr><td><b>Mexico beauty favorability 82%</b></td><td><b>2023 data</b>, no confirmed update. Always state the year. Also: Mexican consumers, not US Hispanics</td></tr>
+      <tr><td><b>KPDH performance in Latin America</b></td><td>Netflix does not publish country-level figures, so <b>"especially popular in Latin America" cannot be supported.</b> In fact the theme song "Golden" charted <b>weaker</b> in the region (Mexico #18, Brazil #47) than globally</td></tr>
+      <tr><td><b>K-Beauty ingredient superiority</b></td><td><b>Publicly contradicted by dermatologists.</b> Claim only speed, UV filters, and price-to-performance</td></tr>
+      <tr><td><b>ANUA collaboration results</b></td><td>Sales and unit figures are <b>entirely undisclosed.</b> This case evidences "this is happening," not "this succeeded"</td></tr>
+      <tr><td><b>HBA practice in Hispanic grocery</b></td><td>We searched the major grocery trade press and <b>found no coverage of HBA assortment or margin expectations in this channel</b></td></tr>
+      <tr><td><b>Buyer decision criteria</b></td><td>No buyer-side testimony on <b>how independent Hispanic grocers evaluate a new category or vendor.</b> The §9 survey exists to fill this gap</td></tr>
+      <tr><td><b>Beauty differences by national origin</b></td><td>Food and store-format differences are documented; <b>beauty and HBA purchase differences by origin are not.</b> The §3 implications are inferred from population composition</td></tr>
+      <tr><td><b>Is pigmentation the #1 concern</b></td><td>Marketing research and clinical visit data <b>disagree.</b> Unresolved</td></tr>
+      <tr><td><b>14-SKU pricing and margin</b></td><td>Target retail prices are <b>sourcing targets, not confirmed prices.</b> Never present them to a retailer as final</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="box warn">
+    <span class="lbl">Limits of use</span>
+    <p style="margin-bottom:0">This document is for <b>internal sales execution.</b> It does not constitute a purchase order, a customer quotation, confirmation of distribution rights, or regulatory clearance. The 14 SKUs are a <b>sourcing specification</b>; actual products, brands and prices are not final. The §8 letter and §9 survey must be used <b>without product photos and without final pricing.</b> Brand and title names appear only to describe market conditions and <b>do not imply any partnership or distribution agreement.</b> Legal, insurance and regulatory matters require review by US counsel and an insurance broker.</p>
+  </div>
+</section>
+
+<footer>
+  <p style="margin-bottom:10px"><b>K-Vive Direct · Hispanic HBA Entry Kit v02</b> · 2026-08-25 · US domestic · internal sales execution</p>
+  <p style="margin-bottom:10px"><b>Changed from v01</b> — the third business pillar moved from "we absorb the risk (guaranteed sale)" to <b>"we supply competitive product backed by cultural momentum and functional performance."</b> §1 (Cultural Momentum) is new. Pitch, letter and training rewritten throughout. Korean-language edition available separately.</p>
+  <p style="margin-bottom:0"><b>Principal sources</b> — KOFICE · Numerator · YouGov Behavioral · Spotify · Omdia · NielsenIQ · Circana × WWD · Pew Research · U.S. Census Bureau · Hispanic Marketing Council · PDG Insights · Grocery Dive · FMS/NGA · J Clin Aesthet Dermatol · JCAD · JDD · FDA · MedlinePlus · BBC Science Focus · Mantel &amp; Kellaris (2023) · Glossy · eMarketer. All checked 2026-08-25.</p>
+</footer>
+
+</div>
+</body>
+</html>

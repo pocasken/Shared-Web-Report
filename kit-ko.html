@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hispanic HBA 진입 키트 — K-Vive Direct</title>
+<style>
+:root{
+  --bg:#fff; --bg-soft:#f7f7f5; --bg-sunk:#eeede9;
+  --ink:#1a1a18; --ink-2:#4a4a45; --ink-3:#78786f;
+  --line:#e1e0da; --line-2:#c9c8c0;
+  --accent:#8c2f1f; --accent-soft:#fbf1ee;
+  --green:#2f6b3f; --green-bg:#eef5ef;
+  --amber:#8a6113; --amber-bg:#fbf4e6;
+  --red:#a32d20; --red-bg:#fdeeec;
+  --blue:#28506e; --blue-bg:#edf3f8;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",Segoe UI,Roboto,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#16161a; --bg-soft:#1d1d22; --bg-sunk:#26262c;
+  --ink:#eceae4; --ink-2:#bab8b1; --ink-3:#8c8a82;
+  --line:#33333a; --line-2:#46464f;
+  --accent:#e0806c; --accent-soft:#2a1e1b;
+  --green:#7fc08f; --green-bg:#1a2820;
+  --amber:#dbb066; --amber-bg:#2b2417;
+  --red:#e88b7d; --red-bg:#2e1c19;
+  --blue:#8fb8d8; --blue-bg:#18222c;
+}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1100px;margin:0 auto;padding:0 26px 100px}
+.mast{border-bottom:2px solid var(--ink);padding:44px 0 22px}
+.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 12px}
+h1{font-size:clamp(26px,4vw,39px);line-height:1.24;margin:0 0 15px;letter-spacing:-.02em;font-weight:800}
+.sub{font-size:17px;color:var(--ink-2);margin:0 0 22px;max-width:68ch;line-height:1.7}
+.meta{display:flex;flex-wrap:wrap;gap:6px 24px;font-size:12.5px;color:var(--ink-3);font-family:var(--mono)}
+.meta b{color:var(--ink-2);font-weight:600}
+nav{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);padding:11px 0;margin-bottom:42px;overflow-x:auto}
+nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;white-space:nowrap;font-size:13px}
+nav a{color:var(--ink-3);text-decoration:none;font-weight:600}
+nav a:hover{color:var(--accent)}
+section{margin:0 0 58px;scroll-margin-top:58px}
+h2{font-size:clamp(21px,2.6vw,27px);margin:0 0 7px;letter-spacing:-.015em;font-weight:800;line-height:1.3}
+h2 .num{color:var(--accent);font-family:var(--mono);font-size:.7em;margin-right:11px;font-weight:700}
+.h2sub{color:var(--ink-3);font-size:14.5px;margin:0 0 25px;padding-bottom:15px;border-bottom:1px solid var(--line)}
+h3{font-size:18px;margin:34px 0 11px;font-weight:750;letter-spacing:-.01em}
+h4{font-size:15px;margin:22px 0 8px;font-weight:700;color:var(--ink-2)}
+p{margin:0 0 14px;max-width:78ch}
+ul,ol{margin:0 0 14px;padding-left:22px;max-width:78ch}
+li{margin:0 0 6px}
+a{color:var(--accent)}
+code{font-family:var(--mono);font-size:.88em;background:var(--bg-sunk);padding:1.5px 5px;border-radius:3px}
+.lede{font-size:18.5px;line-height:1.72;border-left:4px solid var(--accent);padding:4px 0 4px 22px;margin:0 0 28px;max-width:72ch}
+.box{border:1px solid var(--line);border-radius:8px;padding:19px 23px;margin:22px 0;background:var(--bg-soft)}
+.box.warn{border-color:var(--red);background:var(--red-bg)}
+.box.good{border-color:var(--green);background:var(--green-bg)}
+.box.info{border-color:var(--blue);background:var(--blue-bg)}
+.box.note{border-color:var(--amber);background:var(--amber-bg)}
+.box>:first-child{margin-top:0}.box>:last-child{margin-bottom:0}
+.box .lbl{font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:800;margin:0 0 9px;display:block}
+.box.warn .lbl{color:var(--red)}.box.good .lbl{color:var(--green)}
+.box.info .lbl{color:var(--blue)}.box.note .lbl{color:var(--amber)}
+.scroll{overflow-x:auto;margin:19px 0;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:600px}
+th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.55}
+thead th{background:var(--bg-sunk);font-weight:750;font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2)}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--bg-soft)}
+td.num,th.num{text-align:right;font-family:var(--mono);white-space:nowrap}
+.rowgrp td{background:var(--bg-sunk);font-weight:750;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.rowgrp:hover td{background:var(--bg-sunk)}
+tfoot td{background:var(--bg-sunk);font-weight:700;border-top:2px solid var(--line-2)}
+.chip{display:inline-block;font-size:11px;font-weight:750;padding:2px 8px;border-radius:20px;white-space:nowrap}
+.c-g{background:var(--green-bg);color:var(--green);border:1px solid var(--green)}
+.c-a{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber)}
+.c-r{background:var(--red-bg);color:var(--red);border:1px solid var(--red)}
+.c-b{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:25px 0}
+.stat{background:var(--bg);padding:16px 17px}
+.stat .v{font-size:25px;font-weight:800;letter-spacing:-.025em;line-height:1.15;font-family:var(--mono)}
+.stat .k{font-size:12px;color:var(--ink-3);margin-top:5px;line-height:1.45}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:19px;margin:25px 0}
+@media(max-width:780px){.duo{grid-template-columns:1fr}}
+.duo>div{border:1px solid var(--line);border-radius:8px;padding:19px 21px;background:var(--bg-soft)}
+.duo h4{margin-top:0;font-size:15px;color:var(--ink)}
+.tag{font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:800;margin-bottom:8px;display:block}
+.pog{border:2px solid var(--ink-2);border-radius:6px;overflow:hidden;margin:20px 0;font-size:12px;background:var(--bg-soft)}
+.pog .shelf{display:grid;border-bottom:2px solid var(--ink-2)}
+.pog .shelf:last-child{border-bottom:none}
+.pog .cell{padding:10px 9px;border-right:1px solid var(--line-2);min-height:62px}
+.pog .cell:last-child{border-right:none}
+.pog .cell .n{font-weight:750;display:block;margin-bottom:3px;line-height:1.35}
+.pog .cell .p{color:var(--ink-3);font-family:var(--mono);font-size:11px}
+.pog .shelf-lbl{background:var(--bg-sunk);padding:5px 11px;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;font-weight:800;color:var(--ink-3);border-bottom:1px solid var(--line-2)}
+.say,.dont{padding:3px 0 3px 17px;margin:11px 0}
+.say{border-left:3px solid var(--green)}
+.dont{border-left:3px solid var(--red);color:var(--ink-2)}
+.say b,.dont b{display:block;font-size:11px;letter-spacing:.11em;text-transform:uppercase;margin-bottom:4px}
+.say b{color:var(--green)}.dont b{color:var(--red)}
+.doc{border:1px solid var(--line-2);border-radius:6px;padding:26px 30px;margin:22px 0;background:var(--bg);font-size:14.5px;line-height:1.8}
+.doc h4{margin-top:0;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);border-bottom:1px solid var(--line);padding-bottom:9px;margin-bottom:18px}
+.doc p{max-width:none}
+.doc .sig{margin-top:22px;padding-top:14px;border-top:1px solid var(--line);color:var(--ink-3);font-size:13px}
+.q{border:1px solid var(--line);border-radius:6px;padding:15px 18px;margin:11px 0;background:var(--bg-soft)}
+.q .qn{font-weight:750;font-size:14.5px;margin-bottom:7px}
+.q .qo{font-size:13.5px;color:var(--ink-2);line-height:1.9}
+.q .qh{font-size:12px;color:var(--ink-3);margin-top:8px;font-style:italic}
+.src{font-size:12px;color:var(--ink-3);margin:8px 0 0;line-height:1.6}
+.src a{color:var(--ink-3)}
+.footnote{font-size:13px;color:var(--ink-3);line-height:1.7}
+.chain{border:1px solid var(--green);border-radius:8px;background:var(--green-bg);padding:20px 24px;margin:22px 0}
+.chain ol{counter-reset:c;list-style:none;padding-left:0;margin:0;max-width:none}
+.chain li{counter-increment:c;position:relative;padding-left:38px;margin-bottom:13px;font-size:14.5px;line-height:1.6}
+.chain li:last-child{margin-bottom:0}
+.chain li::before{content:counter(c);position:absolute;left:0;top:1px;width:25px;height:25px;border-radius:50%;background:var(--green);color:var(--green-bg);font-family:var(--mono);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center}
+footer{border-top:2px solid var(--ink);padding-top:20px;margin-top:54px;font-size:12.5px;color:var(--ink-3);line-height:1.75}
+@media print{
+  nav{display:none}body{font-size:10.5pt}
+  section{page-break-inside:avoid}.scroll{overflow:visible;border:none}
+  table{min-width:0;font-size:8.5pt}a{color:inherit;text-decoration:none}
+  .stat .v{font-size:15pt}.doc{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="mast">
+  <p class="eyebrow">K-Vive Direct · 히스패닉 HBA 진입 키트 · 영업 실행용 · v02</p>
+  <h1>지금 팔리는 데는<br>이유가 있는 상품을 공급한다</h1>
+  <p class="sub">K-Pop·드라마·영화의 문화적 확산이 만든 수요를, K-Beauty의 기능적 경쟁력으로 실제 매출로 바꾼다. 미국 남부 히스패닉 소비자의 실제 니즈에 맞춘 14 SKU 구성과, 기존 F&amp;B 거래처에 곧바로 쓸 수 있는 제안 논리·고객 서한·구매의향 설문·영업사원 교육자료.</p>
+  <div class="meta">
+    <span><b>작성일</b> 2026-08-25</span>
+    <span><b>버전</b> v02</span>
+    <span><b>대상 채널</b> Hispanic Grocery HBA</span>
+    <span><b>시장</b> FL · GA · TX (미국 내수)</span>
+    <span><b>상위문서</b> Portfolio Strategy v02</span>
+  </div>
+</header>
+
+<nav><ul>
+  <li><a href="#s0">요약</a></li>
+  <li><a href="#s1">문화 모멘텀</a></li>
+  <li><a href="#s2">소비자 근거</a></li>
+  <li><a href="#s3">3개 주의 차이</a></li>
+  <li><a href="#s4">인큐베이팅</a></li>
+  <li><a href="#s5">14 SKU</a></li>
+  <li><a href="#s6">매대 배치</a></li>
+  <li><a href="#s7">Pitch</a></li>
+  <li><a href="#s8">고객 서한</a></li>
+  <li><a href="#s9">설문지</a></li>
+  <li><a href="#s10">영업 교육</a></li>
+  <li><a href="#s11">법적 금지선</a></li>
+  <li><a href="#s12">검증 한계</a></li>
+</ul></nav>
+
+<!-- ===== 0 ===== -->
+<section id="s0">
+  <h2><span class="num">00</span>한 장 요약</h2>
+  <p class="h2sub">영업 나가기 전 이것만 읽어도 된다</p>
+
+  <p class="lede">우리는 브랜드를 파는 게 아니다. <b>이미 만들어진 수요</b>와 <b>그 수요를 받아낼 수 있는 상품</b>, 그리고 <b>매주 그 매장에 들어가는 트럭</b>을 판다.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="v">46%</div><div class="k">히스패닉 가구 중 KPop Demon Hunters 팬 보유<br>(전체 미국 28%)</div></div>
+    <div class="stat"><div class="v">25%</div><div class="k">그 팬 중 K-Beauty에<br>관심이 생겼다고 답한 비율</div></div>
+    <div class="stat"><div class="v">5×</div><div class="k">히스패닉의 독립 라티노 식료품점 이용률<br>(33% vs 일반 6%)</div></div>
+    <div class="stat"><div class="v">16.6%</div><div class="k">미국 뷰티 지출 중 히스패닉 비중<br>(가구는 14.4%)</div></div>
+    <div class="stat"><div class="v">+48%</div><div class="k">미국 K-Beauty 매출 성장률<br>(2026년 초, 28억 달러)</div></div>
+  </div>
+
+  <h3>세 문장으로 된 사업 논리</h3>
+  <ol>
+    <li><b>수요는 이미 만들어져 있다.</b> 히스패닉 소비자는 인구 비중보다 뷰티에 더 쓰고, 독립 라티노 식료품점을 일반 소비자보다 5배 자주 간다. 그런데 그 매장의 뷰티 매대는 대부분 비어 있거나 20년 전 구성 그대로다.</li>
+    <li><b>우리에게만 있는 것이 있다.</b> 이미 그 매장에 매주 들어가는 배송 라우트, 가까운 DC, 20년 된 신뢰 관계. 신규 진입자가 3년 걸려 만들 것을 우리는 이미 갖고 있다.</li>
+    <li><b>상품 자체에 경쟁력이 있다.</b> 최근 K-Pop·드라마·영화의 문화적 확산이 이 소비자층에서 특히 강하게 나타나고 있고, K-Beauty는 그 관심을 <b>실제 기능</b>으로 받아낼 수 있다. 우리는 <b>그 수요를 매출로 바꿀 수 있는 경쟁력 있는 제품을 공급하는 데 집중</b>한다.</li>
+  </ol>
+
+  <div class="box warn">
+    <span class="lbl">먼저 인정하고 시작할 것</span>
+    <p style="margin-bottom:8px"><b>히스패닉 식료품점에서 K-Beauty가 팔린 사례를 찾지 못했다.</b> 성공 사례도 실패 사례도 없다. 오히려 최신 조사(Belleza Latina)는 라티나 소비자가 뷰티를 <b>Sephora·Ulta·Amazon</b>에서 산다고 말한다.</p>
+    <p style="margin-bottom:0">문화 모멘텀과 지출 능력은 각각 입증됐지만, <b>이 둘이 이 채널에서 만난다는 것은 아직 검증되지 않았다.</b> 9개 매장·90일 파일럿이 필요한 이유가 여기 있다. 경영진과 매장주 모두에게 이 사실을 숨기지 않는 편이 신뢰를 얻는다.</p>
+  </div>
+</section>
+
+<!-- ===== 1 ===== -->
+<section id="s1">
+  <h2><span class="num">01</span>문화 모멘텀 — 왜 지금인가</h2>
+  <p class="h2sub">이 장이 v02에서 새로 추가된 핵심이다. Pitch의 출발점이 된다</p>
+
+  <p class="lede">한국 콘텐츠가 만든 관심이 <b>이 소비자층에서 특히 강하게</b> 나타나고, 그 관심의 4분의 1이 <b>K-Beauty로 직접 전이</b>된다. 이건 추정이 아니라 측정된 값이다.</p>
+
+  <h3>1-1. 근거 사슬 — 순서대로 읽을 것</h3>
+  <div class="chain">
+    <ol>
+      <li><b>한국 콘텐츠가 한국 제품 구매에 영향을 준다 — 64.8%</b><br>
+      <span style="color:var(--ink-3);font-size:13.5px">문체부·한국국제문화교류진흥원(KOFICE) 공식 조사, 30개국 27,400명. 2023년 이후 지속 상승 중. ※ 이 수치는 "한국 제품·서비스 전반"이며 화장품 단독 수치가 아니다</span></li>
+
+      <li><b>미국 히스패닉 가구의 46%에 K-콘텐츠 팬이 있다 — 전체 평균 28%의 1.64배</b><br>
+      <span style="color:var(--ink-3);font-size:13.5px">Numerator 미국 소비자 2,200명 조사(2025-10). KPop Demon Hunters 기준. 아시안 가구 59%, 밀레니얼 45%, Gen Z 43%</span></li>
+
+      <li><b>그 팬의 25%가 "K-Beauty에 관심이 생겼다"고 답했다</b><br>
+      <span style="color:var(--ink-3);font-size:13.5px">동일 조사. 한국 음식·음료 관심 증가 34%, 콜라보 제품 구매 의향 42%. <b>문화 → 카테고리 전이가 측정된 유일한 데이터</b></span></li>
+
+      <li><b>K-드라마 시청자의 30%가 히스패닉이다 — Netflix 미국 가입자 기반의 17% 대비 인덱스 176</b><br>
+      <span style="color:var(--ink-3);font-size:13.5px">YouGov Behavioral(2024-06). Top 20 K-드라마 기준. 오버인덱스가 뚜렷하다</span></li>
+
+      <li><b>멕시코는 K-Pop 세계 5위 시장이며, 글로벌 Top 10 중 유일한 스페인어권이다</b><br>
+      <span style="color:var(--ink-3);font-size:13.5px">Spotify 공식 발표(2025-08). 청취자 1,400만 명, 5년간 +500%, 팬의 약 70%가 29세 이하</span></li>
+
+      <li><b>멕시코에서 "뷰티"는 한국 문화 카테고리 중 호감도 1위다 — 82%</b><br>
+      <span style="color:var(--ink-3);font-size:13.5px">KOFICE 멕시코 심층분석(2023). 음식 81.8%, 드라마 81.3%를 앞선다. ※ 2023년 자료</span></li>
+
+      <li><b>결과: 미국 K-Beauty 매출 28억 달러, 전년비 +48%</b><br>
+      <span style="color:var(--ink-3);font-size:13.5px">2026년 초 기준. Amazon 한국 페이셜 스킨케어는 2026년 상반기 +80%</span></li>
+    </ol>
+  </div>
+  <p class="src">출처: <a href="https://zdnet.co.kr/view/?no=20260330102740">KOFICE 2026 해외한류실태조사</a> · <a href="https://www.numerator.com/resources/blog/kpop-demon-hunters/">Numerator (2025-10-27)</a> · <a href="https://business.yougov.com/content/49782-yougov-behavioral-k-drama-k-pop-fandoms-us">YouGov Behavioral (2024-06-17)</a> · <a href="https://newsroom.spotify.com/2025-08-13/how-mexico-became-one-of-the-worlds-biggest-k-pop-hubs-on-spotify/">Spotify Newsroom (2025-08-13)</a> · <a href="https://www.archivecenter.net/hallyuresearch/archive/collection/ArchiveCollectionView.do?con_id=3225">KOFICE 멕시코 심층분석 (2023)</a> · <a href="https://www.glossy.co/beauty/beauty-briefing-from-tampons-to-fragrance-k-beauty-is-everywhere/">Glossy (2026-08-11)</a> · 전 항목 확인일 2026-08-25</p>
+
+  <h3>1-2. 모멘텀이 꺾이지 않았다는 증거</h3>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:30%">지표</th><th style="width:34%">확인된 내용</th><th style="width:36%">시사점</th></tr></thead>
+    <tbody>
+      <tr><td><b>Netflix 한국 콘텐츠</b></td><td>17개 시장에서 <b>121억 시간</b> 시청. 미국 다음 <b>세계 2위, 비미국 콘텐츠 1위</b>. 일본 콘텐츠 대비 +44%, 영국의 거의 2배 (Omdia)</td><td>분석 대상 17개 시장에 <b>멕시코·브라질·콜롬비아·아르헨티나 포함</b></td></tr>
+      <tr><td><b>KPop Demon Hunters</b></td><td>넷플릭스 <b>역대 최다 시청 작품</b>. 누적 6억 3,930만 뷰 / 10억 6,600만 시청시간. <b>52주 연속 글로벌 Top 10</b>(역대 최초). 2026년 아카데미 장편애니메이션상·주제가상 수상</td><td>1년이 지나도 유지되는 이례적 지속력. 미국에서만 205억 분 시청</td></tr>
+      <tr><td><b>2026 라인업</b></td><td>넷플릭스 한국 시리즈·영화 <b>33편</b> 편성. 넷플릭스 코리아 VP: "전 세계 시청자는 한국 스토리텔링을 이제 막 발견하기 시작했다"</td><td><b>플래토 신호 없음.</b> 내년까지 콘텐츠 공급 확정</td></tr>
+      <tr><td><b>중남미 실수요</b></td><td>남미 화장품 수출 <b>1,530만 → 7,020만 달러(4.6배, 2020→2025)</b>. 브라질 10배 이상. SKIN1004 멕시코 1분기 매출 +930%</td><td>문화 관심이 실제 구매로 전환된 것이 <b>수출 실적으로 확인됨</b></td></tr>
+    </tbody>
+  </table></div>
+  <p class="src">출처: <a href="https://cyprus-mail.com/2026/06/28/korean-content-becomes-netflixs-top-global-export-after-us">Omdia via Cyprus Mail (2026-06-28)</a> · <a href="https://www.netflix.com/tudum/articles/kpop-demon-hunters-most-popular-netflix-film">Netflix Tudum</a> · <a href="https://www.hollywoodreporter.com/tv/tv-news/netflix-korean-content-2026-slate-series-films-full-list-1236479688/">Hollywood Reporter</a> · <a href="https://www.etoday.co.kr/news/view/2607259">이투데이 (2026-07-29)</a></p>
+
+  <h3>1-3. 기능적 경쟁력 — 여기서만 주장한다</h3>
+  <p>문화가 관심을 만들어도 제품이 받쳐주지 않으면 재구매가 없다. <b>다만 K-Beauty의 기능적 우위는 세 가지에 한정해서 말해야 한다.</b> 그 이상은 피부과 전문의들이 공개적으로 반박하고 있어 오히려 역풍이 된다.</p>
+
+  <div class="duo">
+    <div style="background:var(--green-bg);border-color:var(--green)">
+      <span class="tag" style="color:var(--green)">말해도 되는 것 — 근거 있음</span>
+      <h4>① 개발 속도</h4>
+      <p style="font-size:14px;margin-bottom:10px">한국 ODM은 컨셉에서 출시까지 <b>6~8개월</b>, 서구 대형사는 <b>2~3년</b>. 한국 등록 화장품 기업이 약 3만 개라 경쟁이 속도를 강제한다. <b>트렌드가 매대에 도달하는 시간이 짧다.</b></p>
+      <h4>② 선크림 자외선 필터</h4>
+      <p style="font-size:14px;margin-bottom:10px">미국은 충분한 UVA 차단 화학 필터가 사실상 avobenzone <b>1종</b>뿐이다. FDA는 1999년 이후 신규 UV 필터를 승인하지 않았다. 한국·유럽은 Tinosorb S, Uvinul A Plus 같은 <b>신형 광안정성 필터</b>를 쓸 수 있다. <b>규제 격차에서 오는 실질적 기술 우위</b>다.</p>
+      <h4>③ 가격 대비 성능</h4>
+      <p style="font-size:14px;margin-bottom:0">같은 기능을 서구 브랜드보다 낮은 가격대에 구현한다. 이 채널에서 가장 직접적으로 통하는 논리다.</p>
+    </div>
+    <div style="background:var(--red-bg);border-color:var(--red)">
+      <span class="tag" style="color:var(--red)">말하면 안 되는 것 — 반박당함</span>
+      <h4>"한국 성분이 더 효과가 좋다"</h4>
+      <p style="font-size:14px;margin-bottom:10px"><b>Dr. Shari Lipner (Weill Cornell):</b> 레티놀·비타민C·펩타이드 같은 서구 주력 성분은 "충분히 연구되고 근거가 뒷받침된다". 반면 발효 성분·달팽이 점액은 "도움될 수 있지만 아는 게 훨씬 적다. 데이터가 아직 없다."</p>
+      <p style="font-size:14px;margin-bottom:10px"><b>Dr. Clare O'Connor:</b> K-Beauty 선크림은 유럽 제품 대비 <b>"우월하지 않다. 잘해야 동등하다."</b></p>
+      <p style="font-size:14px;margin-bottom:0">빠른 규제는 양날이다 — 강력한 근거 없이도 출시할 수 있다는 뜻이기도 하다. <b>성분 효능 우월성을 주장하면 이 인용들이 그대로 반박 자료가 된다.</b></p>
+    </div>
+  </div>
+  <p class="src">출처: <a href="https://www.nextpangaea.com/post/from-trend-to-product-how-korean-skincare-manufacturers-react-so-fast">NextPangaea (2026-05-06)</a> · <a href="https://www.today.com/health/skin-beauty/korean-vs-american-sunscreens-rcna205214">TODAY (2025-12-11)</a> · <a href="https://www.sciencefocus.com/science/korean-skincare-truth">BBC Science Focus (2026-06-07)</a></p>
+
+  <div class="box note">
+    <span class="lbl">가장 약한 고리 — 반드시 알고 있을 것</span>
+    <p style="margin-bottom:0"><b>"미국 히스패닉이 K-Beauty를 얼마나 사는가"를 직접 측정한 공개 데이터는 없다.</b> ① 히스패닉의 한국 콘텐츠 팬덤(46%)과 ② 히스패닉의 스킨케어 지출 오버인덱스(가구 14.4% / 지출 16.6%)는 각각 입증됐지만, 이 둘을 교차한 실측치는 존재하지 않는다. NielsenIQ 히스패닉 뷰티 리포트에는 K-Beauty 언급 자체가 없다. <b>현재로선 근거 있는 가설이며, 파일럿이 메워야 할 갭이다.</b></p>
+  </div>
+</section>
+
+<!-- ===== 2 ===== -->
+<section id="s2">
+  <h2><span class="num">02</span>미국 히스패닉 뷰티 소비자</h2>
+  <p class="h2sub">Pitch에 그대로 인용할 수 있는 확인된 수치 (확인일 2026-08-25)</p>
+
+  <h3>2-1. 돈은 이미 쓰고 있다</h3>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:36%">항목</th><th style="width:24%">수치</th><th style="width:40%">Pitch에서 쓰는 방식</th></tr></thead>
+    <tbody>
+      <tr><td>미국 뷰티 지출 중 히스패닉 비중</td><td><b>16.6%</b> (가구 14.4%)</td><td>"인구 비중보다 더 쓰는 소비자입니다"</td></tr>
+      <tr><td>히스패닉 뷰티 지출 총액</td><td><b>$230억, 전년비 +6%</b></td><td>규모 근거</td></tr>
+      <tr><td>비히스패닉 대비 추가 지출</td><td>연 <b>+$39</b> / 라티나는 평균 <b>19% 더</b></td><td>"같은 매장 손님인데 뷰티엔 더 씁니다"</td></tr>
+      <tr><td>연간 뷰티 쇼핑 방문 횟수</td><td>일반 대비 <b>연 2회 더</b></td><td>반복구매 근거</td></tr>
+      <tr><td>매장 구매 비중</td><td>지출의 <b>51%가 오프라인</b>, <b>56%가 매장 선호</b></td><td>"온라인으로 다 가지 않았습니다"</td></tr>
+      <tr><td>신제품 시도 성향</td><td>라티나는 <b>샘플링·신제품 시도에 오버인덱스</b></td><td>무명 브랜드 진입에 유리한 조건</td></tr>
+    </tbody>
+  </table></div>
+  <p class="src">출처: <a href="https://nielseniq.com/global/en/insights/commentary/2024/understanding-the-hispanic-beauty-consumer-trends-values-and-buying-power/">NielsenIQ (2024)</a> · <a href="https://wwd.com/beauty-industry-news/beauty-features/latina-beauty-culture-shoppers-mindset-research-1238977033/">WWD × Circana (2026-05-26)</a> · <a href="https://hispanicmarketingcouncil.org/press/hmc-unveils-new-study-on-u-s-hispanic-beauty-and-skincare-belleza-latina/">Belleza Latina (2025-10-07)</a></p>
+
+  <div class="box good">
+    <span class="lbl">채널 근거 — 반드시 외울 것</span>
+    <p style="margin-bottom:8px"><b>독립 라티노 식료품점 이용률: 라티노 소비자 33% vs 일반 소비자 6% — 5배 이상.</b></p>
+    <ul style="margin-bottom:8px">
+      <li>라티노 소비자의 <b>55%가 이런 매장에서 2마일 이내</b>에 산다 (일반 31%)</li>
+      <li><b>81%가 "더 가까우면 더 자주 가겠다"</b>고 답했다 (일반 47%)</li>
+      <li>Walmart·Amazon·Costco와 나란히 <b>주요 목적지</b>로 꼽힌다</li>
+    </ul>
+    <p style="margin-bottom:0"><b>왜 중요한가:</b> 이 소비자는 뷰티를 사러 이 매장에 오지 않지만, <b>이미 매주 이 매장에 온다.</b> 우리는 새 트래픽을 만들 필요가 없다.</p>
+    <p class="src" style="margin-bottom:0">출처: <a href="https://www.pdginsights.com/post/why-shoppers-are-choosing-independent-latino-grocery-stores-and-what-it-means-for-cpg-brands">PDG Insights</a> · <a href="https://www.grocerydive.com/news/latino-hispanic-grocery-shopper/740971/">Grocery Dive (2025-03-17)</a></p>
+  </div>
+
+  <h3>2-2. 피부 고민 — 무엇을 파는가</h3>
+  <p>이 소비자는 메이크업이 아니라 <b>스킨케어</b>를 산다. Belleza Latina 조사(미국 거주 히스패닉 여성 18~34세, 500명)에서 <b>62%가 자연스러운 외모를 지향</b>하고 <b>13%만 화려한 메이크업을 선호</b>했으며, <b>72%가 메이크업 없이 외출</b>한다고 답했다. 동시에 <b>90%가 "깨끗하고 건강한 피부가 매우 중요"</b>하다고 했다. 같은 조사에서 <b>한국의 "글래스 스킨" 미의식이 젊은 라티나의 뷰티 접근에 직접 영향을 준다</b>고 명시했다.</p>
+
+  <div class="scroll"><table>
+    <thead><tr><th class="num" style="width:6%">순위</th><th style="width:22%">고민</th><th style="width:38%">근거</th><th style="width:34%">우리가 넣을 제품</th></tr></thead>
+    <tbody>
+      <tr><td class="num"><b>1</b></td><td><b>Manchas</b><br>(다크스팟·색소침착)</td><td>히스패닉·라티노에서 <b>네 번째로 흔한 피부질환</b>. 라티나 여성(30~65세, 401명)의 <b>63%가 개선 제품을 고려하겠다</b>고 답했고, <b>66%가 스킨케어 광고에서 대표되지 않는다</b>고 느낀다</td><td>나이아신아마이드 세럼, 비타민C 세럼, 톤 정돈 크림, 브라이트닝 마스크</td></tr>
+      <tr><td class="num"><b>2</b></td><td><b>Barros / Acné</b><br>(여드름·트러블)</td><td>피부과 진료에서 히스패닉 환자 <b>1위 진단</b>. 그리고 여드름 후 <b>색소침착(PIH)이 히스패닉 환자의 52.7%</b>에서 발생 — <b>1번과 2번은 사실상 같은 구매 동기</b></td><td>여드름 패치, BHA 토너, 시카·병풀 진정젤</td></tr>
+      <tr><td class="num"><b>3</b></td><td><b>Piel seca / grasa</b><br>(건조·유분)</td><td>기본 반복구매 축. 이 채널의 회전을 만드는 자리</td><td>보습 토너, 젤 크림, 클렌징 폼·오일</td></tr>
+      <tr><td class="num"><b>4</b></td><td><b>Luminosidad</b><br>(광채·글래스 스킨)</td><td>1장의 문화 모멘텀이 직접 연결되는 지점. <b>73%가 알로에·코코넛오일·로즈워터 같은 전통 성분을 현대 제형으로 사용</b> — K-Beauty의 식물성 서사와 접점이 있다</td><td>하이드로겔 아이패치, 시트마스크, 립케어</td></tr>
+    </tbody>
+  </table></div>
+  <p class="src">출처: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8570660">Murphy &amp; Dow, J Clin Aesthet Dermatol (2021)</a> · <a href="https://jddonline.com/articles/top-dermatologic-conditions-in-patients-of-color-an-analysis-of-nationally-representative-data-S1545961612P0466X">JDD, NAMCS 분석</a> · <a href="https://jcadonline.com/postinflammatory-hyperpigmentation-a-review-of-the-epidemiology-clinical-features-and-treatment-options-in-skin-of-color/">JCAD, PIH 리뷰</a></p>
+
+  <div class="box note">
+    <span class="lbl">정직하게 짚을 모순</span>
+    <p style="margin-bottom:0">피부과 <b>진료</b> 데이터(NAMCS)에서는 히스패닉 환자의 상위 5개 진단에 색소침착이 <b>들어 있지 않다.</b> 마케팅 조사와 임상 데이터가 어긋난다. 다만 <b>히스패닉 피부과 방문 중 실제 피부과 전문의에게 간 비율은 23.9%</b>에 불과하고 히스패닉은 무보험률이 미국에서 가장 높으므로, 진료 데이터가 미용 목적 색소 고민을 크게 누락했을 가능성이 크다. <b>이 모순은 해소되지 않았다.</b> "1위 고민"이라고 단정하지 말고 "가장 큰 상업적 기회"라고 표현하는 편이 정확하다.</p>
+  </div>
+
+  <div class="box good">
+    <span class="lbl">무명 브랜드에 유리한 사실</span>
+    <p style="margin-bottom:0">Belleza Latina에서 <b>85%가 스스로를 "beauty brand explorer"</b>라고 답했다. 미국 히스패닉 쇼핑객은 평균 <b>6.1개 매장 브랜드</b>를 이용한다(일반 4.9개). 그리고 <b>80%가 유색인종의 니즈를 진짜로 이해하는 브랜드를 원하지만 35%만이 업계가 그렇게 한다고 본다</b> — 45포인트 격차. <b>충성도는 기본값이 아니라 얻는 것</b>이며, 이는 신규 진입자에게 유리하고 기존 브랜드에 불리하다.</p>
+  </div>
+</section>
+
+<!-- ===== 3 ===== -->
+<section id="s3">
+  <h2><span class="num">03</span>FL · GA · TX는 같은 시장이 아니다</h2>
+  <p class="h2sub">"히스패닉"을 하나로 묶어 기획하면 세 곳 모두에서 어긋난다</p>
+
+  <div class="scroll"><table>
+    <thead><tr><th style="width:13%">주</th><th class="num" style="width:12%">히스패닉 비중</th><th style="width:30%">출신국 구성</th><th style="width:22%">핵심 카운티</th><th style="width:23%">영업 시사점</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>Texas</b><br><span style="color:var(--ink-3);font-size:12px">3,171만 명</span></td>
+        <td class="num"><b>40.9%</b></td>
+        <td><b>멕시코계 86%</b>, 엘살바도르 3%. 가장 단일한 구성</td>
+        <td>Bexar 60.7%<br>Harris 46.1%<br>Dallas 43.4%</td>
+        <td>하나의 매대 구성과 하나의 스페인어 카드로 전 지역 커버 가능. <b>규모 확장에 가장 유리</b></td>
+      </tr>
+      <tr>
+        <td><b>Florida</b><br><span style="color:var(--ink-3);font-size:12px">2,346만 명</span></td>
+        <td class="num"><b>29.2%</b></td>
+        <td>쿠바계 146만, 푸에르토리코계 124만, 멕시코계 72만, 콜롬비아 44만, <b>베네수엘라 38만(2019년 대비 +119%)</b></td>
+        <td>Miami-Dade 70.6%<br>Orange 35.4%<br>Hillsborough 32.1%</td>
+        <td><b>멕시코 기준으로 짜면 안 된다.</b> 마이애미는 쿠바계 40%, 올랜도는 푸에르토리코계 43%</td>
+      </tr>
+      <tr>
+        <td><b>Georgia</b><br><span style="color:var(--ink-3);font-size:12px">1,130만 명</span></td>
+        <td class="num"><b>12.1%</b></td>
+        <td>멕시코계 57%, 푸에르토리코 10%, 남미 8%, 과테말라 6%. 메트로 애틀랜타는 멕시코계 47%로 더 혼합</td>
+        <td><b>Gwinnett 25.5%</b><br>중위가구소득 <b>$87,890</b> — 조사 대상 중 최고</td>
+        <td>규모는 작지만 <b>소득이 가장 높다.</b> 그리고 POCAS DC가 가장 가깝다 — <b>파일럿 1순위</b></td>
+      </tr>
+    </tbody>
+  </table></div>
+  <p class="src">출처: <a href="https://www.census.gov/quickfacts/fact/table/FL,GA,TX/PST045224">U.S. Census QuickFacts (V2025)</a> · <a href="https://www.pewresearch.org/short-reads/2023/08/16/11-facts-about-hispanic-origin-groups-in-the-us/">Pew Research</a> · <a href="https://www.pewresearch.org/short-reads/2026/01/09/facts-about-venezuelans-in-the-us/">Pew, 베네수엘라계 (2026-01-09)</a></p>
+
+  <div class="box info">
+    <span class="lbl">그래서 파일럿 순서는 이렇게</span>
+    <ol style="margin-bottom:0">
+      <li><b>Georgia (Gwinnett 권역) 3곳</b> — DC가 가장 가깝고 소득이 높다. 여기서 매대·보충·데이터 수집 프로세스를 완성한다.</li>
+      <li><b>Texas (Houston·Dallas) 3~4곳</b> — 멕시코계 86% 단일 구성이라 GA에서 검증한 것을 그대로 복제할 수 있다. 규모 확장 거점.</li>
+      <li><b>Florida (Miami·Orlando) 2~3곳</b> — 출신국 구성이 가장 복잡하다. GA·TX 데이터를 확보한 뒤 마지막에 들어간다.</li>
+    </ol>
+  </div>
+
+  <p class="footnote"><b>주의:</b> 출신국별 <b>식품·매장 포맷</b> 선호 차이는 자료로 확인되지만, <b>뷰티·HBA 구매 행동의 출신국별 차이를 다룬 자료는 찾지 못했다.</b> 위 시사점은 인구 구성에 근거한 추론이다.</p>
+</section>
+
+<!-- ===== 4 ===== -->
+<section id="s4">
+  <h2><span class="num">04</span>인큐베이팅 전략이 바꾸는 것</h2>
+  <p class="h2sub">유명 브랜드를 안 쓴다는 결정은 약점이 아니라 무기다</p>
+
+  <div class="duo">
+    <div style="background:var(--green-bg);border-color:var(--green)">
+      <span class="tag" style="color:var(--green)">얻는 것 — 크다</span>
+      <h4>온라인 가격 붕괴 위험이 사라진다</h4>
+      <p style="font-size:14.5px;margin-bottom:8px">유명 K-Beauty 브랜드의 최대 문제는 <b>브랜드 자신이 자기 Amazon 스토어에서 정가의 절반에 판다</b>는 것이다. 조사에서 확인된 격차: Biodance 자사몰 대비 <b>약 65~70%</b>, Medicube <b>52~55%</b>, TIRTIR <b>46%</b>, COSRX <b>53%</b>.</p>
+      <p style="font-size:14.5px;margin-bottom:0">매장에 깔아도 소비자가 그 자리에서 검색하면 끝난다. <b>무명 소싱 제품은 이 위험이 구조적으로 없다.</b> 우리가 유일한 미국 유통 경로이기 때문이다.</p>
+    </div>
+    <div style="background:var(--red-bg);border-color:var(--red)">
+      <span class="tag" style="color:var(--red)">잃는 것 — 대비해야 함</span>
+      <h4>브랜드 인지도가 0이다</h4>
+      <p style="font-size:14.5px;margin-bottom:8px">"COSRX 아시죠?"로 시작할 수 없다. 매장주도 소비자도 이 브랜드를 모른다.</p>
+      <p style="font-size:14.5px;margin-bottom:0">따라서 제안의 축이 브랜드에서 <b>카테고리 · 고민 · 가격 · 배송</b>으로 옮겨간다. 다행히 1장의 문화 모멘텀은 <b>브랜드가 아니라 카테고리 전체</b>에 작동한다 — Numerator 조사에서 팬들이 관심을 보인 대상은 특정 브랜드가 아니라 <b>"K-Beauty"</b>였다.</p>
+    </div>
+  </div>
+
+  <div class="box info">
+    <span class="lbl">그래서 포트폴리오를 이렇게 설계한다</span>
+    <p style="margin-bottom:8px">아래 14 SKU는 <b>브랜드가 아니라 제품유형 · 소비자 고민 · 가격대</b>로 정의했다. 소싱팀이 조건에 맞는 제품을 찾으면 그 자리에 꽂으면 된다. 브랜드가 바뀌어도 <b>매대 구조 · 영업 스크립트 · 스페인어 카드는 그대로 쓸 수 있다.</b></p>
+    <p style="margin-bottom:0">ODM은 이 파일럿에서 <b>어떤 유형이 실제로 팔리는지 확인한 뒤</b> 결정한다 — 무엇을 만들지 모르는 상태에서 ODM MOQ를 거는 것이 가장 비싼 실수다.</p>
+  </div>
+
+  <h3>참고 — 이미 벌어지고 있는 일</h3>
+  <p><b>ANUA × KPop Demon Hunters 콜라보</b>가 2026년 2월 온라인 런칭 후 <b>Ulta 전국 약 1,500개 매장</b>에 들어갔다. 콜라겐 마스크 개당 $4(4개 $15), 스팟 패치 55매 $14, 한정판 <b>포토카드</b> 번들. K-pop 팬덤의 수집 메커니즘을 그대로 뷰티 매대에 이식한 구조다.</p>
+  <p><b>H Mart는 "H Art"</b>라는 이름으로 일부 매장에 뷰티 전용 코너를 열었다. <i>"한국 음식과 스킨케어는 둘 다 일상 필수품이라 함께 묶인다"</i>가 근거였다. <b>식품 유통이 문화 기반 채널에 스킨케어를 더한 가장 가까운 선례</b>다. 다만 H Mart는 한국 제품을 한국 식료품점에 넣은 것이라 민족이 일치하고, 우리 경우는 일치하지 않는다.</p>
+  <p class="src">출처: <a href="https://www.netflix.com/tudum/articles/kpop-demon-hunters-anua">Netflix Tudum</a> · <a href="https://wwd.com/pop-culture/new-fashion-releases/anua-kpop-demon-hunters-partnership-1238532731/">WWD</a> · <a href="https://www.emarketer.com/content/k-beauty-comes-h-mart--retailers-should-embrace-big-beauty-trends">eMarketer (2026-03-13)</a></p>
+</section>
+
+<!-- ===== 5 ===== -->
+<section id="s5">
+  <h2><span class="num">05</span>권장 포트폴리오 — Hispanic Grocery HBA 14 SKU</h2>
+  <p class="h2sub">브랜드는 소싱 결과로 채운다. 유형·고민·가격은 고정한다</p>
+
+  <div class="scroll"><table>
+    <thead><tr>
+      <th class="num" style="width:4%">#</th><th style="width:20%">제품 유형 · 규격</th><th style="width:19%">고객이 말하는 고민</th>
+      <th style="width:15%">스페인어 매대 문구</th><th class="num" style="width:9%">목표 소비자가</th><th style="width:10%">역할</th><th style="width:23%">소싱 지침</th>
+    </tr></thead>
+    <tbody>
+      <tr class="rowgrp"><td colspan="7">A. Manchas — 다크스팟 · 4 SKU · 이 채널의 차별화 축</td></tr>
+      <tr><td class="num">1</td><td>나이아신아마이드 세럼 30ml</td><td>기미·잡티가 늘었다</td><td><i>Para manchas oscuras</i></td><td class="num">$9.99</td><td><b>주력</b></td><td>나이아신아마이드 5~10%. 임상 수치 있는 제품 우선</td></tr>
+      <tr><td class="num">2</td><td>비타민C 세럼 30ml</td><td>피부톤이 칙칙하다</td><td><i>Unifica el tono</i></td><td class="num">$9.99</td><td><b>주력</b></td><td>안정화 유도체 필수(산화 시 클레임 발생). UV 차단 용기</td></tr>
+      <tr><td class="num">3</td><td>톤 정돈 크림 50g</td><td>매일 쓰는 기미 크림</td><td><i>Crema correctora</i></td><td class="num">$8.99</td><td><b>주력</b></td><td>알부틴·트라넥삼산 계열. <b>하이드로퀴논 절대 불가</b> (11장)</td></tr>
+      <tr><td class="num">4</td><td>브라이트닝 시트마스크 낱장</td><td>내일 행사가 있다</td><td><i>Mascarilla iluminadora</i></td><td class="num">$1.99</td><td>트래픽</td><td>낱장 판매 가능한 개별 포장. 계산대 배치용</td></tr>
+
+      <tr class="rowgrp"><td colspan="7">B. Barros / Acné — 여드름 · 3 SKU · 가장 확실한 첫 매출</td></tr>
+      <tr><td class="num">5</td><td>여드름 패치 (스팟) 1시트</td><td>오늘 난 뾰루지를 오늘 가린다</td><td><i>Parches para barros</i></td><td class="num">$4.99</td><td><b>트래픽</b></td><td>하이드로콜로이드. <b>이 채널 최고 회전 예상 SKU</b> — 재고 우선 확보</td></tr>
+      <tr><td class="num">6</td><td>BHA·살리실산 토너 150ml</td><td>모공이 막히고 번들거린다</td><td><i>Poros obstruidos</i></td><td class="num">$8.99</td><td><b>주력</b></td><td>살리실산 저농도. 기존 Asepxia 사용자 전환 대상</td></tr>
+      <tr><td class="num">7</td><td>시카·병풀 진정젤 50ml</td><td>붉고 따갑다</td><td><i>Calma la piel irritada</i></td><td class="num">$9.99</td><td>주력</td><td>병풀 함량 표기. 여드름 후 진정 = PIH 예방 서사</td></tr>
+
+      <tr class="rowgrp"><td colspan="7">C. Hidratación — 보습 · 3 SKU · 반복구매 기반</td></tr>
+      <tr><td class="num">8</td><td>보습 토너 200ml</td><td>세안 후 당긴다</td><td><i>Para piel seca</i></td><td class="num">$7.99</td><td><b>주력</b></td><td>대용량으로 체감 가치 확보. 향 강도 낮게</td></tr>
+      <tr><td class="num">9</td><td>젤 크림 50ml</td><td>무겁지 않은 보습</td><td><i>Hidratación ligera</i></td><td class="num">$8.99</td><td><b>주력</b></td><td>습한 남부 기후 대응 — 유분감 낮은 제형</td></tr>
+      <tr><td class="num">10</td><td>하이드로겔 아이패치 소포장</td><td>피곤해 보인다</td><td><i>Para ojeras</i></td><td class="num">$5.99</td><td>충동</td><td>5~10회분 소포장. 대용량 통은 이 가격대에 안 맞음</td></tr>
+
+      <tr class="rowgrp"><td colspan="7">D. Limpieza — 클렌징 · 2 SKU</td></tr>
+      <tr><td class="num">11</td><td>폼 클렌저 150ml</td><td>매일 쓰는 세안제</td><td><i>Limpiador facial</i></td><td class="num">$6.99</td><td><b>주력</b></td><td>가장 낮은 진입 저항. 첫 구매 유도용</td></tr>
+      <tr><td class="num">12</td><td>클렌징 오일·밤 소용량</td><td>선크림이 안 지워진다</td><td><i>Desmaquillante</i></td><td class="num">$8.99</td><td>주력</td><td>소용량으로 가격대 방어</td></tr>
+
+      <tr class="rowgrp"><td colspan="7">E. Impulso — 충동·체험 · 2 SKU</td></tr>
+      <tr><td class="num">13</td><td>수분 시트마스크 낱장</td><td>오늘 밤 관리</td><td><i>Mascarilla hidratante</i></td><td class="num">$1.99</td><td>트래픽</td><td>4번과 다른 기능. 계산대 바구니 2종 구성</td></tr>
+      <tr><td class="num">14</td><td>립 슬리핑 마스크 / 립케어</td><td>입술이 갈라진다</td><td><i>Para labios resecos</i></td><td class="num">$5.99</td><td>충동</td><td>선물·충동 구매. 연중 판매 가능</td></tr>
+
+      <tr class="rowgrp"><td colspan="7">F. 조건부 — 승인 전 진열 금지</td></tr>
+      <tr><td class="num">15</td><td>선크림 SPF <span class="chip c-b">조건부</span></td><td>백탁 없는 자외선 차단</td><td><i>Protector solar</i></td><td class="num">$12.99</td><td>보류</td><td><b>미국 OTC 모노그래프·Drug Facts 확인 전 절대 편입 금지.</b> 한국 내수용 SPF 불가</td></tr>
+    </tbody>
+    <tfoot><tr><td colspan="4">14 SKU (+조건부 1) · 주력 8 / 트래픽 4 / 충동 2</td><td class="num">평균 ≈ $7.6</td><td colspan="2">$1.99~$4.99 = 3개 (21%)</td></tr></tfoot>
+  </table></div>
+
+  <div class="box note">
+    <span class="lbl">가격 설계의 근거와 한계</span>
+    <p style="margin-bottom:8px">① 히스패닉 식료품점 HBA 매대의 기존 가격대는 <b>소매 $3~$8</b>대로 관측된다(소매 1곳·도매 1곳 실측이며 전수조사 아님). ② 하지만 미국 히스패닉 소비자는 뷰티에 <b>일반 대비 19% 더</b> 쓴다.</p>
+    <p style="margin-bottom:0">따라서 <b>충동 구간을 $1.99~$5.99로 확실히 낮게 깔고, 세럼만 $9.99까지 올리는</b> 구조로 잡았다. <b>이 가격은 확정이 아니라 소싱 목표치</b>이며, 실제 공급원가·landed cost·매장 마진 역산 후 확정한다.</p>
+  </div>
+</section>
+
+<!-- ===== 6 ===== -->
+<section id="s6">
+  <h2><span class="num">06</span>2-Foot 매대 배치</h2>
+  <p class="h2sub">매장주에게는 SKU 리스트가 아니라 완성된 매대를 보여준다</p>
+
+  <div class="pog">
+    <div class="shelf-lbl">3단 (상) — Tratamiento · 치료 · $8.99 ~ $9.99</div>
+    <div class="shelf" style="grid-template-columns:repeat(5,1fr)">
+      <div class="cell"><span class="n">Niacinamida<br>Serum</span><span class="p">$9.99 · manchas</span></div>
+      <div class="cell"><span class="n">Vitamina C<br>Serum</span><span class="p">$9.99 · tono</span></div>
+      <div class="cell"><span class="n">Crema<br>Correctora</span><span class="p">$8.99 · manchas</span></div>
+      <div class="cell"><span class="n">Gel Calmante<br>Centella</span><span class="p">$9.99 · irritada</span></div>
+      <div class="cell"><span class="n">Tónico BHA<br>150ml</span><span class="p">$8.99 · poros</span></div>
+    </div>
+    <div class="shelf-lbl">2단 (중) — Rutina Diaria · 매일 쓰는 것 · $5.99 ~ $8.99</div>
+    <div class="shelf" style="grid-template-columns:repeat(5,1fr)">
+      <div class="cell"><span class="n">Limpiador<br>Facial</span><span class="p">$6.99</span></div>
+      <div class="cell"><span class="n">Desmaquillante<br>en Aceite</span><span class="p">$8.99</span></div>
+      <div class="cell"><span class="n">Tónico<br>Hidratante</span><span class="p">$7.99</span></div>
+      <div class="cell"><span class="n">Crema Gel<br>Ligera</span><span class="p">$8.99</span></div>
+      <div class="cell"><span class="n">Parches<br>Ojeras</span><span class="p">$5.99</span></div>
+    </div>
+    <div class="shelf-lbl">1단 (하 · 계산대 근처) — Prueba · 체험 · $1.99 ~ $5.99</div>
+    <div class="shelf" style="grid-template-columns:repeat(4,1fr)">
+      <div class="cell"><span class="n">Parches para<br>Barros</span><span class="p">$4.99 · 최고 회전</span></div>
+      <div class="cell"><span class="n">Mascarilla<br>Iluminadora</span><span class="p">$1.99</span></div>
+      <div class="cell"><span class="n">Mascarilla<br>Hidratante</span><span class="p">$1.99</span></div>
+      <div class="cell"><span class="n">Bálsamo<br>Labial</span><span class="p">$5.99</span></div>
+    </div>
+  </div>
+
+  <div class="box good">
+    <span class="lbl">배치 원칙 3가지</span>
+    <ol style="margin-bottom:0">
+      <li><b>아래에서 위로 비싸진다.</b> 손이 먼저 닿는 아래 칸에서 $1.99 체험이 일어나고, 만족하면 위 칸으로 올라간다. 루틴 순서(클렌징→토너→세럼)로 배치하면 이 채널에서는 작동하지 않는다.</li>
+      <li><b>$1.99와 $4.99가 멀리서 보여야 한다.</b> 가격표가 작으면 이 매대는 "비싼 매대"로 인식되고 아무도 다가오지 않는다.</li>
+      <li><b>여드름 패치를 계산대 바구니에 별도 배치.</b> 이 채널에서 가장 확실한 첫 매출이며, 매장주에게 "팔린다"를 증명하는 가장 빠른 수단이다.</li>
+    </ol>
+  </div>
+
+  <div class="box info">
+    <span class="lbl">이중언어 표기 — 데이터가 있다</span>
+    <p style="margin-bottom:8px">2023년 실험 연구(2회 실험, n=240 / n=236)에서 <b>이중언어 표기가 영어 단독과 스페인어 단독을 모두 앞섰다.</b> 구매 의향은 <b>이중언어 4.8 &gt; 영어 4.5 &gt; 스페인어 4.1</b>(이중언어 vs 스페인어 단독 p=.01). 진정성(5.06 vs 4.45), 포용성(5.01 vs 4.40), 친근함, 흥미도를 모두 유의하게 높였다.</p>
+    <p style="margin-bottom:0">그리고 <b>미국 라티노의 약 80%가 이중언어 또는 영어 우세</b>다. <b>스페인어 단독은 답이 아니다.</b></p>
+    <p class="src" style="margin-bottom:0">출처: <a href="https://journals.shareok.org/ijsw/article/download/134/93/520">Mantel &amp; Kellaris, IJSW 7(1), 2023</a> · <b>주의:</b> 히스패닉 전용 표본이 아니라 미국 성인 일반 표본이다. 다만 <b>이중언어가 일반 소비자 구매의향도 낮추지 않았다</b>는 점에서 상업적 근거로는 오히려 강하다.</p>
+  </div>
+</section>
+
+<!-- ===== 7 ===== -->
+<section id="s7">
+  <h2><span class="num">07</span>Pitch — 기존 F&amp;B 고객에게</h2>
+  <p class="h2sub">60초 안에 끝나야 한다. 뷰티 얘기가 아니라 사업 얘기다</p>
+
+  <h3>7-1. 60초 스크립트</h3>
+  <div class="doc">
+    <h4>Route Rep / 영업사원 구두 스크립트</h4>
+    <p><b>[문을 열고, 평소처럼 배송 확인 후]</b></p>
+    <p>"사장님, 20초만요. 저희가 새로 시작하는 게 하나 있는데 사장님 매장에 맞을 것 같아서요."</p>
+    <p><b>[1. 문제 제기 — 그의 매장 얘기로]</b><br>
+    "요즘 손님들이 스킨케어를 어디서 사세요? Walmart나 온라인이죠. 그런데 그 손님들, <b>매주 여기는 오시잖아요.</b>"</p>
+    <p><b>[2. 왜 지금인지 — 이 부분이 v02에서 바뀐 곳]</b><br>
+    "지금 K-Pop이랑 넷플릭스 한국 드라마·영화 때문에 한국 화장품 찾는 손님이 늘고 있습니다. 그게 <b>라티노 손님들한테 특히 강해요.</b> 미국 전체 가구 중에 그런 콘텐츠 팬이 있는 집이 28%인데, <b>히스패닉 가구는 46%</b>입니다. 그리고 그 팬들 중 <b>4명 중 1명이 한국 화장품에 관심이 생겼다</b>고 답했어요."</p>
+    <p><b>[3. 그런데 살 데가 없다]</b><br>
+    "그 손님이 지금 그걸 어디서 삽니까? 여기선 못 사죠. 라티노 손님들이 이런 동네 마켓 오는 비율이 일반 손님보다 <b>5배</b> 높은데, 정작 여기서는 살 게 없습니다."</p>
+    <p><b>[4. 제안 — 크기를 작게]</b><br>
+    "<b>2피트짜리 선반 하나</b>입니다. 14개 품목, 대부분 $2에서 $10 사이. 제가 매주 오니까 <b>따로 주문하실 것도, 새 업체 등록하실 것도 없습니다.</b> 지금 주문서에 줄 하나 추가되는 거예요. 매대랑 가격표는 저희가 준비합니다."</p>
+    <p><b>[5. 닫기 — 결정을 미루지 않게]</b><br>
+    "지금 결정하실 필요 없고요, 제가 <b>5분짜리 질문지</b> 하나 놓고 갈게요. 다음 주에 올 때 답만 주시면 됩니다. 관심 있으시면 그때 매대 사진이랑 가격표 가져올게요."</p>
+    <div class="sig">소요 시간 60초. 상품 설명은 하지 않는다. 상품 얘기는 설문 회수 후 2차 방문에서.</div>
+  </div>
+
+  <h3>7-2. 매장주가 반드시 묻는 5가지</h3>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:24%">질문</th><th style="width:38%">이렇게 답한다</th><th style="width:38%">이렇게 답하면 안 된다</th></tr></thead>
+    <tbody>
+      <tr><td><b>"이런 게 진짜 팔려요?"</b></td><td>"미국 K-Beauty 매출이 작년보다 <b>48% 늘었습니다.</b> Amazon 한국 스킨케어는 올 상반기에만 80% 늘었고요. 저희가 만들어낸 수요가 아니라 <b>이미 생긴 수요</b>입니다."</td><td>"저희 제품이 좋아서 팔립니다" — 무명 브랜드라 근거가 안 된다</td></tr>
+      <tr><td><b>"마진이 얼마요?"</b></td><td>"목표 마진율을 먼저 말씀해 주시면 거기 맞춰 가격표를 짭니다. 독립 식료품점 평균 총마진이 27.9%인데, 뷰티는 그보다 높게 가져가셔야 의미가 있습니다."</td><td>확정 마진율을 즉석에서 약속 — 아직 landed cost가 안 나왔다</td></tr>
+      <tr><td><b>"자리가 없는데"</b></td><td>"2피트면 됩니다. 계산대 옆 자투리도 괜찮고요. 매대는 저희가 준비합니다."</td><td>"4피트는 필요합니다" — 첫 제안에서 크게 요구하면 대화가 끝난다</td></tr>
+      <tr><td><b>"이 브랜드 처음 보는데"</b></td><td>"맞습니다, 새 브랜드입니다. 대신 두 가지가 있어요. 하나는 <b>온라인에 더 싸게 파는 데가 없다</b>는 것. 유명 브랜드는 Amazon에서 절반 가격에 팔려서 매대가 죽습니다. 또 하나는 <b>손님들이 찾는 건 특정 브랜드가 아니라 한국 화장품 자체</b>라는 겁니다."</td><td>유명 브랜드인 척하거나 얼버무리기 — 매장주는 금방 안다</td></tr>
+      <tr><td><b>"우리 손님들이 살까?"</b></td><td>"라티노 손님 중에 K-드라마 보시는 분 비율이 일반보다 훨씬 높습니다. 그래도 <b>이 매장에서</b> 팔리는지는 해봐야 압니다. 그래서 90일 테스트로 시작하자는 거고요. 매주 제가 몇 개 팔렸는지 같이 세고, 안 나가는 건 다른 걸로 바꿔 드립니다."</td><td>"당연히 삽니다" — 이 채널에서의 판매는 아직 검증 안 됐다</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ===== 8 ===== -->
+<section id="s8">
+  <h2><span class="num">08</span>고객 서한</h2>
+  <p class="h2sub">설문지와 함께 두고 오는 1페이지. 영어·스페인어 양면 인쇄</p>
+
+  <div class="doc">
+    <h4>English — leave-behind letter</h4>
+    <p><b>Your customers are already asking for this. Right now they buy it somewhere else.</b></p>
+    <p>Dear Valued Partner,</p>
+    <p>For years we have delivered food and beverage to your store every week. We are writing about one small addition we believe can add profit to shelf space you already have.</p>
+    <p><b>Why now.</b> Korean pop culture — K-pop, Netflix dramas and films — has moved Korean skincare from a niche interest into real demand. <b>US K-beauty sales grew 48% year over year</b>, reaching $2.8 billion. And this trend runs unusually strong with Hispanic households: <b>46% have a fan of Korean content in the home, versus 28% of US households overall</b>. One in four of those fans says it made them interested in Korean beauty products.</p>
+    <p><b>Why your store.</b> Hispanic shoppers are <b>five times more likely</b> to shop independent Latino grocery stores than the general population, and they spend more on beauty than the average U.S. consumer. Today that spending leaves your store for big-box retail and online — not because they prefer it, but because you do not carry it.</p>
+    <p><b>What we propose.</b> A <b>2-foot skincare set of 14 items</b>, most priced between <b>$1.99 and $9.99</b>, selected for what your customers actually ask for — dark spots, acne, dryness. Korean manufacturers move from concept to shelf in six to eight months, against two to three years for large Western companies, so this set stays current. All shelf cards are in English and Spanish.</p>
+    <p><b>What makes this easy for you.</b></p>
+    <ul>
+      <li><b>No new vendor setup.</b> It goes on your existing order with us, delivered on your existing route.</li>
+      <li><b>No extra work.</b> Our driver counts the shelf and restocks it on the regular visit.</li>
+      <li><b>We supply the display.</b> Shelf unit, price tags, and bilingual product cards included.</li>
+      <li><b>We start small.</b> A 90-day test, reviewed together, with slow items swapped out.</li>
+    </ul>
+    <p><b>What we are asking today.</b> Nothing to buy. Please take five minutes to answer the attached questions so we can tell you whether this fits your store — and if it does, what it would look like. Your driver will pick it up on the next visit.</p>
+    <p>Thank you for twenty years of business. We would like the next twenty to be worth more to both of us.</p>
+    <div class="sig">K-Vive Direct · A division of POCAS<br>Distribution centers: CA · IL · NJ · GA · FL · TX</div>
+  </div>
+
+  <div class="doc">
+    <h4>Español — carta para dejar en la tienda</h4>
+    <p><b>Sus clientes ya lo están buscando. Hoy lo compran en otro lugar.</b></p>
+    <p>Estimado socio comercial,</p>
+    <p>Durante años hemos entregado alimentos y bebidas en su tienda cada semana. Le escribimos sobre una pequeña adición que creemos puede generar más ganancia en el espacio de estante que ya tiene.</p>
+    <p><b>Por qué ahora.</b> La cultura popular coreana — K-pop, series y películas de Netflix — convirtió el cuidado de la piel coreano en una demanda real. <b>Las ventas de belleza coreana en Estados Unidos crecieron 48% en un año</b>, llegando a 2,800 millones de dólares. Y esta tendencia es especialmente fuerte en los hogares hispanos: <b>46% tiene en casa a un fan de contenido coreano, frente al 28% de los hogares estadounidenses en general</b>. Uno de cada cuatro de esos fans dice que eso le despertó interés en productos de belleza coreanos.</p>
+    <p><b>Por qué su tienda.</b> Los compradores hispanos tienen <b>cinco veces más probabilidad</b> de comprar en tiendas latinas independientes que la población general, y gastan más en belleza que el consumidor promedio. Hoy ese gasto sale de su tienda hacia las grandes cadenas y el internet — no porque lo prefieran, sino porque usted no lo vende.</p>
+    <p><b>Nuestra propuesta.</b> Un <b>set de cuidado de la piel de 2 pies con 14 productos</b>, la mayoría entre <b>$1.99 y $9.99</b>, seleccionados según lo que sus clientes realmente piden — manchas, barros, piel seca. Los fabricantes coreanos van del concepto al estante en seis a ocho meses, frente a dos o tres años de las grandes empresas occidentales, así que el set se mantiene actual. Todas las tarjetas del estante están en inglés y español.</p>
+    <p><b>Por qué es fácil para usted.</b></p>
+    <ul>
+      <li><b>Sin registrar un proveedor nuevo.</b> Se agrega a su pedido actual con nosotros, en su ruta de entrega actual.</li>
+      <li><b>Sin trabajo adicional.</b> Nuestro repartidor cuenta el estante y lo resurte en la visita regular.</li>
+      <li><b>Nosotros ponemos el exhibidor.</b> Mueble, etiquetas de precio y tarjetas bilingües incluidas.</li>
+      <li><b>Empezamos en pequeño.</b> Una prueba de 90 días, revisada juntos, cambiando lo que no se venda.</li>
+    </ul>
+    <p><b>Lo que le pedimos hoy.</b> Nada que comprar. Por favor tome cinco minutos para contestar las preguntas adjuntas, para poder decirle si esto encaja en su tienda — y si encaja, cómo se vería. Su repartidor las recogerá en la próxima visita.</p>
+    <p>Gracias por veinte años de negocio. Queremos que los próximos veinte valgan más para ambos.</p>
+    <div class="sig">K-Vive Direct · Una división de POCAS<br>Centros de distribución: CA · IL · NJ · GA · FL · TX</div>
+  </div>
+
+  <p class="footnote"><b>인쇄 지침:</b> 한 장 앞뒤로 영어·스페인어. 로고와 담당 영업사원 이름·휴대폰 번호를 하단에 넣는다. <b>제품 사진은 넣지 않는다</b> — 소싱이 확정되지 않았고, 사진이 있으면 매장주가 상품 평가로 대화를 돌린다. 이 단계에서 얻어야 할 것은 <b>구매의향과 매대 조건</b>이다.</p>
+</section>
+
+<!-- ===== 9 ===== -->
+<section id="s9">
+  <h2><span class="num">09</span>구매의향 설문지</h2>
+  <p class="h2sub">5분 안에 끝나야 한다. 12문항. 매장주가 직접 쓰거나 영업사원이 받아 적는다</p>
+
+  <div class="box info">
+    <span class="lbl">설문 운영 규칙</span>
+    <ul style="margin-bottom:0">
+      <li><b>1차 방문에 두고 오고, 2차 방문에 회수한다.</b> 그 자리에서 답을 강요하지 않는다.</li>
+      <li>매장주가 쓰기 싫어하면 <b>영업사원이 대화하며 받아 적는다.</b></li>
+      <li><b>9번(구매의향)과 10번(가격 상한)이 핵심</b>이다. 다른 문항을 다 못 채워도 이 둘은 받아온다.</li>
+      <li>회수한 설문은 그날 안에 사진 찍어 공유 폴더에 올린다.</li>
+    </ul>
+  </div>
+
+  <h3>Section A — 매장 현황 (1~5번)</h3>
+
+  <div class="q"><div class="qn">1. 현재 매장에서 HBA(건강·미용 용품)를 취급하십니까?<br><span style="font-weight:400;color:var(--ink-3)">¿Actualmente vende productos de salud y belleza en su tienda?</span></div>
+  <div class="qo">☐ 예, 별도 매대가 있다 / Sí, con estante propio<br>☐ 예, 소량만 (계산대 근처 등) / Sí, solo unos pocos<br>☐ 아니오 / No</div></div>
+
+  <div class="q"><div class="qn">2. 취급하신다면 어떤 종류입니까? (복수 선택)<br><span style="font-weight:400;color:var(--ink-3)">Si vende, ¿de qué tipo? (marque todos)</span></div>
+  <div class="qo">☐ 비누·바디워시 / Jabón, gel de baño &nbsp;&nbsp; ☐ 샴푸·헤어 / Champú, cabello<br>☐ 얼굴 크림·로션 / Cremas faciales &nbsp;&nbsp; ☐ 여드름 제품 / Productos para el acné<br>☐ 데오도란트 / Desodorante &nbsp;&nbsp; ☐ 향수·콜로냐 / Perfume, colonia<br>☐ 일반의약품 / Medicamentos &nbsp;&nbsp; ☐ 기타: ________________</div></div>
+
+  <div class="q"><div class="qn">3. HBA 상품은 어디서 매입하십니까?<br><span style="font-weight:400;color:var(--ink-3)">¿Dónde compra sus productos de salud y belleza?</span></div>
+  <div class="qo">☐ 도매상 이름: ________________ / Nombre del mayorista<br>☐ 캐시앤캐리 직접 구매 / Compro directamente en cash &amp; carry<br>☐ 방문 영업사원 / Un vendedor viene a la tienda<br>☐ 취급 안 함 / No vendo esta categoría</div></div>
+
+  <div class="q"><div class="qn">4. 얼굴 스킨케어 매대를 위해 내주실 수 있는 공간은?<br><span style="font-weight:400;color:var(--ink-3)">¿Cuánto espacio podría dar para un estante de cuidado facial?</span></div>
+  <div class="qo">☐ 2피트 (약 60cm) / 2 pies &nbsp;&nbsp; ☐ 4피트 (약 120cm) / 4 pies<br>☐ 계산대 옆 소형 진열대만 / Solo un exhibidor pequeño junto a la caja<br>☐ 지금은 공간이 없다 / No tengo espacio ahora</div></div>
+
+  <div class="q"><div class="qn">5. 손님들이 스킨케어 제품을 찾으신 적이 있습니까? 한국 제품을 물어보신 적은요?<br><span style="font-weight:400;color:var(--ink-3)">¿Sus clientes le han preguntado por productos para la piel? ¿Y por productos coreanos?</span></div>
+  <div class="qo">☐ 자주 / Con frecuencia &nbsp;&nbsp; ☐ 가끔 / A veces &nbsp;&nbsp; ☐ 거의 없다 / Casi nunca<br>주로 무엇을 찾으셨습니까? / ¿Qué preguntan?<br>________________________________________________</div>
+  <div class="qh">이 문항의 자유 답변이 스페인어 매대 문구를 확정하는 근거가 된다. 표현을 그대로 받아 적을 것. 한국 제품 언급 여부는 1장 가설의 현장 검증 데이터가 된다.</div></div>
+
+  <h3>Section B — 손님 (6~8번)</h3>
+
+  <div class="q"><div class="qn">6. 매장 손님의 주 연령대는?<br><span style="font-weight:400;color:var(--ink-3)">¿Cuál es la edad principal de sus clientes?</span></div>
+  <div class="qo">☐ 18~30세 &nbsp;&nbsp; ☐ 30~45세 &nbsp;&nbsp; ☐ 45~60세 &nbsp;&nbsp; ☐ 60세 이상 &nbsp;&nbsp; ☐ 고르게 분포</div>
+  <div class="qh">18~30세 비중이 높으면 문화 모멘텀 논리가 더 강하게 작동한다 — K-pop 팬의 약 70%가 29세 이하.</div></div>
+
+  <div class="q"><div class="qn">7. 손님들이 매장에서 주로 쓰는 언어는?<br><span style="font-weight:400;color:var(--ink-3)">¿Qué idioma usan sus clientes en la tienda?</span></div>
+  <div class="qo">☐ 주로 스페인어 / Principalmente español<br>☐ 스페인어와 영어 반반 / Español e inglés por igual<br>☐ 주로 영어 / Principalmente inglés</div></div>
+
+  <div class="q"><div class="qn">8. 손님들의 출신 지역은 주로 어디입니까? (복수 선택)<br><span style="font-weight:400;color:var(--ink-3)">¿De dónde son principalmente sus clientes? (marque todos)</span></div>
+  <div class="qo">☐ México &nbsp;&nbsp; ☐ Cuba &nbsp;&nbsp; ☐ Puerto Rico &nbsp;&nbsp; ☐ Venezuela &nbsp;&nbsp; ☐ Colombia<br>☐ Guatemala / Honduras / El Salvador &nbsp;&nbsp; ☐ República Dominicana &nbsp;&nbsp; ☐ 기타: __________</div></div>
+
+  <h3>Section C — 구매의향 (9~12번) · 가장 중요</h3>
+
+  <div class="q" style="border-color:var(--accent);border-width:2px"><div class="qn">9. 아래 조건이라면 시험 삼아 들여보실 의향이 있습니까?<br>
+  <span style="font-weight:400;font-size:13.5px">조건: 14개 품목 · 2피트 매대 · 매대와 가격표 무상 제공 · 기존 주문서에 추가 · <b>90일 테스트 후 안 나가는 품목 교체</b></span><br>
+  <span style="font-weight:400;color:var(--ink-3)">¿Estaría dispuesto a probarlo con estas condiciones? 14 productos · estante de 2 pies · exhibidor y etiquetas gratis · se agrega a su pedido actual · <b>prueba de 90 días con cambio de lo que no se venda</b></span></div>
+  <div class="qo"><b>☐ 예, 바로 시작하고 싶다 / Sí, quiero empezar<br>
+  ☐ 관심 있다, 가격표를 먼저 보고 싶다 / Me interesa, quiero ver precios primero<br>
+  ☐ 나중에 다시 얘기하자 / Hablemos más adelante<br>
+  ☐ 관심 없다 / No me interesa</b></div>
+  <div class="qh">이 문항 하나만 받아와도 방문은 성공이다.</div></div>
+
+  <div class="q" style="border-color:var(--accent);border-width:2px"><div class="qn">10. 손님들이 얼굴 크림이나 세럼 하나에 편하게 쓰실 수 있는 최대 금액은?<br><span style="font-weight:400;color:var(--ink-3)">¿Cuánto cree que sus clientes pagarían cómodamente por una crema o sérum facial?</span></div>
+  <div class="qo">☐ $5 이하 &nbsp;&nbsp; ☐ $5~$10 &nbsp;&nbsp; ☐ $10~$15 &nbsp;&nbsp; ☐ $15~$20 &nbsp;&nbsp; ☐ $20 이상</div>
+  <div class="qh">전체 가격 사다리를 확정하는 문항이다. 9번과 함께 반드시 받아온다.</div></div>
+
+  <div class="q"><div class="qn">11. 아래 중 손님들이 가장 관심 가질 것 같은 것 3개를 골라주십시오.<br><span style="font-weight:400;color:var(--ink-3)">Marque los 3 que cree que más le interesarían a sus clientes.</span></div>
+  <div class="qo">☐ Manchas oscuras (다크스팟) &nbsp;&nbsp; ☐ Barros y acné (여드름)<br>☐ Piel seca (건조) &nbsp;&nbsp; ☐ Poros y grasa (모공·유분)<br>☐ Mascarillas (마스크팩) &nbsp;&nbsp; ☐ Ojeras (다크서클)<br>☐ Arrugas (주름) &nbsp;&nbsp; ☐ Protector solar (선크림)</div>
+  <div class="qh">14 SKU 중 어떤 것을 이 매장에 먼저 넣을지 결정하는 근거.</div></div>
+
+  <div class="q"><div class="qn">12. 시작하신다면 걱정되는 점이 무엇입니까?<br><span style="font-weight:400;color:var(--ink-3)">Si empezara, ¿qué le preocuparía?</span></div>
+  <div class="qo">☐ 안 팔릴까 봐 / Que no se venda<br>☐ 자리가 없어서 / Falta de espacio<br>☐ 가격이 비쌀까 봐 / Que sea muy caro<br>☐ 손님에게 설명하기 어려워서 / No saber explicarlo a los clientes<br>☐ 유통기한·반품 / Fechas de caducidad y devoluciones<br>☐ 기타: ________________________________</div>
+  <div class="qh">이 답변들이 다음 버전 제안서의 수정 방향이 된다.</div></div>
+
+  <div class="doc" style="background:var(--bg-soft)">
+    <h4>설문 마무리 — 영업사원이 반드시 채울 것</h4>
+    <p style="font-size:14px;margin-bottom:6px">매장명 / Tienda: ________________________ &nbsp; 주소 / Dirección: ________________________</p>
+    <p style="font-size:14px;margin-bottom:6px">응답자 / Persona: ________________ &nbsp; 직책: ☐ 사장 ☐ 매니저 ☐ 기타 &nbsp; 연락처: ________________</p>
+    <p style="font-size:14px;margin-bottom:6px">영업 담당 / Rep: ________________ &nbsp; 방문일 / Fecha: ____ / ____ / 2026</p>
+    <p style="font-size:14px;margin-bottom:0"><b>영업사원 관찰 메모</b>: 현재 HBA 매대 상태 · 경쟁 제품 · 매장 규모 · 손님 흐름 · 사진 촬영 여부<br>
+    ________________________________________________________________</p>
+  </div>
+</section>
+
+<!-- ===== 10 ===== -->
+<section id="s10">
+  <h2><span class="num">10</span>영업사원 교육</h2>
+  <p class="h2sub">이 장만 인쇄해서 라우트 담당자에게 준다</p>
+
+  <h3>10-1. 이 사업을 한 문장으로</h3>
+  <div class="box good" style="text-align:center;padding:26px">
+    <p style="font-size:19px;font-weight:750;margin:0;max-width:none">"우리는 화장품 회사가 아닙니다.<br>
+    <b>이미 생긴 수요</b>에 <b>그 수요를 받아낼 상품</b>을 붙여서,<br>
+    <b>이미 그 매장에 들어가는 트럭</b>으로 배달하는 유통사입니다."</p>
+  </div>
+
+  <h3>10-2. 외워야 할 숫자 4개</h3>
+  <div class="stats">
+    <div class="stat"><div class="v">46% / 28%</div><div class="k">히스패닉 가구 vs 미국 전체<br>K-콘텐츠 팬 보유율</div></div>
+    <div class="stat"><div class="v">4명 중 1명</div><div class="k">그 팬 중 K-Beauty에<br>관심 생겼다고 답한 비율</div></div>
+    <div class="stat"><div class="v">5배</div><div class="k">라티노 손님의<br>동네 마켓 이용률</div></div>
+    <div class="stat"><div class="v">+48%</div><div class="k">미국 K-Beauty<br>연간 매출 성장률</div></div>
+  </div>
+  <p class="footnote">이 4개면 충분하다. 더 많은 숫자를 외우면 대화가 발표가 된다. 매장주는 발표를 듣고 싶어 하지 않는다.</p>
+
+  <h3>10-3. 할 것 / 하지 말 것</h3>
+  <div class="duo">
+    <div style="background:var(--green-bg);border-color:var(--green)">
+      <span class="tag" style="color:var(--green)">할 것</span>
+      <div class="say"><b>수요부터 말한다</b>"한국 드라마·K-pop 때문에 찾는 손님이 늘었는데, 라티노 손님한테 특히 강합니다."<br><span style="font-size:13px;color:var(--ink-3)">→ 우리 상품이 아니라 시장 얘기로 시작한다</span></div>
+      <div class="say"><b>매장주의 언어로</b>"2피트요. 기존 주문서에 줄 하나 추가입니다."<br><span style="font-size:13px;color:var(--ink-3)">→ 크기와 절차를 작게 만든다</span></div>
+      <div class="say"><b>모르면 모른다고</b>"그건 제가 확인해서 다음 주에 답 드리겠습니다."<br><span style="font-size:13px;color:var(--ink-3)">→ 아는 척하다 틀리면 20년 관계가 상한다</span></div>
+      <div class="say"><b>설문으로 닫기</b>"오늘 결정 안 하셔도 됩니다. 이것만 봐주세요."<br><span style="font-size:13px;color:var(--ink-3)">→ 거절당할 기회 자체를 만들지 않는다</span></div>
+    </div>
+    <div style="background:var(--red-bg);border-color:var(--red)">
+      <span class="tag" style="color:var(--red)">하지 말 것</span>
+      <div class="dont"><b>성분 우월성 주장</b>"한국 성분이 미국 것보다 좋아서…"<br><span style="font-size:13px;color:var(--ink-3)">→ <b>피부과 전문의들이 공개 반박한다.</b> 속도·선크림 필터·가격만 말한다</span></div>
+      <div class="dont"><b>효능 단정</b>"이거 바르면 기미 없어집니다"<br><span style="font-size:13px;color:var(--ink-3)">→ <b>법적 문제다.</b> 11장을 반드시 읽을 것</span></div>
+      <div class="dont"><b>성분 설명</b>"나이아신아마이드가 멜라닌 생성을…"<br><span style="font-size:13px;color:var(--ink-3)">→ 매장주는 성분을 묻지 않았다. 고민과 가격만 말한다</span></div>
+      <div class="dont"><b>규모 자랑</b>"저희가 900개 제품을 보유하고…"<br><span style="font-size:13px;color:var(--ink-3)">→ 14개로 줄였다는 게 강점이다</span></div>
+      <div class="dont"><b>피부 상담</b>손님 피부 고민에 답해주기<br><span style="font-size:13px;color:var(--ink-3)">→ 우리는 상담원이 아니다. 카드를 가리킨다</span></div>
+    </div>
+  </div>
+
+  <h3>10-4. 스페인어 매대 용어 카드</h3>
+  <p>아래 용어는 미국 내 실제 제품 라벨·소매 페이지·미국 정부 스페인어 자료에서 <b>사용이 확인된 표현</b>이다.</p>
+
+  <div class="scroll"><table>
+    <thead><tr><th style="width:20%">쓸 표현</th><th style="width:18%">한국어</th><th style="width:32%">확인된 근거</th><th style="width:30%">쓰지 말 것</th></tr></thead>
+    <tbody>
+      <tr><td><b>manchas / manchas oscuras</b> <span class="chip c-g">확인</span></td><td>기미·다크스팟</td><td>Pond's Clarant B3 미국 판매 제품명, Walmart 미국 스페인어 카테고리</td><td>—</td></tr>
+      <tr><td><b>barros · espinillas · acné</b> <span class="chip c-g">확인</span></td><td>여드름</td><td>MedlinePlus(미국 정부 스페인어), Asepxia 미국 리스팅</td><td><b>espinillas negras</b>는 <b>블랙헤드</b>만 뜻함</td></tr>
+      <tr><td><b>poros obstruidos</b> <span class="chip c-g">확인</span></td><td>막힌 모공</td><td>Asepxia "impurezas que obstruyen los poros"</td><td><b>poros abiertos</b> <span class="chip c-r">불가</span> — 미국 자료에서 확인 안 됨</td></tr>
+      <tr><td><b>piel seca / piel grasa</b> <span class="chip c-g">확인</span></td><td>건성·지성</td><td>Pond's 미국 리스팅 "piel normal a seca / grasa"</td><td><b>resequedad</b> <span class="chip c-r">불가</span> — 미국 용례 미확인</td></tr>
+      <tr><td><b>luminosidad · unificar el tono</b> <span class="chip c-g">확인</span></td><td>광채·톤 정돈</td><td>Walmart 미국 스페인어 카테고리 문구</td><td><b>brillo</b> <span class="chip c-a">주의</span> — "광채"와 "번들거림" 양쪽 뜻</td></tr>
+      <tr><td><b>arrugas · líneas de expresión</b> <span class="chip c-g">확인</span></td><td>주름</td><td>Cicatricure 미국 아마존 제품명·미국 TV 광고</td><td>—</td></tr>
+      <tr><td><b>protector solar</b> <span class="chip c-g">확인</span></td><td>자외선 차단제</td><td>FDA·CDC 공식 스페인어 페이지, Univision</td><td><b>bloqueador solar</b> <span class="chip c-a">주의</span> — 미국 기관은 쓰지 않음</td></tr>
+      <tr><td colspan="4" style="background:var(--red-bg);color:var(--red);font-weight:750">아래는 법적 위험이 있어 어떤 경우에도 쓰지 않는다 — 11장 참조</td></tr>
+      <tr><td><b>blanqueador · aclarador</b><br><b>whitening · bleaching</b></td><td>미백·표백</td><td colspan="2"><b>FDA가 실제 경고서한에서 인용한 표현이다.</b> 매대 카드·구두 설명·매장 안내문 어디에도 쓰지 않는다</td></tr>
+      <tr><td><b>melasma · cloasma · paño</b></td><td>기미(질환명)</td><td colspan="2"><b>질환명을 지목하면 화장품이 아니라 의약품이 된다.</b> "manchas oscuras"까지만 쓴다</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="box good">
+    <span class="lbl">안전한 문장 구조 — 이 틀만 쓰면 된다</span>
+    <p style="margin-bottom:6px;font-size:17px;font-family:var(--mono)"><b>"Ayuda a reducir la apariencia de ___"</b></p>
+    <p style="margin-bottom:6px">(___의 <b>겉보기</b>를 줄이는 데 <b>도움을 준다</b>)</p>
+    <p style="margin-bottom:0">미국에서 실제로 팔리는 제품들이 전부 이 구조를 쓴다. 핵심은 <b>"apariencia(겉보기)"</b>와 <b>"ayuda a(도움을 준다)"</b> 두 단어다.</p>
+  </div>
+
+  <h3>10-5. 매주 해야 할 3가지 (설치 이후)</h3>
+  <div class="scroll"><table>
+    <thead><tr><th class="num" style="width:6%">#</th><th style="width:22%">할 일</th><th style="width:16%">소요</th><th style="width:56%">주의</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td><b>사진 1장</b></td><td>10초</td><td>매대 전체가 정면으로 나오게. 매주 같은 각도</td></tr>
+      <tr><td class="num">2</td><td><b>페이싱 카운트</b></td><td>2분</td><td>판매량 = <b>지난주 수량 − 이번주 수량 + 채운 수량</b></td></tr>
+      <tr><td class="num">3</td><td><b>보충 주문</b></td><td>1분</td><td>기존 주문서에 줄 추가. 3주 연속 안 나가는 SKU는 본사 보고 → 교체</td></tr>
+    </tbody>
+  </table></div>
+  <p class="footnote"><b>요구하지 않는 것:</b> 판매 리포트, 소비자 설문, 경쟁사 조사, 피부 상담. 요구 항목이 3개를 넘는 순간 수집률이 무너진다.</p>
+</section>
+
+<!-- ===== 11 ===== -->
+<section id="s11">
+  <h2><span class="num">11</span>법적 금지선</h2>
+  <p class="h2sub">이 장은 영업사원 전원이 읽어야 한다</p>
+
+  <div class="box warn">
+    <span class="lbl">미백·표백 표현은 미국에서 불법 영역이다</span>
+    <p style="margin-bottom:8px"><b>2020년 9월 23일부터</b> CARES Act로 개정된 FD&amp;C Act §505G에 따라, <b>하이드로퀴논이 함유된 OTC 미백 제품은 미승인 신약이자 부정표시 의약품</b>으로 미국에서 합법적으로 판매될 수 없다. FDA가 승인한 하이드로퀴논 제품은 처방약 <b>Tri-Luma</b> 하나뿐이다.</p>
+    <p style="margin-bottom:8px"><b>집행은 실제로 이루어졌다.</b> FDA는 2022년 4월 19일 <b>12건의 경고서한</b>을 발송했다. 한 서한에서 FDA가 문제 삼은 라벨 표현은 다음과 같다.</p>
+    <ul style="margin-bottom:8px">
+      <li><b>"BLEACHING LOTION … Skin Lightener"</b></li>
+      <li><b>"For Bleaching of Hyperpigmented Skin"</b></li>
+      <li><b>chloasma, melasma, freckles</b> 등 질환명 언급</li>
+    </ul>
+    <p style="margin-bottom:0"><b>핵심 판단 기준은 성분이 아니라 "의도된 용도(intended use)"</b>이며, FDA는 라벨 전체를 종합해 판단한다. <b>표현 하나가 제품을 의약품으로 만든다.</b></p>
+    <p class="src" style="margin-bottom:0">출처: <a href="https://www.fda.gov/drugs/drug-safety-communications/fda-works-protect-consumers-potentially-harmful-otc-skin-lightening-products">FDA 안전성 정보</a> · <a href="https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/clinical-formula-llc-628372-04132022">FDA 경고서한 (2022-04-13)</a></p>
+  </div>
+
+  <div class="scroll"><table>
+    <thead><tr><th style="width:33%">이렇게 쓰면 <span class="chip c-r">위험</span></th><th style="width:33%">이렇게 바꾼다 <span class="chip c-g">안전</span></th><th style="width:34%">이유</th></tr></thead>
+    <tbody>
+      <tr><td>Blanquea la piel<br>Skin whitening / bleaching</td><td><b>Unifica el tono de la piel</b><br>Evens skin tone</td><td>"표백"은 피부 생리를 바꾼다는 주장 = 의약품</td></tr>
+      <tr><td>Crema aclaradora</td><td><b>Crema correctora de manchas</b></td><td>"aclarar"는 "밝게"와 "탈색"을 동시에 뜻해 위험 구간</td></tr>
+      <tr><td>Elimina las manchas<br>Removes dark spots</td><td><b>Ayuda a reducir la apariencia de manchas oscuras</b></td><td>"제거"는 결과 단정. "겉보기 감소에 도움"으로</td></tr>
+      <tr><td>Trata el melasma / cloasma</td><td><b>Para manchas oscuras</b></td><td>질환명을 지목하면 즉시 의약품</td></tr>
+      <tr><td>Cura el acné<br>Cures acne</td><td><b>Ayuda a mejorar el aspecto de los barros</b></td><td>"치료·완치"는 의약품 주장</td></tr>
+      <tr><td>Reemplaza al dermatólogo</td><td>— (쓰지 않는다)</td><td>의료 대체 주장은 어떤 형태로도 금지</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="box note">
+    <span class="lbl">평판 리스크도 함께 본다</span>
+    <p style="margin-bottom:0">2020년 6월 유니레버는 <b>Fair &amp; Lovely</b> 브랜드명을 바꾸고 "fair/white/light" 표현을 제거하겠다고 발표했으며, 존슨앤드존슨은 미백 로션 사업에서 철수했다. Pond's의 "White Beauty" 라인은 <b>미국 외 시장에만</b> 존재한다. <b>미국 주류 유통에서 미백 소구는 법적으로도 평판으로도 이미 퇴출된 영역</b>이다.</p>
+  </div>
+
+  <div class="box warn">
+    <span class="lbl">추가 확인 항목 — 소싱팀</span>
+    <ul style="margin-bottom:0">
+      <li><b>하이드로퀴논 함유 제품은 전부 배제.</b> 성분표로 반드시 확인한다.</li>
+      <li><b>선크림은 미국 OTC 모노그래프·Drug Facts 표시가 확인되기 전까지 진열 금지.</b> 1장에서 언급한 한국 UV 필터의 기술적 우위는 <b>한국 시장 기준</b>이며, 미국에서 그 필터를 그대로 쓸 수 있다는 뜻이 아니다. 이 구분을 반드시 지킬 것.</li>
+      <li><b>MoCRA Responsible Person</b> — 미국 라벨에 K-Vive 이름이 올라가면 안전성 근거 유지·제품 리스팅·이상반응 보고 의무를 K-Vive가 직접 진다.</li>
+      <li><b>UPC/GTIN</b> — 스캔되지 않으면 식료품점 POS에 등록 자체가 안 된다. 한국 내수용 880 프리픽스 바코드는 문제가 될 수 있다.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== 12 ===== -->
+<section id="s12">
+  <h2><span class="num">12</span>검증 및 사용 제한</h2>
+  <p class="h2sub">외부에 제시하기 전에 반드시 읽을 것</p>
+
+  <h3>확인된 사실 (2026-08-25 확인)</h3>
+  <ul>
+    <li><b>문화 모멘텀</b> — KOFICE 해외한류실태조사(30개국 27,400명), Numerator(미국 2,200명), YouGov Behavioral, Spotify 공식, Omdia</li>
+    <li><b>소비자 지출</b> — NielsenIQ(뷰티 가구 14.4% / 지출 16.6%), Circana×WWD($230억, +6%)</li>
+    <li><b>채널</b> — PDG Insights / Grocery Dive(독립 라티노 식료품점 33% vs 6%)</li>
+    <li><b>소비자 태도</b> — Belleza Latina(히스패닉 여성 18~34세 500명, 2025-10 발표)</li>
+    <li><b>피부 임상</b> — Murphy &amp; Dow(401명), JCAD(PIH 52.7%), JDD(NAMCS 진료 순위)</li>
+    <li><b>인구</b> — U.S. Census QuickFacts V2025, Pew Research</li>
+    <li><b>이중언어 표기 효과</b> — Mantel &amp; Kellaris 2023 실험연구</li>
+    <li><b>스페인어 용어</b> — 미국 판매 제품 라벨, Walmart 미국 스페인어 카테고리, MedlinePlus·FDA·CDC</li>
+    <li><b>FDA 규제</b> — §505G, 2022-04 경고서한 12건, 선스크린 OTC 분류</li>
+    <li><b>기능적 경쟁력</b> — 개발 속도(NextPangaea), UV 필터 격차(TODAY), <b>및 그 반대 근거</b>(BBC Science Focus)</li>
+  </ul>
+
+  <h3>미검증 항목 — 사실로 제시하지 말 것</h3>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:28%">항목</th><th style="width:72%">상태</th></tr></thead>
+    <tbody>
+      <tr><td><b>미국 히스패닉의 K-Beauty 실구매액</b></td><td><b>공개 데이터 없음.</b> 히스패닉의 한국 콘텐츠 팬덤(46%)과 스킨케어 지출 오버인덱스(14.4%/16.6%)는 각각 입증됐으나 <b>이 둘을 교차한 실측치는 존재하지 않는다.</b> NielsenIQ 히스패닉 뷰티 리포트에 K-Beauty 언급 자체가 없다. <b>1장 논리의 가장 약한 고리</b></td></tr>
+      <tr><td><b>히스패닉 식료품점의 K-Beauty 판매</b></td><td><b>근거 전무.</b> 성공 사례도 실패 사례도 없다. Belleza Latina는 라티나 소비자가 Sephora·Ulta·Amazon에서 뷰티를 산다고 보고한다</td></tr>
+      <tr><td><b>"64.8%"의 정확한 범위</b></td><td>KOFICE 수치는 <b>"한국 제품·서비스 전반"</b>이며 <b>화장품 단독 수치가 아니다.</b> 인용 시 이 구분을 흐리면 안 된다</td></tr>
+      <tr><td><b>멕시코 뷰티 호감도 82%</b></td><td><b>2023년 자료</b>이며 최신 갱신치 미확인. 인용 시 연도 명기 필수. 또한 멕시코 현지 소비자이지 미국 히스패닉이 아니다</td></tr>
+      <tr><td><b>KPDH의 중남미 성과</b></td><td>넷플릭스가 국가별 수치를 공개하지 않아 <b>"중남미에서 특히 인기"라는 주장은 뒷받침 불가.</b> 오히려 주제가 "Golden"의 중남미 차트 성적(멕시코 18위, 브라질 47위)은 글로벌 대비 <b>약했다</b></td></tr>
+      <tr><td><b>K-Beauty 성분 효능 우월성</b></td><td><b>피부과 전문의들이 공개 반박한다.</b> 속도·UV 필터·가격 대비 성능 세 가지만 주장할 것</td></tr>
+      <tr><td><b>ANUA 콜라보 판매 성과</b></td><td>매출·판매량 <b>전부 비공개.</b> 이 사례는 "이런 일이 벌어지고 있다"의 근거일 뿐 "성공했다"의 근거가 아니다</td></tr>
+      <tr><td><b>히스패닉 그로서리 HBA 운영 실태</b></td><td>주요 유통 전문지를 뒤졌으나 <b>이 채널의 HBA 매대 구성·마진 기대치를 다룬 보도를 찾지 못했다</b></td></tr>
+      <tr><td><b>바이어 의사결정 기준</b></td><td>독립 히스패닉 식료품점이 <b>새 카테고리·새 벤더를 어떻게 심사하는지</b> 바이어 측 증언 없음. 9장 설문이 이 공백을 메우기 위한 것</td></tr>
+      <tr><td><b>출신국별 뷰티 구매 차이</b></td><td>식품·매장 포맷 차이는 확인되나 <b>뷰티·HBA 구매 행동의 출신국별 차이 자료는 없다.</b> 3장 지역 시사점은 인구 구성 기반 추론</td></tr>
+      <tr><td><b>색소침착이 1위 고민인가</b></td><td>마케팅 조사와 피부과 진료 데이터가 <b>어긋난다.</b> 해소되지 않았다</td></tr>
+      <tr><td><b>14 SKU의 가격·마진</b></td><td>목표 소비자가는 <b>소싱 목표치이며 확정가가 아니다.</b> 매장주에게 확정 가격으로 제시하지 말 것</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="box warn">
+    <span class="lbl">사용 제한</span>
+    <p style="margin-bottom:0">본 문서는 <b>내부 영업 실행용</b>이며 Purchase Order, 고객 견적, 판매권 확인, 규제 승인을 의미하지 않는다. 14 SKU는 <b>소싱 기준안</b>이며 실제 제품·브랜드·가격이 확정되지 않았다. 8장 서한과 9장 설문은 <b>제품 사진과 확정 가격 없이</b> 사용해야 한다. 인용된 브랜드명·작품명은 시장 실태를 설명하기 위한 참조이며 <b>제휴·취급 계약을 의미하지 않는다.</b> 법률·보험·규제 사안은 미국 변호사 및 보험 중개인의 확인을 받아야 한다.</p>
+  </div>
+</section>
+
+<footer>
+  <p style="margin-bottom:10px"><b>K-Vive Direct · Hispanic HBA 진입 키트 v02</b> · 2026-08-25 · 미국 내수 기준 · 내부 영업 실행용</p>
+  <p style="margin-bottom:10px"><b>v01 대비 변경</b> — 세 번째 사업 논리를 "위험 흡수(반품보장)"에서 <b>"문화 모멘텀 + 기능적 경쟁력을 갖춘 상품 공급"</b>으로 교체. 1장(문화 모멘텀) 신설. Pitch·서한·교육자료 전면 재작성. 영문판 별도 제공.</p>
+  <p style="margin-bottom:0"><b>주요 출처</b> — KOFICE · Numerator · YouGov Behavioral · Spotify · Omdia · NielsenIQ · Circana × WWD · Pew Research · U.S. Census Bureau · Hispanic Marketing Council · PDG Insights · Grocery Dive · FMS/NGA · J Clin Aesthet Dermatol · JCAD · JDD · FDA · MedlinePlus · BBC Science Focus · Mantel &amp; Kellaris (2023) · Glossy · eMarketer. 전 항목 2026-08-25 확인.</p>
+</footer>
+
+</div>
+</body>
+</html>
