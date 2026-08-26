@@ -1,0 +1,875 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Executive user guide for the Balanced 220 Wholesaler Pilot pricing model.">
+  <title>Balanced 220 Wholesaler Pilot | Pricing Model User Guide</title>
+  <style>
+    :root {
+      --navy: #17324d;
+      --navy-2: #274c6b;
+      --teal: #177f7b;
+      --gold: #f4c95d;
+      --blue: #0563c1;
+      --red: #b42318;
+      --green: #0b7a3e;
+      --ink: #1d2939;
+      --muted: #5d6b79;
+      --line: #cbd5df;
+      --canvas: #eef3f7;
+      --paper: #ffffff;
+      --pale-blue: #eaf3f8;
+      --pale-green: #eaf6ef;
+      --pale-red: #fdecec;
+      --cream: #fff7df;
+      --gray: #f4f6f8;
+      --shadow: 0 16px 42px rgba(23, 50, 77, 0.11);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--canvas);
+      font-family: Calibri, Aptos, "Segoe UI", Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.58;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page {
+      width: min(1220px, calc(100% - 32px));
+      margin: 28px auto 56px;
+      overflow: hidden;
+      border: 1px solid #dce5ec;
+      border-radius: 18px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    header {
+      padding: 46px 54px 40px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 89% 10%, rgba(244, 201, 93, 0.28), transparent 28%),
+        linear-gradient(135deg, var(--navy) 0%, #1e4767 62%, var(--teal) 100%);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 14px;
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 28px;
+      height: 3px;
+      border-radius: 99px;
+      background: var(--gold);
+      content: "";
+    }
+
+    h1 {
+      max-width: 930px;
+      margin: 0;
+      font-size: clamp(36px, 5vw, 56px);
+      line-height: 1.06;
+      letter-spacing: -0.035em;
+    }
+
+    .subtitle {
+      max-width: 940px;
+      margin: 18px 0 0;
+      color: #dcecf6;
+      font-size: 20px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .meta span,
+    .meta a {
+      padding: 7px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #f5f9fc;
+      font-size: 14px;
+    }
+
+    .meta a:hover { background: rgba(255, 255, 255, 0.15); text-decoration: none; }
+
+    .toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 16px 54px;
+      border-bottom: 1px solid var(--line);
+      background: #f8fafc;
+    }
+
+    .toc a {
+      padding: 6px 10px;
+      border: 1px solid #d5e0e8;
+      border-radius: 8px;
+      background: #fff;
+      color: var(--navy-2);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    main { padding: 38px 54px 54px; }
+    section { margin-top: 50px; scroll-margin-top: 18px; }
+    section:first-child { margin-top: 0; }
+
+    h2 {
+      margin: 0 0 18px;
+      color: var(--navy);
+      font-size: 30px;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      margin: 26px 0 10px;
+      color: var(--navy-2);
+      font-size: 21px;
+      line-height: 1.25;
+    }
+
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 10px 0 0; padding-left: 24px; }
+    li + li { margin-top: 7px; }
+    code { font-family: "SFMono-Regular", Consolas, monospace; }
+
+    .executive-callout {
+      padding: 27px 30px;
+      border: 1px solid #b8d6d3;
+      border-left: 8px solid var(--teal);
+      border-radius: 13px;
+      background: linear-gradient(135deg, var(--pale-green), #fbfffd);
+    }
+
+    .executive-callout strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--teal);
+      font-size: 22px;
+    }
+
+    .summary-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .summary-card {
+      padding: 21px 22px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .summary-card .num {
+      display: inline-grid;
+      width: 30px;
+      height: 30px;
+      margin-right: 8px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--navy);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .summary-card strong { color: var(--navy); }
+
+    .assumptions {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .metric {
+      min-height: 116px;
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: #fff;
+    }
+
+    .metric .label {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .metric .value {
+      display: block;
+      margin: 5px 0 2px;
+      color: var(--navy);
+      font-size: 30px;
+      font-weight: 850;
+      line-height: 1.05;
+    }
+
+    .metric .note { color: var(--muted); font-size: 13px; }
+
+    .path-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .path-card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-top: 6px solid var(--navy-2);
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .path-card.strategy { border-top-color: var(--teal); }
+    .path-card.market { border-top-color: var(--gold); }
+    .path-card h3 { margin-top: 0; }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 9px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--pale-blue);
+      color: var(--navy-2);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .flowline {
+      margin: 14px 0 0;
+      padding: 14px 15px;
+      border-radius: 9px;
+      background: var(--gray);
+      color: var(--navy);
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 14px;
+      line-height: 1.65;
+      overflow-wrap: anywhere;
+    }
+
+    .critical {
+      margin-top: 20px;
+      padding: 22px 24px;
+      border: 1px solid #e7c663;
+      border-left: 7px solid var(--gold);
+      border-radius: 12px;
+      background: var(--cream);
+    }
+
+    .critical strong { color: #6e5100; }
+
+    .formula-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .formula-card {
+      padding: 20px 22px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fbfcfd;
+    }
+
+    .formula-card h3 { margin-top: 0; }
+    .formula {
+      padding: 14px 15px;
+      border-radius: 9px;
+      background: var(--navy);
+      color: #fff;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      overflow-wrap: anywhere;
+    }
+
+    .thresholds {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .threshold {
+      padding: 21px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--pale-blue);
+    }
+
+    .threshold.good { background: var(--pale-green); }
+    .threshold .big {
+      display: block;
+      margin: 3px 0 6px;
+      color: var(--navy);
+      font-size: 31px;
+      font-weight: 850;
+    }
+
+    .table-wrap {
+      margin-top: 14px;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      font-size: 14px;
+    }
+
+    th {
+      padding: 12px 13px;
+      border-bottom: 1px solid #9fb0be;
+      background: var(--navy);
+      color: #fff;
+      text-align: left;
+      vertical-align: bottom;
+    }
+
+    td {
+      padding: 11px 13px;
+      border-top: 1px solid #dde4ea;
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) td { background: #f9fbfc; }
+    td:first-child, th:first-child { white-space: nowrap; }
+    td code { color: var(--navy); font-weight: 700; }
+
+    .group-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .group-title::before {
+      width: 6px;
+      height: 26px;
+      border-radius: 99px;
+      background: var(--teal);
+      content: "";
+    }
+
+    .group-title h3 { margin: 0; }
+
+    .example-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .price-stack {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .price-stack h3 { margin-top: 0; }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 9px 0;
+      border-bottom: 1px solid #e4e9ee;
+    }
+
+    .price-row:last-child { border-bottom: 0; }
+    .price-row span:first-child { color: var(--muted); }
+    .price-row strong { color: var(--navy); text-align: right; }
+
+    .route-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .route-box {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-top: 6px solid var(--teal);
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .route-box.skw { border-top-color: var(--gold); }
+    .route-box h3 { margin-top: 0; }
+    .negative { color: var(--red); font-weight: 850; }
+    .positive { color: var(--green); font-weight: 850; }
+
+    .decision-table tr.warn td { background: var(--cream); }
+    .decision-table tr.stop td { background: var(--pale-red); }
+    .decision-table tr.go td { background: var(--pale-green); }
+
+    .checklist {
+      counter-reset: review;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .check {
+      position: relative;
+      min-height: 92px;
+      padding: 17px 17px 17px 58px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: #fff;
+    }
+
+    .check::before {
+      counter-increment: review;
+      position: absolute;
+      top: 17px;
+      left: 17px;
+      display: grid;
+      width: 29px;
+      height: 29px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--navy);
+      color: #fff;
+      content: counter(review);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .caution-box {
+      padding: 24px 26px;
+      border: 1px solid #e6b8b3;
+      border-left: 7px solid var(--red);
+      border-radius: 12px;
+      background: var(--pale-red);
+    }
+
+    .caution-box strong { color: var(--red); }
+
+    footer {
+      padding: 24px 54px 30px;
+      border-top: 1px solid var(--line);
+      background: #f8fafc;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 980px) {
+      .assumptions { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .path-grid { grid-template-columns: 1fr; }
+      .example-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      body { font-size: 16px; }
+      .page { width: 100%; margin: 0; border: 0; border-radius: 0; }
+      header, main { padding-left: 22px; padding-right: 22px; }
+      .toc { padding-left: 22px; padding-right: 22px; }
+      .summary-list, .formula-grid, .thresholds, .route-compare, .checklist { grid-template-columns: 1fr; }
+      .assumptions { grid-template-columns: 1fr 1fr; }
+      footer { padding-left: 22px; padding-right: 22px; }
+    }
+
+    @media print {
+      @page { size: letter; margin: 0.55in; }
+      body { background: #fff; font-size: 11pt; }
+      .page { width: 100%; margin: 0; border: 0; border-radius: 0; box-shadow: none; }
+      header { padding: 28px 32px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .toc { display: none; }
+      main { padding: 26px 32px; }
+      section { margin-top: 32px; }
+      h2, h3, .group-title { break-after: avoid; }
+      .summary-card, .metric, .path-card, .formula-card, .threshold, .price-stack, .route-box, .check, .caution-box { break-inside: avoid; }
+      .table-wrap { overflow: visible; border-radius: 0; }
+      table { font-size: 8.5pt; }
+      th, td { padding: 6px 7px; }
+      a { color: inherit; }
+      footer { padding: 18px 32px; }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <header>
+      <div class="eyebrow">POCAS K-Beauty · Executive User Guide</div>
+      <h1>Balanced 220 Wholesaler Pilot<br>Pricing Model User Guide</h1>
+      <p class="subtitle">How to read the POCAS → Wholesaler → Retailer → Consumer pricing structure, the 8% POCAS gross-margin floor, and the separate SKW discounted-retail comparison route.</p>
+      <div class="meta">
+        <span>Audience: CEO &amp; Executive Team</span>
+        <span>Prepared: August 26, 2026</span>
+        <span>Model: 40% Retailer GM · 30% Wholesaler GM</span>
+        <a href="../Balanced%20220%20Wholesaler%20Pilot-Margin%20Boosted.xlsx">Open source workbook</a>
+      </div>
+    </header>
+
+    <nav class="toc" aria-label="Guide sections">
+      <a href="#executive-summary">Executive Summary</a>
+      <a href="#price-paths">Price Paths</a>
+      <a href="#skw-relationship">SKW vs. Landed Cost</a>
+      <a href="#columns">Column Guide</a>
+      <a href="#example">Worked Example</a>
+      <a href="#decisions">Decision Guide</a>
+      <a href="#review">Review Checklist</a>
+      <a href="#glossary">Glossary &amp; Cautions</a>
+    </nav>
+
+    <main>
+      <section id="executive-summary">
+        <h2>1. Executive Summary</h2>
+        <div class="executive-callout">
+          <strong>The model contains two separate price routes.</strong>
+          The Consumer Strategy Route produces a POCAS first-offer price and a required final consumer SRP while enforcing an 8% POCAS gross-margin floor. The SKW Comparison Route starts with SKW's current discounted retail price and reports the resulting POCAS margin exactly as calculated, with no floor.
+        </div>
+
+        <div class="summary-list">
+          <div class="summary-card"><span class="num">1</span><strong>Four-stage channel:</strong> POCAS → Wholesaler → Retailer → Consumer.</div>
+          <div class="summary-card"><span class="num">2</span><strong>Cost basis:</strong> <code>NJ LANDED COST = P/U COST × 1.05</code>.</div>
+          <div class="summary-card"><span class="num">3</span><strong>Consumer strategy:</strong> preserve 30% wholesaler GM and 40% retailer GM; raise POCAS offer and final SRP only when base POCAS GM is below 8%.</div>
+          <div class="summary-card"><span class="num">4</span><strong>SKW comparison:</strong> use the current discounted SKW retail price to show the actual no-floor POCAS GM.</div>
+          <div class="summary-card"><span class="num">5</span><strong>Do not mix the routes:</strong> <code>MAX MARGIN SRP</code> does not include SKW retail prices.</div>
+          <div class="summary-card"><span class="num">6</span><strong>8% means gross:</strong> after the current 2% commercial allowance, an 8% gross GM is approximately 6% modeled net GM.</div>
+        </div>
+
+        <h3>Current model assumptions</h3>
+        <div class="assumptions">
+          <div class="metric"><span class="label">Retailer target GM</span><span class="value">40%</span><span class="note">Consumer-to-retailer spread</span></div>
+          <div class="metric"><span class="label">Wholesaler target GM</span><span class="value">30%</span><span class="note">Retailer-price-to-POCAS spread</span></div>
+          <div class="metric"><span class="label">POCAS gross GM floor</span><span class="value">8%</span><span class="note">Consumer Strategy Route only</span></div>
+          <div class="metric"><span class="label">NJ landed uplift</span><span class="value">5%</span><span class="note">Applied to B2B P/U Cost</span></div>
+          <div class="metric"><span class="label">Commercial allowance</span><span class="value">2%</span><span class="note">Deducted after gross GM</span></div>
+        </div>
+      </section>
+
+      <section id="price-paths">
+        <h2>2. The Three Price Paths</h2>
+        <div class="path-grid">
+          <div class="path-card">
+            <span class="tag">Cost path</span>
+            <h3>From SKW B2B Cost to NJ Landed Cost</h3>
+            <p>This path establishes POCAS's cost basis. It does not determine the market retail price.</p>
+            <div class="flowline">SKW B2B P/U COST<br>× 1.05<br>↓<br>NJ LANDED COST</div>
+          </div>
+
+          <div class="path-card strategy">
+            <span class="tag">Strategy route · 8% floor</span>
+            <h3>From Market SRP to Required Final SRP</h3>
+            <p>This route calculates the strategic channel prices. If base POCAS GM is below 8%, it increases the POCAS offer and rebuilds the downstream prices.</p>
+            <div class="flowline">MAX MARGIN SRP<br>× 60% → W→R Base Price<br>× 70% → Base POCAS Offer<br>Compare with Landed Cost<br>↓<br>Apply 8% POCAS floor if needed<br>↓<br>Final W→R Price and Consumer SRP</div>
+          </div>
+
+          <div class="path-card market">
+            <span class="tag">Market comparison · no floor</span>
+            <h3>From SKW Discounted Retail to Actual POCAS GM</h3>
+            <p>This route diagnoses whether SKW's current discounted consumer price supports the 40% retailer and 30% wholesaler structure.</p>
+            <div class="flowline">SKW SRP<br>× 60% → SKW W→R Price<br>× 70% → POCAS Offer (SKW)<br>Compare with Landed Cost<br>↓<br>POCAS GM (SKW), shown as-is</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skw-relationship">
+        <h2>3. How SKW Discounted Retail Price Relates to Landed Cost</h2>
+        <div class="critical">
+          <strong>Management distinction:</strong> the SKW discounted retail price is not calculated from NJ Landed Cost. The two are independent inputs. Their direct economic relationship appears only after the SKW consumer price is reverse-calculated into an implied POCAS offer and compared with NJ Landed Cost.
+        </div>
+
+        <div class="formula-grid">
+          <div class="formula-card">
+            <h3>Cost-side input</h3>
+            <p>POCAS's modeled NJ cost basis starts with the SKW B2B purchase price.</p>
+            <div class="formula">NJ LANDED COST<br>= P/U COST × (1 + 5%)</div>
+          </div>
+          <div class="formula-card">
+            <h3>Market-side input</h3>
+            <p>The current discounted SKW retail price is reverse-calculated through the two channel margins.</p>
+            <div class="formula">POCAS OFFER (SKW)<br>= SKW SRP × 60% × 70%<br>= SKW SRP × 42%</div>
+          </div>
+          <div class="formula-card">
+            <h3>POCAS margin at SKW price</h3>
+            <p>The two independent inputs meet in the margin calculation.</p>
+            <div class="formula">POCAS GM (SKW)<br>= [POCAS OFFER (SKW) − NJ LANDED COST]<br>÷ POCAS OFFER (SKW)</div>
+          </div>
+          <div class="formula-card">
+            <h3>Effect of a deeper SKW discount</h3>
+            <p>If SKW lowers its consumer price while B2B cost remains unchanged, the implied POCAS offer falls and POCAS GM declines or becomes negative.</p>
+            <div class="formula">Lower SKW SRP<br>→ Lower implied POCAS Offer<br>→ Lower POCAS GM</div>
+          </div>
+        </div>
+
+        <h3>Executive price thresholds</h3>
+        <div class="thresholds">
+          <div class="threshold">
+            <span>POCAS gross break-even consumer price</span>
+            <span class="big">Landed Cost × 2.381</span>
+            <code>Landed ÷ (70% × 60%) = Landed ÷ 42%</code>
+            <p>If the SKW consumer price is below this level, POCAS GM is negative under the 30%/40% channel structure.</p>
+          </div>
+          <div class="threshold good">
+            <span>Consumer price required for 8% POCAS gross GM</span>
+            <span class="big">Landed Cost × 2.588</span>
+            <code>Landed ÷ (92% × 70% × 60%) = Landed ÷ 38.64%</code>
+            <p>This is the approximate consumer price required to preserve POCAS 8%, wholesaler 30%, and retailer 40% gross margins.</p>
+          </div>
+        </div>
+
+        <div class="critical">
+          <strong>Gross versus net:</strong> the workbook's 8% POCAS floor is before the 2% wholesale commercial allowance. Under the current formula, an 8% gross GM becomes approximately 6% modeled net GM after allowance. If management requires 8% after allowance, the gross floor must be separately increased and approved.
+        </div>
+      </section>
+
+      <section id="columns">
+        <h2>4. Core Column Guide</h2>
+        <p>The workbook contains 54 columns. The following fields are the ones management needs to understand the price structure, evaluate margin, and confirm evidence.</p>
+
+        <div class="group-title"><h3>4.1 Product identity and portfolio decision fields</h3></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Column</th><th>Workbook Field</th><th>Meaning and Executive Use</th></tr></thead>
+            <tbody>
+              <tr><td>B</td><td><code>NEW PRODUCT FLAG</code></td><td>Identifies newly added items or special conditions such as low-stock tests.</td></tr>
+              <tr><td>C</td><td><code>PORTFOLIO ROLE</code></td><td>Shows the product's role, such as PROFIT SKU, ANCHOR SKU, MARGIN VIABLE, PRIORITY, COMPARE / BACKUP, or HOLD / DO NOT LAUNCH. This is a portfolio decision, not merely a formula result.</td></tr>
+              <tr><td>D</td><td><code>SKU</code></td><td>Primary key connecting the product, cost, retail evidence, and formulas. Do not combine different sizes, packs, shades, or renewed versions.</td></tr>
+              <tr><td>E–I</td><td><code>BRAND</code>, <code>PRODUCT</code>, <code>PRODUCT TYPE</code>, <code>CATEGORY</code>, <code>SIZE</code></td><td>Confirms exact product identity and supports portfolio balance review.</td></tr>
+              <tr><td>J</td><td><code>INITIAL 70</code></td><td>Indicates initial operating-assortment inclusion. YES does not by itself confirm final pricing, inventory, or resale authorization.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="group-title"><h3>4.2 Cost and consumer-price inputs</h3></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Column</th><th>Workbook Field</th><th>Meaning</th><th>Formula or Use</th></tr></thead>
+            <tbody>
+              <tr><td>K</td><td><code>P/U COST</code></td><td>SKW B2B purchase price per unit.</td><td>Starting point for POCAS's cost path.</td></tr>
+              <tr><td>L</td><td><code>NJ LANDED COST</code></td><td>Modeled NJ landed-cost basis.</td><td><code>P/U COST × 1.05</code></td></tr>
+              <tr><td>M</td><td><code>REFERENCE MSRP</code></td><td>Brand or credible reference regular price.</td><td>One of three market-price inputs.</td></tr>
+              <tr><td>N</td><td><code>REALISTIC MARKET SRP</code></td><td>Consumer price judged repeatable in the market.</td><td>Separates ordinary market conditions from one-time deep discounts.</td></tr>
+              <tr><td>O</td><td><code>VERIFIED CONSUMER SRP</code></td><td>Consumer price verified for the exact SKU, size, and pack.</td><td>Read with seller, ships-from party, source, and checked date.</td></tr>
+              <tr><td>P</td><td><code>SKW SRP</code></td><td>Current SKW Retail consumer price after discount or promotion.</td><td>Starting consumer price for the no-floor SKW comparison route.</td></tr>
+              <tr><td>Q</td><td><code>[SKW] RETAIL ORIGINAL</code></td><td>SKW Retail regular price before the current discount.</td><td>Used to understand the depth of the current SKW promotion.</td></tr>
+              <tr><td>R</td><td><code>SKW DC</code></td><td>SKW discount amount and percentage.</td><td>Example: <code>$6.60 / 20%</code>.</td></tr>
+              <tr><td>S</td><td><code>SKW PRICE CHECKED DATE</code></td><td>Date the SKW Retail price was checked.</td><td>Required because promotions and time deals can change.</td></tr>
+              <tr><td>T</td><td><code>COMPETITIVE CONSUMER SRP</code></td><td>Lowest available value among columns M:O.</td><td>Conservative market-competitiveness reference.</td></tr>
+              <tr><td>U</td><td><code>MAX MARGIN SRP</code></td><td>Highest available value among columns M:O.</td><td>Starting SRP for the Consumer Strategy Route. SKW SRP and SKW Retail Original are not included.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="group-title"><h3>4.3 Consumer Strategy Route — 8% POCAS floor</h3></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Column</th><th>Workbook Field</th><th>Meaning</th><th>Formula or Interpretation</th></tr></thead>
+            <tbody>
+              <tr><td>V</td><td><code>RETAILER TARGET GM</code></td><td>Retailer target gross margin.</td><td>Current assumption: 40%.</td></tr>
+              <tr><td>W</td><td><code>WHOLESALER→RETAILER PRICE AT BASE SRP</code></td><td>Retailer buy price back-solved from MAX MARGIN SRP.</td><td><code>MAX MARGIN SRP × 60%</code>, rounded down to cents.</td></tr>
+              <tr><td>X</td><td><code>WHOLESALER TARGET GM</code></td><td>Wholesaler target gross margin.</td><td>Current assumption: 30%.</td></tr>
+              <tr><td>Y</td><td><code>BASE POCAS FIRST OFFER</code></td><td>POCAS offer before the 8% floor test.</td><td><code>W × 70%</code>, rounded down to cents.</td></tr>
+              <tr><td>Z</td><td><code>BASE POCAS GM</code></td><td>POCAS gross margin before adjustment.</td><td><code>(Y − L) ÷ Y</code></td></tr>
+              <tr><td>AA</td><td><code>POCAS 8% FLOOR PRICE</code></td><td>Minimum POCAS offer needed for 8% gross GM.</td><td><code>L ÷ 92%</code>, rounded up to cents.</td></tr>
+              <tr><td>AB</td><td><code>POCAS FIRST OFFER PRICE</code></td><td>Strategic POCAS opening offer to the wholesaler.</td><td>Keep Base Offer when Base GM ≥ 8%; otherwise use the Floor Price.</td></tr>
+              <tr><td>AC</td><td><code>POCAS GM AT FIRST OFFER</code></td><td>POCAS gross GM at the strategic offer.</td><td><code>(AB − L) ÷ AB</code>; before the 2% allowance.</td></tr>
+              <tr><td>AD</td><td><code>WHOLESALER→RETAILER FINAL PRICE</code></td><td>Final retailer buy price preserving wholesaler GM.</td><td>Increases when the POCAS floor is applied.</td></tr>
+              <tr><td>AE</td><td><code>MODEL-REQUIRED FINAL CONSUMER SRP</code></td><td>Consumer price required to preserve the final 40% retailer GM.</td><td>Primary field for management review of market acceptability.</td></tr>
+              <tr><td>AF</td><td><code>WHOLESALER GM AT FINAL SRP</code></td><td>Wholesaler GM under the final model.</td><td>Verify approximately 30%.</td></tr>
+              <tr><td>AG</td><td><code>RETAILER GM AT FINAL SRP</code></td><td>Retailer GM under the final model.</td><td>Verify approximately 40%.</td></tr>
+              <tr><td>AH–AI</td><td><code>FINAL SRP INCREASE $</code>, <code>FINAL SRP INCREASE %</code></td><td>Required increase above MAX MARGIN SRP due to the POCAS floor.</td><td>Use to assess consumer-price acceptance and launch feasibility.</td></tr>
+              <tr><td>AJ</td><td><code>POCAS / PRICE ADJUSTMENT STATUS</code></td><td>Summary of whether POCAS and final prices were adjusted.</td><td>Examples: NO POCAS ADJUSTMENT, POCAS SET TO 8% FLOOR, or HOLD · INPUT REQUIRED.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="group-title"><h3>4.4 SKW discounted-retail comparison — no POCAS floor</h3></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Column</th><th>Workbook Field</th><th>Meaning</th><th>Formula or Interpretation</th></tr></thead>
+            <tbody>
+              <tr><td>AK</td><td><code>SKW WHOLESALER→RETAILER PRICE</code></td><td>Retailer buy price back-solved from the current SKW discounted consumer price.</td><td><code>SKW SRP × 60%</code>, rounded down to cents.</td></tr>
+              <tr><td>AL</td><td><code>POCAS FIRST OFFER PRICE (SKW)</code></td><td>Implied POCAS offer after preserving wholesaler GM.</td><td><code>AK × 70%</code>, rounded down to cents.</td></tr>
+              <tr><td>AM</td><td><code>POCAS GM AT FIRST OFFER (SKW)</code></td><td>POCAS gross margin supported by the current SKW discounted consumer price.</td><td><code>(AL − L) ÷ AL</code>; no 8% floor.</td></tr>
+              <tr><td>AN</td><td><code>SKW GM STATUS · NO FLOOR</code></td><td>Diagnostic status for the SKW comparison route.</td><td>Examples: NEGATIVE POCAS GM, POCAS GM SHOWN AS-IS, or SKW INPUT REQUIRED.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="group-title"><h3>4.5 Allowance, economic result, and audit evidence</h3></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Column</th><th>Workbook Field</th><th>Meaning and Executive Use</th></tr></thead>
+            <tbody>
+              <tr><td>AO</td><td><code>WHOLESALE COMMERCIAL ALLOWANCE</code></td><td>Current 2% assumption for wholesale promotions, support, or commercial costs.</td></tr>
+              <tr><td>AP</td><td><code>POCAS NET GM AFTER ALLOWANCE</code></td><td>Consumer Strategy Route gross GM less the 2% allowance. It is not a net version of the SKW route GM.</td></tr>
+              <tr><td>AQ</td><td><code>ECONOMIC RESULT</code></td><td>Summarizes missing inputs, retained economics, or an 8% floor/final-SRP adjustment.</td></tr>
+              <tr><td>AR</td><td><code>PRICE EVIDENCE STATUS</code></td><td>Shows whether one, two, or all three M:O price references exist, or whether more research is required.</td></tr>
+              <tr><td>AS–AU</td><td><code>PRICE SOURCE</code>, <code>VENDOR SOURCE</code>, <code>SKW RETAIL SOURCE</code></td><td>Direct links used to recheck market pricing, B2B cost/availability, and current SKW Retail pricing.</td></tr>
+              <tr><td>AV–AY</td><td><code>VERIFIED SOURCE</code>, <code>VERIFIED SELLER / SOLD BY</code>, <code>VERIFIED SHIPS FROM</code>, <code>VERIFIED CHECKED DATE</code></td><td>Identifies whose price was verified, who sells and ships it, and when it was checked.</td></tr>
+              <tr><td>AZ</td><td><code>EXACT MATCH STATUS</code></td><td>Confirms exact SKU, size, pack, and version. Do not use a favorable price for quoting when the match is not exact.</td></tr>
+              <tr><td>BA</td><td><code>PRICE NOTES</code></td><td>Row-level exceptions covering source, promotion, renewal, pack, and cost timing.</td></tr>
+              <tr><td>BB</td><td><code>MODEL ROW FLAG</code></td><td>Internal indicator distinguishing product calculation rows from grouped header rows.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="example">
+        <h2>5. Worked Example: MECUS14-TP</h2>
+        <p><strong>Product:</strong> Medicube Kojic Acid Turmeric Pad, 70 pcs</p>
+
+        <div class="example-grid">
+          <div class="price-stack">
+            <h3>Cost and market inputs</h3>
+            <div class="price-row"><span>SKW B2B P/U Cost</span><strong>$13.18</strong></div>
+            <div class="price-row"><span>NJ Landed Cost</span><strong>$13.839<br>displayed ≈ $13.84</strong></div>
+            <div class="price-row"><span>Reference MSRP</span><strong>$31.00</strong></div>
+            <div class="price-row"><span>Realistic Market SRP</span><strong>$24.80</strong></div>
+            <div class="price-row"><span>Verified Consumer SRP</span><strong>$24.80</strong></div>
+            <div class="price-row"><span>SKW Discounted SRP</span><strong>$26.40</strong></div>
+            <div class="price-row"><span>SKW Retail Original</span><strong>$33.00</strong></div>
+            <div class="price-row"><span>SKW Discount</span><strong>$6.60 / 20%</strong></div>
+          </div>
+
+          <div class="route-compare">
+            <div class="route-box">
+              <h3>Consumer Strategy Route</h3>
+              <div class="flowline">MAX MARGIN SRP $31.00<br>→ Base W→R $18.60<br>→ Base POCAS Offer $13.02<br>→ Base POCAS GM <span class="negative">−6.29%</span></div>
+              <p>The base GM is below 8%, so the floor is applied.</p>
+              <div class="flowline">POCAS Offer $15.05<br>→ POCAS Gross GM <span class="positive">8.05%</span><br>→ Final W→R $21.51<br>→ Required Consumer SRP $35.85</div>
+              <ul>
+                <li>Wholesaler GM: approximately 30.03%</li>
+                <li>Retailer GM: 40.00%</li>
+                <li>SRP increase: $4.85 / approximately 15.6%</li>
+                <li>POCAS modeled net GM after 2% allowance: approximately 6.05%</li>
+              </ul>
+            </div>
+
+            <div class="route-box skw">
+              <h3>SKW Comparison Route</h3>
+              <div class="flowline">SKW Consumer Price $26.40<br>→ SKW W→R $15.84<br>→ POCAS Offer (SKW) $11.08<br>→ POCAS GM (SKW) <span class="negative">−24.90%</span></div>
+              <p>At the current SKW discounted consumer price, the implied POCAS offer is below the approximately $13.84 landed cost.</p>
+              <ul>
+                <li>No 8% floor is applied in this route.</li>
+                <li>The negative GM is a market-economics warning, not a formula error.</li>
+                <li>Required consumer price for the 8%/30%/40% structure: $35.85.</li>
+                <li>$35.85 is $9.45, or approximately 35.8%, above the current SKW price.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="critical">
+          <strong>What this example means:</strong> a recognized brand or strong-selling product may still fail to support POCAS wholesale economics when the combination of SKW discounted retail price and SKW B2B cost is unfavorable.
+        </div>
+      </section>
+
+      <section id="decisions">
+        <h2>6. Executive Decision Guide</h2>
+        <div class="table-wrap">
+          <table class="decision-table">
+            <thead><tr><th>What You See</th><th>What It Means</th><th>Recommended Review</th></tr></thead>
+            <tbody>
+              <tr class="go"><td><code>AC ≥ 8%</code> and <code>AH/AI = 0</code></td><td>The strategic SRP supports POCAS, wholesaler, and retailer economics without an SRP increase.</td><td>Revalidate cost, source, inventory, and resale authority before prioritizing.</td></tr>
+              <tr class="warn"><td><code>AC ≈ 8%</code> with a large <code>AH/AI</code></td><td>The POCAS floor works mathematically, but the required consumer-price increase is significant.</td><td>Review consumer acceptance, competing prices, brand MSRP/MAP, and channel fit.</td></tr>
+              <tr class="stop"><td><code>AM &lt; 0</code></td><td>The current SKW discounted retail price cannot support POCAS cost while preserving 30% wholesaler and 40% retailer margins.</td><td>Negotiate lower B2B cost, approve a channel-margin change, position at a higher SRP, or hold launch.</td></tr>
+              <tr class="warn"><td><code>AP</code> below management target</td><td>Gross GM may pass, but the modeled net GM after allowance is insufficient.</td><td>Reapprove the commercial allowance or increase the POCAS gross-margin floor.</td></tr>
+              <tr class="warn"><td><code>AR</code> = Single Evidence or Research Required</td><td>Market-price support is incomplete.</td><td>Complete price research before quoting.</td></tr>
+              <tr class="stop"><td><code>AZ</code> is not Exact Match</td><td>The source may refer to another size, pack, shade, or version.</td><td>Stop using the price until the exact product is confirmed.</td></tr>
+              <tr class="stop"><td><code>C</code> = HOLD / DO NOT LAUNCH</td><td>The product is on portfolio hold.</td><td>Do not automatically release it because one price or margin improves.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="review">
+        <h2>7. CEO and Executive Review Sequence</h2>
+        <div class="checklist">
+          <div class="check"><strong>Confirm product identity.</strong><br>Review SKU, size, pack, version, and Exact Match Status.</div>
+          <div class="check"><strong>Confirm the cost basis.</strong><br>Review P/U Cost, NJ Landed Cost, Vendor Source, and cost timing.</div>
+          <div class="check"><strong>Confirm consumer-price evidence.</strong><br>Review Reference MSRP, Realistic Market SRP, Verified Consumer SRP, seller, and checked date.</div>
+          <div class="check"><strong>Read the Consumer Strategy Route.</strong><br>Review POCAS First Offer, POCAS GM, and Model-Required Final Consumer SRP.</div>
+          <div class="check"><strong>Verify channel margins.</strong><br>Confirm approximately 30% wholesaler GM and 40% retailer GM at final SRP.</div>
+          <div class="check"><strong>Compare with current SKW retail economics.</strong><br>Review SKW SRP, POCAS Offer (SKW), and POCAS GM (SKW).</div>
+          <div class="check"><strong>Assess the required SRP increase.</strong><br>Determine whether Final SRP Increase % is commercially acceptable.</div>
+          <div class="check"><strong>Make the launch decision.</strong><br>Read net GM after allowance together with Portfolio Role, inventory, authorization, and evidence quality.</div>
+        </div>
+      </section>
+
+      <section id="glossary">
+        <h2>8. Glossary and Operating Cautions</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+            <tbody>
+              <tr><td>SRP</td><td>Suggested Retail Price; the consumer selling-price reference.</td></tr>
+              <tr><td>GM</td><td>Gross Margin; revenue less cost, expressed as a percentage of revenue.</td></tr>
+              <tr><td>P/U Cost</td><td>Price per unit paid to the B2B vendor.</td></tr>
+              <tr><td>NJ Landed Cost</td><td>Current modeled NJ cost basis: P/U Cost plus a 5% uplift.</td></tr>
+              <tr><td>First Offer</td><td>POCAS's opening supply-price proposal to the wholesaler; it is not automatically a final approved quote.</td></tr>
+              <tr><td>Wholesaler→Retailer Price</td><td>The price at which the wholesaler supplies the retailer.</td></tr>
+              <tr><td>Floor</td><td>A minimum margin or price that the model will not go below.</td></tr>
+              <tr><td>Commercial Allowance</td><td>Modeled deduction for promotion, support, or other wholesale commercial costs.</td></tr>
+              <tr><td>No Floor</td><td>The calculated result is displayed without forcing it up to a minimum margin.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Operating cautions</h3>
+        <div class="caution-box">
+          <ul>
+            <li>This workbook is a pricing-strategy and negotiation model. It is not automatically a final quote or purchase-order price.</li>
+            <li>SKW Retail prices can change through promotions, time deals, or coupons. Recheck the retail source and checked date immediately before quoting.</li>
+            <li>P/U Cost and B2B inventory may have different verification dates by row. Reconfirm the signed-in B2B price and stock before purchasing.</li>
+            <li><code>MAX MARGIN SRP</code> uses only columns M:O. It excludes <code>SKW SRP</code> and <code>[SKW] RETAIL ORIGINAL</code>.</li>
+            <li>A negative <code>POCAS GM AT FIRST OFFER (SKW)</code> may be an accurate economic warning, not a formula problem.</li>
+            <li>Do not issue an external quote until exact SKU, size, pack, version, resale authority, MSRP/MAP, inventory, seller, and ships-from party have been verified.</li>
+          </ul>
+        </div>
+
+        <div class="executive-callout" style="margin-top: 24px;">
+          <strong>One-sentence conclusion</strong>
+          POCAS should treat SKW B2B cost plus the 5% uplift as its landed-cost basis, reverse-calculate channel prices from both the strategic consumer SRP and the current SKW discounted retail price, and then compare the implied POCAS offer with landed cost. The Consumer Strategy Route enforces an 8% gross-margin floor; the SKW Comparison Route intentionally shows actual market economics with no floor.
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <strong>Source workbook:</strong> Balanced 220 Wholesaler Pilot-Margin Boosted.xlsx · Prepared for internal POCAS management review · Prices, promotions, costs, inventory, and authorization must be revalidated before quote, RFQ, or purchase order.
+    </footer>
+  </article>
+</body>
+</html>
