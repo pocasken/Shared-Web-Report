@@ -1,0 +1,653 @@
+{
+  "data": {
+    "checked": "2026-11-09T10:23:23.293755-05:00",
+    "checks": [
+      {
+        "check": "원본 보존: SHINBI_LEBELAGE 단가 및 CBM highlight_ 20260921.xlsx",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "원본 보존: TENZERO Product list 202609_overseas Exhibition.xlsx",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "원본 보존: 3WCLINIC_판매리뷰표시_20261104.xlsx",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "원본 보존: 명인화장품_FARMSTAY_판매리뷰표시_20261104.xlsx",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "원본 보존: 아트페이스-TENZERO-글로벌인지도-분석보고서-2026-11-02.xlsx",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "원본 보존: 2026-11-06_4사_르베라쥬기준_공급가_제품순위_CEO_v02.md",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "원본 보존: 2026-11-06_4사_르베라쥬기준_공급가_제품순위_v02.xlsx",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "원본 보존: 2026-11-07_4사_르베라쥬기준_SKU공급가_재분석_메타프롬프트_v02.md",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "원본 보존: 2026-11-05_FARMSTAY_북미_남미_시장조사_v01.md",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "원본 보존: 2026-11-06_한국자이_3W_CLINIC_북미_남미_시장조사_v02.md",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "원본 보존: 동동구리무_LEBELAGE_글로벌인지도분석_20261104.xlsx",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "원본 보존: 2026-10-25_LEBELAGE_Amazon_셀러현황_공유용_표본_v02.md",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "원본 보존: 2026-10-25_LEBELAGE_북미_독점_계약관계_근거검토_v01.md",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "원본 보존: INPL_SHINBI_LEBELAGE PO 20260929v1.xlsx",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "원본 보존: PI_SHINBI_LEBELAGE 20261002.xlsx",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "원본 보존: 2026-11-06_kbeauty-category-product-type-standard_v01.md",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "원본 보존: 2026-11-05_중저가_K뷰티_북미_남미_브랜드조사_프롬프트_v01.md",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "주가격 총행/브랜드",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "제품 ID 고유",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "원본 이름·규격·가격 대조",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "LEB TEN 원본 바코드 재대조",
+        "pass": true,
+        "detail": "[]"
+      },
+      {
+        "check": "TENZERO 독립쌍 고유",
+        "pass": true,
+        "detail": "13"
+      },
+      {
+        "check": "A 규칙 LEBELAGE-101/TENZERO-112",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "A 규칙 LEBELAGE-232/TENZERO-83",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "A 규칙 LEBELAGE-237/TENZERO-20",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "A 규칙 LEBELAGE-239/TENZERO-19",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "A 규칙 LEBELAGE-241/TENZERO-23",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "A 규칙 LEBELAGE-243/TENZERO-21",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "A 규칙 LEBELAGE-276/TENZERO-78",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "A 규칙 LEBELAGE-277/TENZERO-79",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "A 규칙 LEBELAGE-50/TENZERO-54",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "A 규칙 LEBELAGE-52/TENZERO-55",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "A 규칙 LEBELAGE-72/TENZERO-223",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "A 규칙 LEBELAGE-81/TENZERO-77",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "A 규칙 LEBELAGE-85/TENZERO-34",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "FARMSTAY 독립쌍 고유",
+        "pass": true,
+        "detail": "12"
+      },
+      {
+        "check": "A 규칙 LEBELAGE-232/FARMSTAY-155",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "A 규칙 LEBELAGE-237/FARMSTAY-76",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "A 규칙 LEBELAGE-240/FARMSTAY-173",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "A 규칙 LEBELAGE-276/FARMSTAY-9",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "A 규칙 LEBELAGE-277/FARMSTAY-10",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "A 규칙 LEBELAGE-73/FARMSTAY-103",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "A 규칙 LEBELAGE-75/FARMSTAY-7",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "A 규칙 LEBELAGE-76/FARMSTAY-102",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "A 규칙 LEBELAGE-77/FARMSTAY-105",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "A 규칙 LEBELAGE-78/FARMSTAY-236",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "A 규칙 LEBELAGE-82/FARMSTAY-39",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "A 규칙 LEBELAGE-85/FARMSTAY-196",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "3W CLINIC 독립쌍 고유",
+        "pass": true,
+        "detail": "0"
+      },
+      {
+        "check": "공통바스켓 원본 합계",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "TEN72 보조 대조",
+        "pass": true,
+        "detail": "Counter({'일치': 51, '가격 정본 확인': 19, '연결 모호 2건': 2})"
+      },
+      {
+        "check": "신규 제형 분모",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "제외 목록·주목록 충돌",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "표준 분류 보류·제형 정정",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "XLSX ZIP CRC",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "XLSX XML 구조",
+        "pass": true,
+        "detail": "[]"
+      },
+      {
+        "check": "Excel 시트수",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "수식과 캐시",
+        "pass": true,
+        "detail": "formula_count=160, bad_cache=[]"
+      },
+      {
+        "check": "Excel 오류값",
+        "pass": true,
+        "detail": "[]"
+      },
+      {
+        "check": "Excel 1115 원본행·값",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "Excel GTIN 텍스트·원값 보존",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "Excel 바스켓 결과",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "Excel A 가격비 25행",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "Excel 전체 후보 11015",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "Excel 디자인 13행",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "HTML 6페이지",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "고유 HTML ID americas-market.html",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "고유 HTML ID price-detail.html",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "고유 HTML ID index.html",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "고유 HTML ID decision.html",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "고유 HTML ID package-design.html",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "고유 HTML ID evidence.html",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "로컬 파일·링크·앵커",
+        "pass": true,
+        "detail": "[]"
+      },
+      {
+        "check": "공식 사진13·경쟁사진2 무결성",
+        "pass": true,
+        "detail": "[]"
+      },
+      {
+        "check": "9국가36셀·5플랫폼20셀",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "디자인 점수 미평가 보존",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "check": "민감정보 미포함",
+        "pass": true,
+        "detail": ""
+      }
+    ],
+    "failures": []
+  },
+  "browser": [
+    {
+      "mode": "desktop",
+      "file": "index.html",
+      "title": "추가 브랜드 구매, 어디부터 검증할 것인가 | POCAS 4사 검토",
+      "h1": "추가 브랜드 구매, 어디부터 검증할 것인가",
+      "bodyWidth": 1425,
+      "viewport": 1440,
+      "header": "fixed",
+      "brokenImages": [],
+      "images": 0,
+      "matrixRows": 0,
+      "catalogRows": 0
+    },
+    {
+      "mode": "desktop",
+      "file": "price-detail.html",
+      "title": "가격은 같은 조건끼리, 구색은 별도로 | POCAS 4사 검토",
+      "h1": "가격은 같은 조건끼리, 구색은 별도로",
+      "bodyWidth": 1425,
+      "viewport": 1440,
+      "header": "fixed",
+      "brokenImages": [],
+      "images": 0,
+      "matrixRows": 20,
+      "catalogRows": 20
+    },
+    {
+      "mode": "desktop",
+      "file": "americas-market.html",
+      "title": "북미·남미 시장은 별도의 증거로 판단 | POCAS 4사 검토",
+      "h1": "북미·남미 시장은 별도의 증거로 판단",
+      "bodyWidth": 1425,
+      "viewport": 1440,
+      "header": "fixed",
+      "brokenImages": [],
+      "images": 0,
+      "matrixRows": 0,
+      "catalogRows": 0
+    },
+    {
+      "mode": "desktop",
+      "file": "package-design.html",
+      "title": "디자인의 인상보다, 읽히는 정보를 평가 | POCAS 4사 검토",
+      "h1": "디자인의 인상보다, 읽히는 정보를 평가",
+      "bodyWidth": 1425,
+      "viewport": 1440,
+      "header": "fixed",
+      "brokenImages": [],
+      "images": 15,
+      "matrixRows": 0,
+      "catalogRows": 0
+    },
+    {
+      "mode": "desktop",
+      "file": "decision.html",
+      "title": "가격 × 시장 × 디자인, 최종 구매 판단 | POCAS 4사 검토",
+      "h1": "가격 × 시장 × 디자인, 최종 구매 판단",
+      "bodyWidth": 1425,
+      "viewport": 1440,
+      "header": "fixed",
+      "brokenImages": [],
+      "images": 5,
+      "matrixRows": 0,
+      "catalogRows": 0
+    },
+    {
+      "mode": "desktop",
+      "file": "evidence.html",
+      "title": "근거·통계 방법·검증 기록 | POCAS 4사 검토",
+      "h1": "근거·통계 방법·검증 기록",
+      "bodyWidth": 1425,
+      "viewport": 1440,
+      "header": "fixed",
+      "brokenImages": [],
+      "images": 0,
+      "matrixRows": 0,
+      "catalogRows": 0
+    },
+    {
+      "mode": "mobile",
+      "file": "index.html",
+      "title": "추가 브랜드 구매, 어디부터 검증할 것인가 | POCAS 4사 검토",
+      "h1": "추가 브랜드 구매, 어디부터 검증할 것인가",
+      "bodyWidth": 390,
+      "viewport": 390,
+      "header": "fixed",
+      "brokenImages": [],
+      "images": 0,
+      "matrixRows": 0,
+      "catalogRows": 0
+    },
+    {
+      "mode": "mobile",
+      "file": "price-detail.html",
+      "title": "가격은 같은 조건끼리, 구색은 별도로 | POCAS 4사 검토",
+      "h1": "가격은 같은 조건끼리, 구색은 별도로",
+      "bodyWidth": 390,
+      "viewport": 390,
+      "header": "fixed",
+      "brokenImages": [],
+      "images": 0,
+      "matrixRows": 20,
+      "catalogRows": 20
+    },
+    {
+      "mode": "mobile",
+      "file": "americas-market.html",
+      "title": "북미·남미 시장은 별도의 증거로 판단 | POCAS 4사 검토",
+      "h1": "북미·남미 시장은 별도의 증거로 판단",
+      "bodyWidth": 390,
+      "viewport": 390,
+      "header": "fixed",
+      "brokenImages": [],
+      "images": 0,
+      "matrixRows": 0,
+      "catalogRows": 0
+    },
+    {
+      "mode": "mobile",
+      "file": "package-design.html",
+      "title": "디자인의 인상보다, 읽히는 정보를 평가 | POCAS 4사 검토",
+      "h1": "디자인의 인상보다, 읽히는 정보를 평가",
+      "bodyWidth": 390,
+      "viewport": 390,
+      "header": "fixed",
+      "brokenImages": [],
+      "images": 15,
+      "matrixRows": 0,
+      "catalogRows": 0
+    },
+    {
+      "mode": "mobile",
+      "file": "decision.html",
+      "title": "가격 × 시장 × 디자인, 최종 구매 판단 | POCAS 4사 검토",
+      "h1": "가격 × 시장 × 디자인, 최종 구매 판단",
+      "bodyWidth": 390,
+      "viewport": 390,
+      "header": "fixed",
+      "brokenImages": [],
+      "images": 5,
+      "matrixRows": 0,
+      "catalogRows": 0
+    },
+    {
+      "mode": "mobile",
+      "file": "evidence.html",
+      "title": "근거·통계 방법·검증 기록 | POCAS 4사 검토",
+      "h1": "근거·통계 방법·검증 기록",
+      "bodyWidth": 390,
+      "viewport": 390,
+      "header": "fixed",
+      "brokenImages": [],
+      "images": 0,
+      "matrixRows": 0,
+      "catalogRows": 0
+    },
+    {
+      "type": "filters",
+      "ten": "280 / 1115행 · TENZERO 전체 280행 포함",
+      "gap": "199 / 1115행 · TENZERO 전체 280행 포함",
+      "missing": "276 / 1115행 · TENZERO 전체 280행 포함",
+      "no3w": "0 / 285개 LEB 기준행",
+      "a": "13 / 285개 LEB 기준행",
+      "candidate": "LEBELAGE Dr. COLLAGEN DERMA EYE CREAM · 전체 후보 24개"
+    },
+    {
+      "type": "drilldown",
+      "count": "1 / 1115행 · TENZERO 전체 280행 포함",
+      "text": "TENZERO\nPrice list(ing) !P78\n원본 78행\tTENZERO DEEP AQUA COLLAGEN TONER 2X\nTENZERO-78\n\n성분 COLLAGEN\nGTIN 8809628884854\nSKU 68\n\n\tSkin Care\nToner\nToner\n기준/겹침 제형\t200 ml\n입수 1\n원본 단품 표기\t₩3,480\nKRW 원본 단가\t₩1,740 /100ml\n단품 가격 기준\t현행 공급 가능 여부 미확인\n원문 상태 미기재\nMOQ 미기재 / 카톤 50\n원본 경로·조건",
+      "bodyWidth": 390,
+      "viewport": 390
+    },
+    {
+      "type": "marketfilter",
+      "count": "6 / 37근거 · 아래 북미/남미 표에 적용",
+      "visible": 6
+    },
+    {
+      "type": "thumbnail",
+      "enabled": true,
+      "width": 160,
+      "images": 13
+    }
+  ],
+  "offline": {
+    "img": {
+      "images": [
+        {
+          "src": "assets/R1.jpg",
+          "ok": true
+        },
+        {
+          "src": "assets/R2.jpg",
+          "ok": true
+        },
+        {
+          "src": "assets/product-1.jpg",
+          "ok": true
+        },
+        {
+          "src": "assets/product-2.jpg",
+          "ok": true
+        },
+        {
+          "src": "assets/product-3.jpg",
+          "ok": true
+        },
+        {
+          "src": "assets/product-4.jpg",
+          "ok": true
+        },
+        {
+          "src": "assets/product-5.jpg",
+          "ok": true
+        },
+        {
+          "src": "assets/product-6.jpg",
+          "ok": true
+        },
+        {
+          "src": "assets/product-7.jpg",
+          "ok": true
+        },
+        {
+          "src": "assets/product-8.jpg",
+          "ok": true
+        },
+        {
+          "src": "assets/product-9.jpg",
+          "ok": true
+        },
+        {
+          "src": "assets/product-10.jpg",
+          "ok": true
+        },
+        {
+          "src": "assets/product-11.jpg",
+          "ok": true
+        },
+        {
+          "src": "assets/product-12.jpg",
+          "ok": true
+        },
+        {
+          "src": "assets/D13.jpg",
+          "ok": true
+        }
+      ],
+      "css": "fixed"
+    },
+    "drill": {
+      "count": "1 / 1115행 · TENZERO 전체 280행 포함",
+      "scripts": [
+        "file:///Users/kenhahn/Documents/POCAS-K%20BEAUTY%20SORUCING/deliverables/2026-11-09_4%EC%82%AC_%EA%B0%80%EA%B2%A9_%EC%8B%9C%EC%9E%A5_%EB%94%94%EC%9E%90%EC%9D%B8_v01/assets/data.js",
+        "file:///Users/kenhahn/Documents/POCAS-K%20BEAUTY%20SORUCING/deliverables/2026-11-09_4%EC%82%AC_%EA%B0%80%EA%B2%A9_%EC%8B%9C%EC%9E%A5_%EB%94%94%EC%9E%90%EC%9D%B8_v01/assets/report.js"
+      ],
+      "header": "fixed"
+    }
+  }
+}

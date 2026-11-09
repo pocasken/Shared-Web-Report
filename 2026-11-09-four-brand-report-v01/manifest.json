@@ -1,0 +1,316 @@
+{
+  "created": "2026-11-09T10:23:47.200845-05:00",
+  "version": "v01",
+  "source_files": [
+    {
+      "role": "LEBELAGE",
+      "path": "/Users/kenhahn/Documents/POCAS-K BEAUTY/input/LEVERAGE/SHINBI_LEBELAGE 단가 및 CBM highlight_ 20260921.xlsx",
+      "sha256": "c827cad9ea31d3de955fcf09049a074be047eaf534b0dbf29384db8a16f39d56",
+      "status": "확인"
+    },
+    {
+      "role": "TENZERO",
+      "path": "/Users/kenhahn/Downloads/TENZERO Product list 202609_overseas Exhibition.xlsx",
+      "sha256": "e41d139ea2f246e64f7db3b019c60268cc10f433d11f9b2d3f9befd6d6edb6e6",
+      "status": "확인"
+    },
+    {
+      "role": "3W CLINIC",
+      "path": "/Users/kenhahn/Documents/POCAS-K BEAUTY SORUCING/신비 소싱 파일/온라인판매-국내외-소셜인지도 분석/3WCLINIC_판매리뷰표시_20261104.xlsx",
+      "sha256": "f650e75829dd57cd48939bf35b866086d2857be8f8937e6dfadb82a15fb8fa05",
+      "status": "확인"
+    },
+    {
+      "role": "FARMSTAY",
+      "path": "/Users/kenhahn/Documents/POCAS-K BEAUTY SORUCING/신비 소싱 파일/명인화장품_FARMSTAY_판매리뷰표시_20261104.xlsx",
+      "sha256": "6b47f7761bfb31ad362c9735280af7914dc39fd03ab685c39ea3b78046c9948a",
+      "status": "확인"
+    },
+    {
+      "role": "참고",
+      "path": "/Users/kenhahn/Documents/POCAS-K BEAUTY SORUCING/신비 소싱 파일/(브랜드-전문분석자료)/아트페이스-TENZERO-글로벌인지도-분석보고서-2026-11-02.xlsx",
+      "sha256": "145ca915cd15ab73a6bd8773441a0c5e3cd8513c60d69f9ee165b0831b5ba738",
+      "status": "확인"
+    },
+    {
+      "role": "참고",
+      "path": "/Users/kenhahn/Documents/POCAS-K BEAUTY SORUCING/deliverables/2026-11-06_3사_르베라쥬기준_공급가_구색분석/2026-11-06_4사_르베라쥬기준_공급가_제품순위_CEO_v02.md",
+      "sha256": "51463848bac7b7c9893d9f079cd1ecd029abd1f38ce36299338e26cb9411ca50",
+      "status": "확인"
+    },
+    {
+      "role": "참고",
+      "path": "/Users/kenhahn/Documents/POCAS-K BEAUTY SORUCING/deliverables/2026-11-06_3사_르베라쥬기준_공급가_구색분석/2026-11-06_4사_르베라쥬기준_공급가_제품순위_v02.xlsx",
+      "sha256": "85247efde155b2fa523a0f2f0b497713bcd6c76ad982b631493e82f3e5ff41f3",
+      "status": "확인"
+    },
+    {
+      "role": "참고",
+      "path": "/Users/kenhahn/Documents/POCAS-K BEAUTY SORUCING/deliverables/2026-11-07_4사_르베라쥬기준_SKU공급가_재분석_메타프롬프트_v02.md",
+      "sha256": "7eef5c077830336da15f5dc518a232f006b9e62dbb7a0ac418d8b5a78f6f17f8",
+      "status": "확인"
+    },
+    {
+      "role": "참고",
+      "path": "/Users/kenhahn/Documents/POCAS-K BEAUTY SORUCING/deliverables/2026-11-05_FARMSTAY_북미_남미_시장조사_v01.md",
+      "sha256": "0b8f9161184aa395d4404f6c6a320b2cfab61a4637113b5a9902e91fd09a0fb6",
+      "status": "확인"
+    },
+    {
+      "role": "참고",
+      "path": "/Users/kenhahn/Documents/POCAS-K BEAUTY SORUCING/deliverables/2026-11-06_한국자이_3W_CLINIC_북미_남미_시장조사_v02.md",
+      "sha256": "2438f380c6e30764a0472a766bbf57bb767fc4e69fedd40301af8b652f6c1de5",
+      "status": "확인"
+    },
+    {
+      "role": "참고",
+      "path": "/Users/kenhahn/Documents/POCAS-K BEAUTY SORUCING/신비 소싱 파일/(브랜드-전문분석자료)/동동구리무_LEBELAGE_글로벌인지도분석_20261104.xlsx",
+      "sha256": "75c0420169197f1c49e7ded3a903e03660cea8fda1fd0b3181094d976e385b95",
+      "status": "확인"
+    },
+    {
+      "role": "참고",
+      "path": "/Users/kenhahn/Documents/POCAS-K BEAUTY/Output/LEBELAGE/2026-10-25_LEBELAGE_Amazon_셀러현황_공유용_표본_v02.md",
+      "sha256": "1cce8363bd4a437f67b3538b393ceace6a42c3362e5f05d255bfbfea45549600",
+      "status": "확인"
+    },
+    {
+      "role": "참고",
+      "path": "/Users/kenhahn/Documents/POCAS-K BEAUTY/Output/LEBELAGE/2026-10-25_LEBELAGE_북미_독점_계약관계_근거검토_v01.md",
+      "sha256": "0ba96b50b74ab2273615354feb7552650588aabeb1b80bcb12030405024b8076",
+      "status": "확인"
+    },
+    {
+      "role": "참고",
+      "path": "/Users/kenhahn/Documents/POCAS-K BEAUTY/input/LEVERAGE/INPL_SHINBI_LEBELAGE PO 20260929v1.xlsx",
+      "sha256": "e8355c8a3038076d3c126484d760a95bdad66a0eb071d7896e11dad7d908c146",
+      "status": "확인"
+    },
+    {
+      "role": "참고",
+      "path": "/Users/kenhahn/Documents/POCAS-K BEAUTY/input/LEVERAGE/PI_SHINBI_LEBELAGE 20261002.xlsx",
+      "sha256": "8e6bfdf2dd3045e31366687b220fba95a8ba0363211c871b2986340fe807ad7f",
+      "status": "확인"
+    },
+    {
+      "role": "참고",
+      "path": "/Users/kenhahn/Documents/POCAS-K BEAUTY/docs/2026-11-06_kbeauty-category-product-type-standard_v01.md",
+      "sha256": "2bc20fdb09d93d9398f3e216959d9c5e16b82a49a52bed7763d55961a9c56aff",
+      "status": "확인"
+    },
+    {
+      "role": "참고",
+      "path": "/Users/kenhahn/Documents/POCAS-K BEAUTY SORUCING/deliverables/2026-11-05_중저가_K뷰티_북미_남미_브랜드조사_프롬프트_v01.md",
+      "sha256": "138dd486ba289986a50ef4859c7940f98488dbef1f126e9b49a22fa1f75d0525",
+      "status": "확인"
+    }
+  ],
+  "files": [
+    {
+      "path": "2026-11-09_4사_공급가_시장_디자인_상세_v01.xlsx",
+      "bytes": 1249578,
+      "sha256": "0947513bb50a0a0f5aa82defb05fe5156b2d1402ee95772c7382807b529f56f0"
+    },
+    {
+      "path": "CEO_summary.md",
+      "bytes": 1758,
+      "sha256": "9ac431ca93abf32798ae099048c8df11858c8724ba20475f5e45f43c79cc85aa"
+    },
+    {
+      "path": "QA_report.md",
+      "bytes": 4588,
+      "sha256": "974efcaf939e9ddf9f1f1ede397e111d262e3229012be91d32f3461679933b67"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1761,
+      "sha256": "e88548f29cc7ae0af88778637e747c5d8bd4ada1bae1f54d2f629bb662fdc53b"
+    },
+    {
+      "path": "TENZERO_price_reconciliation.csv",
+      "bytes": 5778,
+      "sha256": "c761cc11e1d6aced1c9f528358e14885ef52dcda0daf74da53de50c410d513c5"
+    },
+    {
+      "path": "all_comparison_pairs.csv",
+      "bytes": 2305207,
+      "sha256": "3042089748a839eedbb271feca5601c733ca591502780a0f1ff73d51e099afad"
+    },
+    {
+      "path": "all_products.csv",
+      "bytes": 506830,
+      "sha256": "5b9aa97465bea744185cfc193c62ddeacb76e390ebf3d2cb5628b7dec7d31b5f"
+    },
+    {
+      "path": "americas-market.html",
+      "bytes": 70062,
+      "sha256": "f9267a8c7602bca601fa4de117a74d3bb20262fcdd71b52c0722aceb12526940"
+    },
+    {
+      "path": "assets/D13.jpg",
+      "bytes": 28022,
+      "sha256": "ce6a88c1c12716e7e5f271c705cbaab4a56fe09074e17b18568fa7f77894054b"
+    },
+    {
+      "path": "assets/R1.jpg",
+      "bytes": 683327,
+      "sha256": "e496cff2844ce34676fc300a5bcbd3d7192cf815600792a26c73826b0f65d37e"
+    },
+    {
+      "path": "assets/R2.jpg",
+      "bytes": 24605,
+      "sha256": "551796433a9db6df32da764a3f74b2c0b94795f92d8b4045854f6d653b476e01"
+    },
+    {
+      "path": "assets/data.js",
+      "bytes": 6915747,
+      "sha256": "6b84c5936c4dae3d9c50febbdd8d80e13b8689b481f749ea6f5b324bc97d441f"
+    },
+    {
+      "path": "assets/product-1.jpg",
+      "bytes": 1378128,
+      "sha256": "31706557a5670943f2fddea90405e6df0f61072b5e99beed9bcb8b430d759ac3"
+    },
+    {
+      "path": "assets/product-10.jpg",
+      "bytes": 69281,
+      "sha256": "6d510626c19f65b1d22dbdde6cb08001742feeea5774090f40630221b239df34"
+    },
+    {
+      "path": "assets/product-11.jpg",
+      "bytes": 26455,
+      "sha256": "df2ca52b038cc96370962765836dae06f5fcc674380c4c17ba6f73111340cd89"
+    },
+    {
+      "path": "assets/product-12.jpg",
+      "bytes": 37221,
+      "sha256": "b9e8508edbc507f23a16533a8bb192d53590ae1b1de842f875487b183647fe26"
+    },
+    {
+      "path": "assets/product-2.jpg",
+      "bytes": 976523,
+      "sha256": "3c069a7f1181a70723668b35a42a9da756ce01b2b90eb12934542b4f9ce12168"
+    },
+    {
+      "path": "assets/product-3.jpg",
+      "bytes": 4100069,
+      "sha256": "358f4498d4510d7668702c9ca49a5b32761db8497d0ed888095ec76c89182280"
+    },
+    {
+      "path": "assets/product-4.jpg",
+      "bytes": 25993,
+      "sha256": "afd746dbc4c35a133321c681261f159800774381b88a3777a09ec335f5713a98"
+    },
+    {
+      "path": "assets/product-5.jpg",
+      "bytes": 21204,
+      "sha256": "26ea95da25addf8c74ab811cb1563b5a52c7c11b751579f034fbea34446d7868"
+    },
+    {
+      "path": "assets/product-6.jpg",
+      "bytes": 18932,
+      "sha256": "cbe3e888472264cf3245ca6206d5aa0a4bdcffedaafc9861a245a3d605ce690c"
+    },
+    {
+      "path": "assets/product-7.jpg",
+      "bytes": 14241,
+      "sha256": "7d10765279ea02ad623828a6c029698902a98e0a77d41878e2b369c83773e172"
+    },
+    {
+      "path": "assets/product-8.jpg",
+      "bytes": 15797,
+      "sha256": "2df09771ca5a63a7a1c78cf8e55ab5fff7ee169cd2d379795c59592a9d3f3fe2"
+    },
+    {
+      "path": "assets/product-9.jpg",
+      "bytes": 159220,
+      "sha256": "ff9a31c040f53cabcfb128504b553c6177043aadef76269da5b6bede6a3f9eec"
+    },
+    {
+      "path": "assets/report.css",
+      "bytes": 9141,
+      "sha256": "67d4f746d92803d0790df5435cff325bc751eedee17c098e160ac173af2fa722"
+    },
+    {
+      "path": "assets/report.js",
+      "bytes": 9361,
+      "sha256": "57dc53a1cd32c60937cac33591d5dc7550c0b4e67aa7eb919a357e3e5e71b7c6"
+    },
+    {
+      "path": "country_coverage.csv",
+      "bytes": 3945,
+      "sha256": "0ad08582ae66e8ae1ca3a7e385b7f264c5bb27d655bd9fe5d339a18b8eb5b62d"
+    },
+    {
+      "path": "decision.html",
+      "bytes": 13071,
+      "sha256": "2759db7c25e5467d5cf5ac698dc98669a91cbff7bcfd3f0907b8ffb8ef4e1a39"
+    },
+    {
+      "path": "design_assessment.csv",
+      "bytes": 17366,
+      "sha256": "bdcd4ab57028664f021e5d23c29270ebb753ce9d5c7d88c28c9d06d6820232ee"
+    },
+    {
+      "path": "evidence.html",
+      "bytes": 32729,
+      "sha256": "4e90f00baa80fac4a98d340534075036df56b6d3780e003b574be044c3537019"
+    },
+    {
+      "path": "excluded_products.csv",
+      "bytes": 51769,
+      "sha256": "ebfbc9ae2cb67e736a645fc6925034df8ef40d81dad2d776cb15fd461e181902"
+    },
+    {
+      "path": "import_evidence.csv",
+      "bytes": 3042,
+      "sha256": "addda3460b7cbb130133fa6911dbd94ace8bc924e975143357f64400bd6a334d"
+    },
+    {
+      "path": "independent_A_pairs.csv",
+      "bytes": 6052,
+      "sha256": "db0e98da6abeddded2607824b665ebb93edac0201226b4950dd8d81d964d188c"
+    },
+    {
+      "path": "index.html",
+      "bytes": 8510,
+      "sha256": "77016cbb6dd392019fa88090d5653993f12967536f4ba541d27ec8bef714d176"
+    },
+    {
+      "path": "market_evidence.csv",
+      "bytes": 24578,
+      "sha256": "cdd49b2771cda0ad54956bbef7dbda739c09bbaa63dce2d71ae705ba62457854"
+    },
+    {
+      "path": "new_form_products.csv",
+      "bytes": 91876,
+      "sha256": "876d245724defdb8162e3a49dac165d3130b239bfb30e0db1e2cc445a3b93889"
+    },
+    {
+      "path": "package-design.html",
+      "bytes": 41300,
+      "sha256": "1ad64d05a7ed2ef5d57565ce87bb4afc876766792ceddbcb788a39ac68b70238"
+    },
+    {
+      "path": "price-detail.html",
+      "bytes": 46411,
+      "sha256": "98fc709975f1c30369ebfe544390cbc96efa9ff69324e3c6e5c7f6596538805d"
+    },
+    {
+      "path": "purchase_decisions.csv",
+      "bytes": 5560,
+      "sha256": "e236bc05f0201372460273438400117ff764ace88c23f7708aa572d07f10e3a8"
+    },
+    {
+      "path": "validation_results.json",
+      "bytes": 17363,
+      "sha256": "e360d066a1c73455ccf9421368e359e04f72a83a57c04709ab4da0b5ae0a1238"
+    }
+  ],
+  "validation": "77 automated checks PASS; 12 browser viewport checks; offline PASS; native Excel not tested",
+  "web_publication": {
+    "prepared_at": "2026-11-09T19:09:12.788293+00:00",
+    "url": "https://pocasken.github.io/Shared-Web-Report/2026-11-09-four-brand-report-v01/",
+    "approval": "User explicitly approved public publication; do not send Teams messages."
+  }
+}
